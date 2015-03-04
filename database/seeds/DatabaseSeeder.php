@@ -2,19 +2,34 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use DB;
+use App\User;
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder
+{
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		Model::unguard();
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Model::unguard();
 
-		// $this->call('UserTableSeeder');
-	}
+        $this->call('UserTableSeeder');
+    }
+}
 
+class UserTableSeeder extends Seeder
+{
+    public function run()
+    {
+        //clear database
+        DB::table('users')->delete();
+
+        User::create([
+                ''
+              ]);
+    }
 }
