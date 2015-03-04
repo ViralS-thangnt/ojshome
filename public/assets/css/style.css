@@ -1,0 +1,28 @@
+/*style.css*/
+
+.title-admin{
+	float: left;
+	font-size: 17px;
+	line-height: 50px;
+	text-align: center;
+
+	font-family: 'Kaushan Script', cursive;
+	font-weight: 500;
+	height: 50px;
+	display: block;
+	margin-left: 20px;
+	margin-right: auto;
+	color: white;
+}
+
+.search-bar-admin{
+	width: 270px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+
+/*.user-show{
+	float: right;
+}*/

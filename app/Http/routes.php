@@ -22,3 +22,11 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+get('/master_page', function(){
+	return view('layout.master.master');
+});
+
+get('/test', function(){
+	return view('test');
+});
