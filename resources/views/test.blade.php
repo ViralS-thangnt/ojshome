@@ -46,8 +46,14 @@ More extra - Page Title
 
 @section('custom-menu')
     
-    <?php echo create_menu_item('Thang') ?>
-    <?php echo create_menu_item('Menu 1', 4, ['a', 'b', 'c', 'd'], ['#', 'fjkl', 'fkdlowoo', '48782']) ?>
+    {!! create_menu_item('Thang') !!}
+
+    {!! create_menu_item(
+    				'Menu 1', 
+    				4, 
+    				array('a', 'b', 'c', 'd'), 
+    				['#', 'l', 'fkdlowoo', '48782']) 
+    				!!}
 
     
 @overwrite

@@ -24,10 +24,11 @@ More extra - Page Title
 <!-- Main content -->
 @section('content')
 <div class="row" style="margin: 15px">
-    <?php echo create_dashboard_item('ion-ios7-people', 'bg-aqua', 'author', 'Tác giả', 30); ?>
-    <?php echo create_dashboard_item('ion-ios7-chatboxes', 'bg-red', 'response', 'Phản biện', 150); ?>
-    <?php echo create_dashboard_item('ion-document-text', 'bg-yellow', 'editor', 'Biên tập', 77); ?>
-    <?php echo create_dashboard_item('ion-android-storage', 'bg-green', 'response', 'Xuất bản', 14); ?>
+	{!! create_dashboard_item(ICON_PEOPLE, 'bg-aqua', url('show/author'), 'Tác giả', 30) !!}
+
+    {!! create_dashboard_item('ion-ios7-chatboxes', 'bg-red', url('show/response'), 'Phản biện', 150); !!}
+    {!! create_dashboard_item('ion-document-text', 'bg-yellow', 'editor', 'Biên tập', 77); !!}
+    {!! create_dashboard_item('ion-android-storage', 'bg-green', 'response', 'Xuất bản', 14); !!}
 </div>
 <!-- ion-android-star -->
 <!-- ion-document-text -->

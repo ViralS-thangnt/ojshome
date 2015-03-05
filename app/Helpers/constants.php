@@ -4,7 +4,7 @@ define('MASTER', 1);
 define('DOCTORAL', 2);
 define('PROFESSIONAL', 3);
 
-define('ICON_PEOPLE_', 'ion-ios7-people');
+define('ICON_PEOPLE', 'ion-ios7-people');
 define('ICON_CHATBOX', 'ion-ios7-chatboxes');
 define('ICON_DOCUMENT_TEXT', 'ion-document-text');
 define('ICON_STORAGE', 'ion-android-storage');
@@ -13,12 +13,11 @@ define('ICON_PIE_GRAPH', 'ion-pie-graph');
 define('ICON_STATS_BAR', 'ion-stats-bars');
 define('ICON_STORAGE_STAR', 'ion-android-star');
 
-define('ICON_STORAGE_STAR', 'ion-android-printer');
-define('ICON_STORAGE_STAR', 'ion-android-earth');
-define('ICON_STORAGE_STAR', 'ion-android-star');
-define('ICON_STORAGE_STAR', 'ion-android-star');
-define('ICON_STORAGE_STAR', 'ion-android-star');
-
+define('ICON_PRINTER', 'ion-android-printer');
+define('ICON_EARTH', 'ion-android-earth');
+define('ICON_LIGTHBULB', 'ion-android-lightbulb');
+define('ICON_DEVELOPER', 'ion-android-developer');
+define('ICON_DISPLAY', 'ion-android-display');
 
 define('COLOR_AQUA', 'bg-aqua');
 define('COLOR_RED', 'bg-red');
