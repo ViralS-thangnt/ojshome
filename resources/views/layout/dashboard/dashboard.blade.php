@@ -26,11 +26,9 @@ More extra - Page Title
 <div class="row" style="margin: 15px">
     <?php echo create_dashboard_item('ion-ios7-people', 'bg-aqua', 'author', 'Tác giả', 30); ?>
     <?php echo create_dashboard_item('ion-ios7-chatboxes', 'bg-red', 'response', 'Phản biện', 150); ?>
-    <?php echo create_dashboard_item('ion-document-text', 'bg-yellow', 'editor', 'Biên tập', 150); ?>
-    <?php echo create_dashboard_item('ion-android-storage', 'bg-green', 'response', 'Xuất bản', 150); ?>
-
+    <?php echo create_dashboard_item('ion-document-text', 'bg-yellow', 'editor', 'Biên tập', 77); ?>
+    <?php echo create_dashboard_item('ion-android-storage', 'bg-green', 'response', 'Xuất bản', 14); ?>
 </div>
-<!-- ion-android-storage -->
 <!-- ion-android-star -->
 <!-- ion-document-text -->
 <!-- ion-android-promotion -->

@@ -44,6 +44,7 @@ function create_menu_item($menu_name = 'menu',
 }
 
 function create_dashboard_item($icon_class, $color_class, $link = '#', $title = 'Box', $new_notify_number = 0){
+
 	return $result = '<div class="col-lg-3 col-xs-6">
 			        <!-- small box -->
 			        <div class="small-box ' . $color_class . '">

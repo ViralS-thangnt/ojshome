@@ -8,6 +8,11 @@ define('ICON_PEOPLE_', 'ion-ios7-people');
 define('ICON_CHATBOX', 'ion-ios7-chatboxes');
 define('ICON_DOCUMENT_TEXT', 'ion-document-text');
 define('ICON_STORAGE', 'ion-android-storage');
+define('ICON_SYSTEM_HOME', 'ion-android-system-home');
+define('ICON_PIE_GRAPH', 'ion-pie-graph');
+define('ICON_STATS_BAR', 'ion-stats-bars');
+define('ICON_STORAGE_STAR', 'ion-android-star');
+
 
 define('COLOR_AQUA', 'bg-aqua');
 define('COLOR_RED', 'bg-red');
