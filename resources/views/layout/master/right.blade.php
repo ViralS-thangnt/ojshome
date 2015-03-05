@@ -11,5 +11,11 @@
     </section>
 
     <!-- Main content -->
-    @yield('content')
+    <section class="content">
+
+         @yield('content')
+
+    </section>
+   
 </aside>
+

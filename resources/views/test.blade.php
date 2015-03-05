@@ -45,54 +45,10 @@ More extra - Page Title
 @stop
 
 @section('custom-menu')
-<ul class="sidebar-menu">
-	<li class="treeview">
-        <a href="#">
-            <i class="fa fa-briefcase"></i>
-            <span>Tác giả</span>
-            <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Tac gia</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Flot</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
-        </ul>
-    </li>
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-thumbs-up"></i>
-            <span>Phản biện</span>
-            <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> General</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Icons</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Buttons</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Sliders</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Timeline</a></li>
-        </ul>
-    </li>
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-edit"></i> <span>Biên tập</span>
-            <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> General Elements</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Advanced Elements</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Editors</a></li>
-        </ul>
-    </li>
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-table"></i> <span>Xuất bản</span>
-            <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Simple tables</a></li>
-            <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
-        </ul>
-    </li>
-</ul>
-@stop
+    
+    <?php echo create_menu_item('Thang') ?>
+    <?php echo create_menu_item('Menu 1', 4, ['a', 'b', 'c', 'd'], ['#', 'fjkl', 'fkdlowoo', '48782']) ?>
+
+    
+@overwrite
 
