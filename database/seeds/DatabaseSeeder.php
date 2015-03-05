@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder
         DB::table('users')->delete();
 
         User::create([
-                ''
+                
               ]);
     }
 }
