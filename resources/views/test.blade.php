@@ -52,9 +52,8 @@ More extra - Page Title
     				'Menu 1', 
     				4, 
     				array('a', 'b', 'c', 'd'), 
-    				['#', 'l', 'fkdlowoo', '48782']) 
+    				['#', url('editor/create'), url('editor/edit'), '48782']) 
     				!!}
 
-    
 @overwrite
 
