@@ -13,6 +13,12 @@ define('ICON_PIE_GRAPH', 'ion-pie-graph');
 define('ICON_STATS_BAR', 'ion-stats-bars');
 define('ICON_STORAGE_STAR', 'ion-android-star');
 
+define('ICON_STORAGE_STAR', 'ion-android-printer');
+define('ICON_STORAGE_STAR', 'ion-android-earth');
+define('ICON_STORAGE_STAR', 'ion-android-star');
+define('ICON_STORAGE_STAR', 'ion-android-star');
+define('ICON_STORAGE_STAR', 'ion-android-star');
+
 
 define('COLOR_AQUA', 'bg-aqua');
 define('COLOR_RED', 'bg-red');
