@@ -17,3 +17,20 @@ define('AUTHOR', 2);
 define('CREATE_MNS', 1);
 define('UPDATE_MNS', 2);
 define('DELETE_MNS', 3);
+
+
+define('ICON_PEOPLE_', 'ion-ios7-people');
+define('ICON_CHATBOX', 'ion-ios7-chatboxes');
+define('ICON_DOCUMENT_TEXT', 'ion-document-text');
+define('ICON_STORAGE', 'ion-android-storage');
+
+define('COLOR_AQUA', 'bg-aqua');
+define('COLOR_RED', 'bg-red');
+define('COLOR_YELLOW', 'bg-yellow');
+define('COLOR_GREEN', 'bg-green');
+define('COLOR_NAVY', 'bg-navy');
+define('COLOR_TEAL', 'bg-teal');
+define('COLOR_OLIVE', 'bg-olive');
+define('COLOR_LIME', 'bg-lime');
+define('COLOR_ORANGE', 'bg-orange');
+define('COLOR_PURPLE', 'bg-purple');

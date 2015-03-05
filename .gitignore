@@ -2,5 +2,5 @@
 /node_modules
 .env
 /config/database.php
-test/output/*
+/tests/_output/*
 /public/p

@@ -69,9 +69,10 @@
     <body class="skin-blue">
         @include('layout.master.header')
 
-        @include('layout.master.left')
-        @include('layout.master.right')
-
+        <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 648px;">
+            @include('layout.master.left')
+            @include('layout.master.right')
+        </div>
         @include('layout.master.footer')
 
     </body>

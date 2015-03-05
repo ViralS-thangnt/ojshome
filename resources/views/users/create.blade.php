@@ -1,9 +1,7 @@
-<!-- test -->
 @extends('layout.master.master')
 <!-- Page Title -->
 @section('title')
-Main Page
-
+Create New User
 @stop
 
 <!-- Welcome user -->
@@ -13,16 +11,15 @@ Main Page
 @stop
 
 @section('custom-menu')
-    
-    <?php echo create_menu_item('Thang') ?>
-    <?php echo create_menu_item('Users management', 4, ['Create', 'Edit', 'c', 'd'], ['users/create', 'fjkl', 'fkdlowoo', '48782']) ?>
+
+    <?php echo create_menu_item('Menu 1', 4, ['a', 'b', 'c', 'd'], ['#', 'fjkl', 'fkdlowoo', '48782']) ?>
 
     
 @stop
 
 <!-- Main content -->
 @section('content')
-	<h1> This is main content</h1>
+    
 @stop
 
 <!-- Navigation Link -->

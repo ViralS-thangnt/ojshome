@@ -28,5 +28,15 @@ get('/master_page', function(){
 });
 
 get('/test', function(){
-    return view('layout.master.master');
+
+    return view('test');
 });
+
+get('/dashboard', array(
+    'as'    => 'dashboard',
+    function(){
+        return view('layout.dashboard.dashboard');
+    }
+));
+
+Route::resource('users', 'UsersController');
