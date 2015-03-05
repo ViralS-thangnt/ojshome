@@ -2,8 +2,8 @@
 // app\Helpers\function.php 
 function create_menu_item($menu_name = 'menu', 
 							$number_child_items = 0,
-							$child_names = [],
-							$child_links = [],
+							$child_names = ['Menu'],
+							$child_links = ['#'],
 							$icon_class_menu = 'fa fa-th', 
 							$is_active = 0
 							){

@@ -16,7 +16,7 @@ class CreateSreenManuscriptsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('manuscript_id');
-			$talbe->integer('user_id');
+			$table->integer('user_id');
 			$table->integer('screen_editor_no');
 			$table->integer('screen_editor_review');
 			$table->integer('screen_editor_suggest');

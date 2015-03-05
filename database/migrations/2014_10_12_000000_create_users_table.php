@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('last_name', 40);
 			$table->string('first_name', 40);
 			$table->string('middle_name', 40);
-			$talbe->boolean('sex');
+			$table->boolean('sex');
 			$table->string('year', 40);
 			$table->string('email')->unique();
 			$table->string('phone');

@@ -24,11 +24,11 @@ More extra - Page Title
 <!-- Main content -->
 @section('content')
 <div class="row" style="margin: 15px">
-	{!! create_dashboard_item(ICON_PEOPLE, 'bg-aqua', url('show/author'), 'Tác giả', 30) !!}
-
-    {!! create_dashboard_item('ion-ios7-chatboxes', 'bg-red', url('show/response'), 'Phản biện', 150); !!}
-    {!! create_dashboard_item('ion-document-text', 'bg-yellow', 'editor', 'Biên tập', 77); !!}
-    {!! create_dashboard_item('ion-android-storage', 'bg-green', 'response', 'Xuất bản', 14); !!}
+	<!-- This is demo for dashboard -->
+	{!! create_dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('show/author'), 'Tác giả', 30) !!}
+    {!! create_dashboard_item(ICON_CHATBOX, COLOR_RED, url('show/response'), 'Phản biện', 150); !!}
+    {!! create_dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, 'editor', 'Biên tập', 77); !!}
+    {!! create_dashboard_item(ICON_STORAGE, COLOR_GREEN, 'response', 'Xuất bản', 14); !!}
 </div>
 <!-- ion-android-star -->
 <!-- ion-document-text -->
