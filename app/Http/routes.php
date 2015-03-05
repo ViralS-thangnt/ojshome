@@ -19,14 +19,14 @@ Route::get('book/form/{id?}', 'BooksController@form');
 Route::post('book/update/{id?}',['uses' => 'BooksController@update', 'as' => 'book_edit']);
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
 
 get('/master_page', function(){
-	return view('layout.master.master');
+    return view('layout.master.master');
 });
 
 get('/test', function(){
-	return view('test');
+    return view('layout.master.master');
 });
