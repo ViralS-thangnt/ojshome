@@ -1,13 +1,13 @@
 <?php
 // app\Helpers\function.php 
 function create_menu_item($menu_name = 'menu', 
-                            $number_child_items = 0,
-                            $child_names = [],
-                            $child_links = [],
-                            $icon_class_menu = 'fa fa-th', 
-                            $is_active = 0
-                            ){
-    if($number_child_items == 0 and $is_active == 0){
+							$number_child_items = 0,
+							$child_names = ['Menu'],
+							$child_links = ['#'],
+							$icon_class_menu = 'fa fa-th', 
+							$is_active = 0
+							){
+	if($number_child_items == 0 and $is_active == 0){
 
         return '<ul class="sidebar-menu">
                     <li>
