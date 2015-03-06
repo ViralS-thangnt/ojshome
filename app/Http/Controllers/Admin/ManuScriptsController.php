@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -40,7 +40,8 @@ class ManuScriptsController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		dd(Input::all());
+		return 'fjdl;akl;;';
 	}
 
 	/**

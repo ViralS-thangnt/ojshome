@@ -18,9 +18,9 @@ Route::get('book', 'BooksController@index');
 Route::get('book/form/{id?}', 'BooksController@form');
 Route::post('book/update/{id?}', ['uses' => 'BooksController@update', 'as' => 'book_edit']);
 
-Route::get('user', 'UsersController@index');
-Route::get('user/form/{id?}', 'UsersController@form');
-Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update']);
+Route::get('user', 'Admin\UsersController@index');
+Route::get('user/form/{id?}', 'Admin\UsersController@form');
+Route::post('user/form/{id?}', ['uses' => 'Admin\UsersController@update', 'as' => 'user.update']);
 
 Route::get('/master_page', function(){
 
@@ -34,7 +34,7 @@ Route::get('/test', function(){
 
 Route::get('admin', array(
     'as'    => 'dashboard',
-    'uses'	=> 'DashboardController@show'
+    'uses'	=> 'Admin\DashboardController@show'
 ));
 
 Route::controllers([
@@ -42,8 +42,8 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('users', 'UsersController');
-Route::resource('admin/manuscript', 'ManuScriptsController',
+Route::resource('users', 'Admin\UsersController');
+Route::resource('admin/manuscript', 'Admin\ManuScriptsController',
 		[
 			'names'	=> [
 					'create'	=>	'manuscript.create',

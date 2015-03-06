@@ -40,6 +40,8 @@ More extra - Page Title
     @if(in_array(CHIEF_EDITOR, $permissions))
         {!! create_dashboard_item(ICON_STORAGE, COLOR_GREEN, 'response', 'Xuất bản', 14); !!}
     @endif
+
+    
 </div>
 <!-- ion-android-star -->
 <!-- ion-document-text -->
