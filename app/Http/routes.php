@@ -43,3 +43,15 @@ Route::controllers([
 ]);
 
 Route::resource('users', 'UsersController');
+Route::resource('admin/manuscript', 'ManuScriptsController',
+		[
+			'names'	=> [
+					'create'	=>	'manuscript.create',
+					'index'		=>	'manuscript.index',
+					'store'		=>	'manuscript.store',
+					'edit'		=>	'manuscript.edit',
+					'update'	=>	'manuscript.update',
+					'destroy'	=>	'manuscript.destroy',
+					]
+		]
+	);

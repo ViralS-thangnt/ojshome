@@ -46,4 +46,16 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
             return '';
         }
     }
+
+    // public function checkPermission(){
+    //     if(Session::has('user_login_id')){
+    //         $per_no = User::getPermissionById(Session::get('user_login_id'));
+
+    //         return explode(',', $per_no);
+    //     } else {
+
+    //         return '';
+    //     }
+    // }
+
 }
