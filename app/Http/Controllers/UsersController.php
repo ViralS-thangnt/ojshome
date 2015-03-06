@@ -2,11 +2,19 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Lib\Prototype\DbClasses\Eloquent\EloquentUserRepository;
 
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    protected $userRepo;
+
+    public function __construct(EloquentUserRepository $userRepo)
+    {
+        //$this->middleware('auth');
+        $this->userRepo = $userRepo;
+    }
 
     /**
      * Display a listing of the resource.
@@ -21,10 +29,12 @@ class UsersController extends Controller
     public function form($id = null)
     {
         if ($id) {
-            $book = $this->bookRepo->getById($id);
+            $user = $this->userRepo->getById($id);
         } else {
-            $book = $this->bookRepo;
+            $user = $this->userRepo;
         }
+
+        return view('users.form', compact('user','id'));
     }
 
     /**

@@ -22,17 +22,17 @@ Route::get('user', 'UsersController@index');
 Route::get('user/form/{id?}', 'UsersController@form');
 Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update']);
 
-get('/master_page', function(){
+Route::get('/master_page', function(){
 
     return view('layout.master.master');
 });
 
-get('/test', function(){
+Route::get('/test', function(){
 
     return view('test');
 });
 
-get('admin', array(
+Route::get('admin', array(
     'as'    => 'dashboard',
     'uses'	=> 'DashboardController@show'
 ));
