@@ -36,9 +36,8 @@ Main Page
 @stop
 
 @section('custom-menu')
-    
+    <!-- This is create menu demo -->
     {!! create_menu_item('Thang') !!}
-
     {!! create_menu_item(
     				'Menu 1', 
     				4, 
