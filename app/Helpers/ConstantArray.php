@@ -72,4 +72,15 @@ class ConstantArray
             PRODUCTION_EDITOR       => 'Production Editor',
         ];
     }
+
+    public function has_permission($require_per, $user_per){
+        foreach ($require_per as $value) {
+            if(in_array($value, $user_per))
+
+                return true;
+        }
+
+        return false;
+    }
+
 }
