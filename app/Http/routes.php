@@ -32,6 +32,7 @@ get('/master_page', function(){
 });
 
 get('/test', function(){
+    return Constant::list_actors();
 
     return view('test');
 });

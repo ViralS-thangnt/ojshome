@@ -2,7 +2,7 @@
 
 class ConstantArray
 {
-    protected $author_per       = [CREATE_MNS, UPDATE_MN, DELETE_MNS];
+    protected $author_per       = [CREATE_MNS, UPDATE_MNS, DELETE_MNS];
     protected $admin_per        = [CREATE_MNS, UPDATE_MNS, DELETE_MNS, CREATE_USER, UPDATE_USER, DELETE_USER];
 
     public function degree($degree_id)
@@ -56,5 +56,20 @@ class ConstantArray
             case AUTHOR:
                 return $this->author_per;
         }
+    }
+
+    public function list_actors()
+    {
+        return [
+            AUTHOR                  => 'Author',
+            MANAGING_EDITOR         => 'Managing Editor',
+            SCREENING_EDITOR        => 'Screening Editor',
+            SECTION_EDITOR          => 'Section Editor',
+            REVIEWER                => 'Reviewer',
+            CHIEF_EDITOR            => 'Chief Editor',
+            COPY_EDITOR             => 'Copy Editor',
+            LAYOUT_EDITOR           => 'Layout Editor',
+            PRODUCTION_EDITOR       => 'Production Editor',
+        ];
     }
 }

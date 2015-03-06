@@ -13,6 +13,14 @@ define('DR_SCIENCE', 9);
 //define actor
 define('ADMIN', 1);
 define('AUTHOR', 2);
+define('MANAGING_EDITOR', 3);
+define('SCREENING_EDITOR', 4);
+define('SECTION_EDITOR', 5);
+define('REVIEWER', 6);
+define('CHIEF_EDITOR', 7);
+define('COPY_EDITOR', 8);
+define('LAYOUT_EDITOR', 9);
+define('PRODUCTION_EDITOR', 10);
 //define user permissions
 define('CREATE_MNS', 1);
 define('UPDATE_MNS', 2);
