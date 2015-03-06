@@ -21,7 +21,7 @@ define('CREATE_USER', 4);
 define('UPDATE_USER', 5);
 define('DELETE_USER', 6);
 
-
+// Define box icon 
 define('ICON_PEOPLE', 'ion-ios7-people');
 define('ICON_CHATBOX', 'ion-ios7-chatboxes');
 define('ICON_DOCUMENT_TEXT', 'ion-document-text');
@@ -36,17 +36,19 @@ define('ICON_LIGTHBULB', 'ion-android-lightbulb');
 define('ICON_DEVELOPER', 'ion-android-developer');
 define('ICON_DISPLAY', 'ion-android-display');
 
+// Define menu icon
 define('ICON_MENU_SPEED_DIAL', 'fa fa-th');
 define('ICON_MENU_DASHBOARD', 'fa-dashboard');
 define('ICON_MENU_SEARCH', 'fa-search');
 define('ICON_MENU_CHART', 'fa-bar-chart-o');
 define('ICON_MENU_BOOK', 'fa-book');
-define('ICON_MENU_ANGLE_RIGHT', 'fa-angle-double-right');
-define('ICON_MENU_ANGLE_LEFT', 'fa-angle-double-left');
+define('ICON_MENU_ANGLE_DOUBLE_RIGHT', 'fa-angle-double-right');
+define('ICON_MENU_ANGLE_DOUBLE_LEFT', 'fa-angle-double-left');
 define('ICON_MENU_ANGLE_RIGHT', 'fa-angle-right');
 define('ICON_MENU_ANGLE_LEFT', 'fa-angle-left');
 define('ICON_MENU_ARROW_CIRCLE_RIGHT', 'fa-arrow-circle-right');
 
+// Define box color
 define('COLOR_AQUA', 'bg-aqua');
 define('COLOR_RED', 'bg-red');
 define('COLOR_YELLOW', 'bg-yellow');

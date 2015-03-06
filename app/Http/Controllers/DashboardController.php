@@ -2,14 +2,18 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Lib\Prototype\DbClasses\Eloquent\EloquentUserRepository;
 
 use Illuminate\Http\Request;
+use Session;
 
 class DashboardController extends Controller {
 
-	public function __construct(){
-		$this->middleware('auth');
+	protected $userRepo;
 
+	public function __construct(EloquentUserRepository $userRepo){
+		// $this->middleware('auth');
+		$this->userRepo = $userRepo;
 	}
 
 	/**
@@ -18,8 +22,19 @@ class DashboardController extends Controller {
 	 * @return Response
 	 */
 	public function show()
-	{
-        return view('layout.dashboard.dashboard');
+	{	
+		// dd(permission(ADMIN));
+		Session::put('user_login_id', '1');		//For test
+		
+		$is_per = $this->userRepo->checkPermission();
+		// dd($is_per);
+		if($is_per){
+
+			return view('dashboard.dashboard');
+		} else {
+
+			return view('layout.master');
+		}
 	}
 
 	
