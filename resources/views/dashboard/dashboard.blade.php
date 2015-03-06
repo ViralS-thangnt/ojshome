@@ -64,6 +64,10 @@ More extra - Page Title
 
 
 <!-- Welcome user -->
+@section('avatar-user')
+    <img src="img/avatar3.png" class="img-circle" alt="User Image">
+@stop
+
 @section('user-welcome')
 	<p>Hello, Thang</p>
 	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>

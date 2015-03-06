@@ -5,11 +5,13 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ManuScriptsController extends Controller {
+class ManuscriptsController extends Controller {
 
-	public function __construct(){
+	protected $repo;
+
+	public function __construct(EloquentManuscriptRepository $repo){
 		// $this->middleware('auth');
-
+		$this->repo = $repo;
 	}
 
 	/**

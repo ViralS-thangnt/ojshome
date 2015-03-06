@@ -43,7 +43,7 @@ Route::controllers([
 ]);
 
 Route::resource('users', 'Admin\UsersController');
-Route::resource('admin/manuscript', 'Admin\ManuScriptsController',
+Route::resource('admin/manuscript', 'Admin\ManuscriptsController',
 		[
 			'names'	=> [
 					'create'	=>	'manuscript.create',
