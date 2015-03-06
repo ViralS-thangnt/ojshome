@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use DB;
+//use DB;
 use App\User;
 
 class DatabaseSeeder extends Seeder
@@ -26,10 +26,13 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //clear database
-        DB::table('users')->delete();
+        //DB::table('users')->delete();
 
         User::create([
-                
+                'username'          =>  'admin',
+                'password'          =>  sha1('admin1234'),
+                'email'             =>  'quandt@naida.bz',
+                'per_no'            =>  implode(',', Constant::actor(ADMIN)),
               ]);
     }
 }

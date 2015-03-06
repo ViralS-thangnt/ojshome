@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => 'localhost',//env('DB_HOST', 'localhost'),
-			'database'  => 'ojs',//env('DB_DATABASE', 'ojs'),
-			'username'  => 'homestead',//env('DB_USERNAME', 'homestead'),
-			'password'  => 'secret',//env('DB_PASSWORD', 'secret'),
+			'host'      => env('DB_HOST', 'localhost'),
+			'database'  => env('DB_DATABASE', 'ojs'),
+			'username'  => env('DB_USERNAME', 'root2'),
+			'password'  => env('DB_PASSWORD', 'quan1234'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -66,10 +66,10 @@ return [
 
 		'pgsql' => [
 			'driver'   => 'pgsql',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
+			'host'     => env('DB_HOST', 'ec2-107-21-104-188.compute-1.amazonaws.com'),
+			'database' => env('DB_DATABASE', 'de4ns6qvglfhr'),
+			'username' => env('DB_USERNAME', 'kyhajtfmgukpeu'),
+			'password' => env('DB_PASSWORD', 'msKBuXDY4ppBLXEMS5ikzm2AMD'),
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',

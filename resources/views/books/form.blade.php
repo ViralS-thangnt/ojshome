@@ -12,6 +12,7 @@
     @endif 
 
     BOOK </br>
+    {!! Form::label('email', 'Email address', array('class' => 'label')); !!}
 
     Name : {!! Form::text('name') !!}</br>
     Description : {!! Form::text('description') !!}

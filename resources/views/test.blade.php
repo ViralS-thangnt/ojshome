@@ -1,25 +1,17 @@
 <!-- test -->
 @extends('layout.master.master')
-
-<!-- Header Title -->
-@section('title-page-admin')
-
-Journal Open Source
-
-@stop
-
 <!-- Page Title -->
 @section('title')
 Main Page
 
 @stop
 
-<!-- Page Title Extra -->
-@section('title-extra')
-
-More extra - Page Title 
-
+<!-- Welcome user -->
+@section('user-welcome')
+    <p>Hello, Thang</p>
+    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 @stop
+
 
 <!-- Main content -->
 @section('content')
@@ -36,7 +28,6 @@ More extra - Page Title
 </ol>
 
 @stop
-
 
 <!-- Welcome user -->
 @section('user-welcome')
@@ -55,4 +46,3 @@ More extra - Page Title
     				!!}
 
 @overwrite
-
