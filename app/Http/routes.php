@@ -16,24 +16,30 @@ Route::get('home', 'HomeController@index');
 
 Route::get('book', 'BooksController@index');
 Route::get('book/form/{id?}', 'BooksController@form');
-Route::post('book/update/{id?}',['uses' => 'BooksController@update', 'as' => 'book_edit']);
+Route::post('book/update/{id?}', ['uses' => 'BooksController@update', 'as' => 'book_edit']);
+
+Route::get('user', 'UsersController@index');
+Route::get('user/form/{id?}', 'UsersController@form');
+Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update']);
+
+Route::get('/master_page', function(){
+
+    return view('layout.master.master');
+});
+
+Route::get('/test', function(){
+
+    return view('test');
+});
+
+Route::get('admin', array(
+    'as'    => 'dashboard',
+    'uses'	=> 'DashboardController@show'
+));
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
 
-get('/master_page', function(){
-	return view('layout.master.master');
-});
-
-get('/test', function(){
-	return view('test');
-});
-
-get('/dashboard', array(
-	'as'	=> 'dashboard',
-	function(){
-		return view('layout.dashboard.dashboard');
-	}
-));
+Route::resource('users', 'UsersController');

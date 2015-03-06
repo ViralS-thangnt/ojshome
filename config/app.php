@@ -147,6 +147,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\BookServiceProvider',
+		'App\Providers\ConstantServiceProvider',
 
 	],
 
@@ -198,7 +199,6 @@ return [
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'Html'      => 'Illuminate\Html\HtmlFacade',
 		'ErrorDisplay' => 'App\Lib\Prototype\Common\ErrorDisplay',
-
 	],
 
 ];

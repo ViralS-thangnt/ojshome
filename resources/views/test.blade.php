@@ -1,25 +1,17 @@
 <!-- test -->
 @extends('layout.master.master')
-
-<!-- Header Title -->
-@section('title-page-admin')
-
-Journal Open Source
-
-@stop
-
 <!-- Page Title -->
 @section('title')
 Main Page
 
 @stop
 
-<!-- Page Title Extra -->
-@section('title-extra')
-
-More extra - Page Title 
-
+<!-- Welcome user -->
+@section('user-welcome')
+    <p>Hello, Thang</p>
+    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 @stop
+
 
 <!-- Main content -->
 @section('content')
@@ -37,7 +29,6 @@ More extra - Page Title
 
 @stop
 
-
 <!-- Welcome user -->
 @section('user-welcome')
 	<p>Hello, Thang</p>
@@ -45,9 +36,8 @@ More extra - Page Title
 @stop
 
 @section('custom-menu')
-    
+    <!-- This is create menu demo -->
     {!! create_menu_item('Thang') !!}
-
     {!! create_menu_item(
     				'Menu 1', 
     				4, 
@@ -56,4 +46,3 @@ More extra - Page Title
     				!!}
 
 @overwrite
-

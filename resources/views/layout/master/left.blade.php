@@ -71,7 +71,6 @@
                     <li><a href="#" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Chính sách tạp chí</a></li>
                 </ul>
             </li>
-
         </ul>
     </section>
 </aside>
