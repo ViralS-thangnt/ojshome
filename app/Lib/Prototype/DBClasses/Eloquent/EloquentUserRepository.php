@@ -17,12 +17,17 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
 
     public function formModify($data, $id = null)
     {
-        dd($data);
         if ($id) {
             $user = $this->model->find($id);
         } else {
             $user = $this->model;
         }
+
+        if($data['per_no']) {
+            $data['per_no'] = implode(',', $data['per_no']);
+        }
+
+        $data['password'] = sha1($data['password']);
 
         $user->fill($data);
         $user->save();

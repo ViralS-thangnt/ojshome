@@ -35,17 +35,21 @@ class ConstantArray
         }
     }
 
-    public function actor($per_no)
+    public function actor($actor_no)
     {
-        $per_arr = explode(',', $per_no);
-
-        if (empty(array_diff($per_arr, $this->admin_per))) {    
-            return ADMIN;
+        $actor_arr = explode(',', $actor_no);
+        $actors = $this->list_actors();
+        $actor = '';
+        foreach($actor_arr as $key => $value) {
+            if($key == count($actor_arr)-1) {
+                $actor .= $actors[$value];    
+            } else {
+                $actor .= $actors[$value].', ';
+            }
+            
         }
 
-        if (empty(array_diff($per_arr, $this->author_per))) {
-            return AUTHOR;
-        }
+        return $actor;
     }
 
     public function permission($actor_id)
@@ -61,6 +65,7 @@ class ConstantArray
     public function list_actors()
     {
         return [
+            ADMIN                   => 'Administrator',
             AUTHOR                  => 'Author',
             MANAGING_EDITOR         => 'Managing Editor',
             SCREENING_EDITOR        => 'Screening Editor',
@@ -70,6 +75,27 @@ class ConstantArray
             COPY_EDITOR             => 'Copy Editor',
             LAYOUT_EDITOR           => 'Layout Editor',
             PRODUCTION_EDITOR       => 'Production Editor',
+        ];
+    }
+
+    public function list_degree()
+    {
+        return [
+            BACHELOR                => 'Bachelor',
+            MASTER                  => 'Master',
+            DOCTORAL                => 'Doctoral',
+            ASSOCIATE_PROFESSOR     => 'Associate Professor',
+            PROFESSOR               => 'Professor',
+        ];
+    }
+
+    public function list_academic()
+    {
+        return [
+            MASTER_ECONOMIC         => 'Master Economic',
+            MASTER_SCIENCE          => 'Master Science',
+            DR_ECONOMIC             => 'Dr Economic',
+            DR_SCIENCE              => 'Dr Science',
         ];
     }
 }

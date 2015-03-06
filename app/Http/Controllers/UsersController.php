@@ -25,8 +25,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
-        return Constant::list_actors();
+        $users = $this->userRepo->all();
+
+        return view('users.index', compact('users'));
     }
 
     public function form($id = null)
@@ -50,7 +51,7 @@ class UsersController extends Controller
     {
         $this->userRepo->formModify(Input::all(), $id);
 
-        return redirect('/book');
+        return redirect('/user');
     }
 
     /**
