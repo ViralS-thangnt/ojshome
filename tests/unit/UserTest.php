@@ -1,5 +1,8 @@
 <?php
 
+use App\Book;
+use App\Lib\Prototype\DbClasses\Eloquent\EloquentBookRepository;
+
 class UserTest extends TestCase {
 
     /**
@@ -7,11 +10,28 @@ class UserTest extends TestCase {
      *
      * @return void
      */
-    public function testUser()
-    {
-        $response = $this->call('GET', 'book');
+    protected $bookRepo;
 
-        $this->assertEquals(200, $response->getStatusCode());
+
+    public function testCreateBook()
+    {
+
+        $this->bookRepo = new EloquentBookRepository(new Book);
+
+        $book = $this->bookRepo->formModify(['name' => 'tuandt', 'description' => 'description']);
+
+        $this->assertEquals($book->name, 'tuandt');
     }
+
+    public function testEditBook()
+    {
+
+        $this->bookRepo = new EloquentBookRepository(new Book);
+        
+        $book = $this->bookRepo->formModify(['name' => 'tuandt2', 'description' => 'description'], 1);
+
+        $this->assertEquals($book->name, 'tuandt2');
+    }
+
 
 }
