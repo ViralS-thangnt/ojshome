@@ -17,6 +17,9 @@ define('AUTHOR', 2);
 define('CREATE_MNS', 1);
 define('UPDATE_MNS', 2);
 define('DELETE_MNS', 3);
+define('CREATE_USER', 4);
+define('UPDATE_USER', 5);
+define('DELETE_USER', 6);
 
 
 define('ICON_PEOPLE', 'ion-ios7-people');

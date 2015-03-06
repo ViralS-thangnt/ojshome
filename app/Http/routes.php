@@ -20,7 +20,7 @@ Route::post('book/update/{id?}', ['uses' => 'BooksController@update', 'as' => 'b
 
 Route::get('user', 'UsersController@index');
 Route::get('user/form/{id?}', 'UsersController@form');
-Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update'])
+Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update']);
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
