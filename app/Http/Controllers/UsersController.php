@@ -1,8 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Lib\Prototype\DbClasses\Eloquent\EloquentUserRepository;
+use Constant;
+use Input;
 
 use Illuminate\Http\Request;
 
@@ -24,6 +26,7 @@ class UsersController extends Controller
     public function index()
     {
         //
+        return Constant::list_actors();
     }
 
     public function form($id = null)
@@ -34,7 +37,7 @@ class UsersController extends Controller
             $user = $this->userRepo;
         }
 
-        return view('users.form', compact('user','id'));
+        return view('users.form', compact('user', 'id'));
     }
 
     /**
@@ -43,9 +46,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(UserRequest $request, $id = null)
     {
-        //
+        $this->userRepo->formModify(Input::all(), $id);
+
+        return redirect('/book');
     }
 
     /**

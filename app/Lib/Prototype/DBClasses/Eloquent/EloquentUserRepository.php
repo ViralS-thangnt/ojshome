@@ -17,6 +17,7 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
 
     public function formModify($data, $id = null)
     {
+        dd($data);
         if ($id) {
             $user = $this->model->find($id);
         } else {

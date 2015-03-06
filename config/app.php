@@ -199,7 +199,6 @@ return [
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'Html'      => 'Illuminate\Html\HtmlFacade',
 		'ErrorDisplay' => 'App\Lib\Prototype\Common\ErrorDisplay',
-
 	],
 
 ];

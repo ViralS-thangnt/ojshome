@@ -111,6 +111,19 @@ function input_radio($name, $label, $value = array(), $checked = '')
     return $html;
 }
 
+function input_check($name, $value = array())
+{
+    $html = '';
+    if (!empty($value)) {
+        foreach ($value as $key => $item) {
+            $html .= '<label class="checkbox-inline">
+                     <input type="checkbox" name="'.$name.'[]" value="'.$key.'">'.$item.'</label>';
+        }
+    }
+    
+    return $html;
+}
+
 /**
  * Handle upload file
  *

@@ -57,4 +57,19 @@ class ConstantArray
                 return $this->author_per;
         }
     }
+
+    public function list_actors()
+    {
+        return [
+            AUTHOR                  => 'Author',
+            MANAGING_EDITOR         => 'Managing Editor',
+            SCREENING_EDITOR        => 'Screening Editor',
+            SECTION_EDITOR          => 'Section Editor',
+            REVIEWER                => 'Reviewer',
+            CHIEF_EDITOR            => 'Chief Editor',
+            COPY_EDITOR             => 'Copy Editor',
+            LAYOUT_EDITOR           => 'Layout Editor',
+            PRODUCTION_EDITOR       => 'Production Editor',
+        ];
+    }
 }
