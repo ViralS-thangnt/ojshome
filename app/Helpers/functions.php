@@ -44,28 +44,38 @@ function create_menu_item($menu_name = 'menu',
 }
 
 function create_dashboard_item($icon_class, $color_class, $link = '#', $title = 'Box', $new_notify_number = 0){
-    return $result = '<div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box ' . $color_class . '">
-                        <div class="inner">
-                            <h3>
-                                ' . $new_notify_number . '
-                            </h3>
-                            <p>' . $title . '</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ' . $icon_class . '"></i>
-                        </div>
-                        <a href="' . $link . '" class="small-box-footer">
-                            Xem Thêm <i class="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>';
+
+
+	return $result = '<div class="col-lg-3 col-xs-6">
+			        <!-- small box -->
+			        <div class="small-box ' . $color_class . '">
+			            <div class="inner">
+			                <h3>
+			                    ' . $new_notify_number . '
+			                </h3>
+			                <p>' . $title . '</p>
+			            </div>
+			            <div class="icon">
+			                <i class="ion ' . $icon_class . '"></i>
+			            </div>
+			            <a href="' . $link . '" class="small-box-footer">
+			                Xem Thêm <i class="fa fa-arrow-circle-right"></i>
+			            </a>
+			        </div>
+			    </div>';
 
 }
 
-function input_text($name, $label, $value = '', $type = 'text')
+function input_text($name, $label, $type = 'text')
 {
+    $html = '<div class="form-group">';
+    $html .= Form::label($name, $label, array('class' => 'col-sm-2 control-label'));
+    $html .= ' <div class="col-sm-10">';
+    $html .= Form::text($name);
+    $html .= '</div></div>';
+
+    return $html;
+
     return '<div class="form-group">
             <label for="'.$name.'" class="col-sm-2 control-label">'.$label.'</label>
             <div class="col-sm-10">

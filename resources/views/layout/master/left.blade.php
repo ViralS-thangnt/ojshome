@@ -29,7 +29,6 @@
 
         @yield('custom-menu')
 
-
         <ul class="sidebar-menu">
             <li class="treeview">
                 <a href="#">

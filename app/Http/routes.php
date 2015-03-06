@@ -16,7 +16,11 @@ Route::get('home', 'HomeController@index');
 
 Route::get('book', 'BooksController@index');
 Route::get('book/form/{id?}', 'BooksController@form');
-Route::post('book/update/{id?}',['uses' => 'BooksController@update', 'as' => 'book_edit']);
+Route::post('book/update/{id?}', ['uses' => 'BooksController@update', 'as' => 'book_edit']);
+
+Route::get('user', 'UsersController@index');
+Route::get('user/form/{id?}', 'UsersController@form');
+Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update'])
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
