@@ -14,7 +14,7 @@
     BOOK </br>
     {!! Form::label('email', 'Email address', array('class' => 'label')); !!}
 
-    Name : {!! Form::text('name') !!}</br>
+    Name : {!! Form::text('name', '', ['class' => 'form-control']) !!}</br>
     Description : {!! Form::text('description') !!}
 
     {!! Form::submit('submit') !!}

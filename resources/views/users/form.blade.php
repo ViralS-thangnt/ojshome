@@ -18,7 +18,15 @@
 
     {!! input_text('username', 'Name') !!}
 
-    {!! input_text('password', 'Password') !!}
+    {!! input_text('email', 'Email') !!}
+
+    {!! input_select('degree_id', 'Degree', Constant::list_degree()) !!}
+
+    {!! input_select('degree_id', 'Academic', Constant::list_academic()) !!}
+
+    {!! input_text('password', 'Password', 'password') !!}
+
+    {!! input_text('password_confirmation', 'Password Confirm', 'password') !!}
 
     {!! input_text('last_name', 'Last Name') !!}
 
@@ -28,9 +36,7 @@
 
     {!! input_check('per_no', Constant::list_actors()) !!}
 
-    {!! input_text('year', 'Year') !!}
-
-    {!! input_text('email', 'Email') !!}
+    {!! input_text('year', 'Year') !!} 
 
     {!! input_text('phone', 'Phone') !!}
 

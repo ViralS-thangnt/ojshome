@@ -70,17 +70,23 @@ function input_text($name, $label, $type = 'text')
     $html = '<div class="form-group">';
     $html .= Form::label($name, $label, array('class' => 'col-sm-2 control-label'));
     $html .= ' <div class="col-sm-10">';
-    $html .= Form::text($name);
+
+    switch ($type) {
+        case 'email':
+            $html .= Form::email($name, '', ['class' => 'form-control']);
+            break;
+        case 'password':
+            $html .= Form::password($name, '', ['class' => 'form-control']);
+            break;
+        
+        default:
+            $html .= Form::text($name, '', ['class' => 'form-control']);
+            break;
+    }
+
     $html .= '</div></div>';
 
     return $html;
-
-    return '<div class="form-group">
-            <label for="'.$name.'" class="col-sm-2 control-label">'.$label.'</label>
-            <div class="col-sm-10">
-              <input type="'.$type.'" name="'.$name.'" class="form-control" id="'.$name.'" placeholder="'.$label.'" value="'.$value.'">
-            </div>
-          </div>';
 }
 
 function output_text($label, $value)
@@ -111,16 +117,42 @@ function input_radio($name, $label, $value = array(), $checked = '')
     return $html;
 }
 
-function input_check($name, $value = array())
+function input_check($name, $value = array(), $selected = false)
 {
     $html = '';
     if (!empty($value)) {
+        if($selected !== false) {
+            $selected = explode(',', $selected);
+        }
         foreach ($value as $key => $item) {
+            $select = '';
+            if(!empty($selected)) {
+                $select = (in_array($key, $selected)) ? 'checked="checked"' : '';    
+            }
+            
             $html .= '<label class="checkbox-inline">
-                     <input type="checkbox" name="'.$name.'[]" value="'.$key.'">'.$item.'</label>';
+                     <input type="checkbox" name="'.$name.'[]" value="'.$key.'" '.$select.'>'.$item.'</label>';
         }
     }
     
+    return $html;
+}
+
+function input_select($name, $label, $value = array(), $selected = false)
+{
+    $html = '<label class="col-sm-2 control-label">'.$label.'</label>
+            <div class="col-sm-10">
+            <select class="form-control">';
+
+    if(!empty($value)) {
+        foreach ($value as $key => $item) {
+            $select = ($selected === $key) ? 'selected="seected"' : '';
+            $html .= '<option value="'.$key.'" '.$select.'>'.$item.'</option>';
+        }
+    }
+
+    $html .= '</select></div>';
+
     return $html;
 }
 

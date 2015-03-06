@@ -23,8 +23,8 @@ class UserRequest extends Request {
 	{
 		return [
 			'username'			=>	'required',
-			//'password'			=>	'required|min:8',
-			//'email'				=>	'required|email',
+			'password'			=>	'required|min:8|confirmed',
+			'email'				=>	'required|email',
 		];
 	}
 

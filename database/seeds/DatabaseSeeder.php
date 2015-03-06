@@ -32,7 +32,7 @@ class UserTableSeeder extends Seeder
                 'username'          =>  'admin',
                 'password'          =>  sha1('admin1234'),
                 'email'             =>  'quandt@naida.bz',
-                'per_no'            =>  implode(',', Constant::permission(ADMIN)),
+                'per_no'            =>  ADMIN,
               ]);
     }
 }
