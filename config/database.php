@@ -51,13 +51,18 @@ return [
 			'database' => storage_path().'/database.sqlite',
 			'prefix'   => '',
 		],
-
+		'sqlite_testing' => [
+			'driver'   => 'sqlite',
+			'database' => storage_path().'/testing.sqlite',
+			'prefix'   => '',
+		],
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'ojs'),
-			'username'  => env('DB_USERNAME', 'root2'),
-			'password'  => env('DB_PASSWORD', 'quan1234'),
+			'database'  => env('DB_DATABASE', 'forge'),
+			'username'  => env('DB_USERNAME', 'forge'),
+			'password'  => env('DB_PASSWORD', ''),
+			'port'      => env('DB_PORT', '3306'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -25,5 +25,7 @@ class EloquentBookRepository extends AbstractEloquentRepository implements BookI
 
         $book->fill($data);
         $book->save();
+
+        return $book;
     }
 }

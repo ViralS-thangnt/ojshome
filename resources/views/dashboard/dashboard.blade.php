@@ -25,10 +25,21 @@ More extra - Page Title
 @section('content')
 <div class="row" style="margin: 15px">
 	<!-- This is demo for dashboard -->
-	{!! create_dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('show/author'), 'Tác giả', 30) !!}
-    {!! create_dashboard_item(ICON_CHATBOX, COLOR_RED, url('show/response'), 'Phản biện', 150); !!}
-    {!! create_dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, 'editor', 'Biên tập', 77); !!}
-    {!! create_dashboard_item(ICON_STORAGE, COLOR_GREEN, 'response', 'Xuất bản', 14); !!}
+    @if(in_array(AUTHOR, $permissions))
+	   {!! create_dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('show/author'), 'Tác giả', 30); !!}
+    @endif
+
+    @if(in_array(REVIEWER, $permissions))
+        {!! create_dashboard_item(ICON_CHATBOX, COLOR_RED, url('show/response'), 'Phản biện', 150); !!}
+    @endif
+
+    @if(Constant::has_permission([CHIEF_EDITOR, MANAGING_EDITOR, SCREENING_EDITOR, SECTION_EDITOR, COPY_EDITOR, LAYOUT_EDITOR], $permissions))
+        {!! create_dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, 'editor', 'Biên tập', 77); !!}
+    @endif
+    
+    @if(in_array(CHIEF_EDITOR, $permissions))
+        {!! create_dashboard_item(ICON_STORAGE, COLOR_GREEN, 'response', 'Xuất bản', 14); !!}
+    @endif
 </div>
 <!-- ion-android-star -->
 <!-- ion-document-text -->
