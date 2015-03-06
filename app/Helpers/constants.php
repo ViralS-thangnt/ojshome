@@ -27,12 +27,22 @@ define('ICON_SYSTEM_HOME', 'ion-android-system-home');
 define('ICON_PIE_GRAPH', 'ion-pie-graph');
 define('ICON_STATS_BAR', 'ion-stats-bars');
 define('ICON_STORAGE_STAR', 'ion-android-star');
-
 define('ICON_PRINTER', 'ion-android-printer');
 define('ICON_EARTH', 'ion-android-earth');
 define('ICON_LIGTHBULB', 'ion-android-lightbulb');
 define('ICON_DEVELOPER', 'ion-android-developer');
 define('ICON_DISPLAY', 'ion-android-display');
+
+define('ICON_MENU_SPEED_DIAL', 'fa fa-th');
+define('ICON_MENU_DASHBOARD', 'fa-dashboard');
+define('ICON_MENU_SEARCH', 'fa-search');
+define('ICON_MENU_CHART', 'fa-bar-chart-o');
+define('ICON_MENU_BOOK', 'fa-book');
+define('ICON_MENU_ANGLE_RIGHT', 'fa-angle-double-right');
+define('ICON_MENU_ANGLE_LEFT', 'fa-angle-double-left');
+define('ICON_MENU_ANGLE_RIGHT', 'fa-angle-right');
+define('ICON_MENU_ANGLE_LEFT', 'fa-angle-left');
+define('ICON_MENU_ARROW_CIRCLE_RIGHT', 'fa-arrow-circle-right');
 
 define('COLOR_AQUA', 'bg-aqua');
 define('COLOR_RED', 'bg-red');

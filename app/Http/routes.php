@@ -20,14 +20,10 @@ Route::post('book/update/{id?}', ['uses' => 'BooksController@update', 'as' => 'b
 
 Route::get('user', 'UsersController@index');
 Route::get('user/form/{id?}', 'UsersController@form');
-Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update'])
-
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
+Route::post('user/form/{id?}', ['uses' => 'UsersController@update', 'as' => 'user.update']);
 
 get('/master_page', function(){
+
     return view('layout.master.master');
 });
 
@@ -36,11 +32,14 @@ get('/test', function(){
     return view('test');
 });
 
-get('/dashboard', array(
+get('admin', array(
     'as'    => 'dashboard',
-    function(){
-        return view('layout.dashboard.dashboard');
-    }
+    'uses'	=> 'DashboardController@show'
 ));
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
 
 Route::resource('users', 'UsersController');
