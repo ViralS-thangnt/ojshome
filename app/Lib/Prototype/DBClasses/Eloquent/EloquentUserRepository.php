@@ -5,7 +5,8 @@ use App\Lib\Prototype\Interfaces\UserInterface;
 use App\Lib\Prototype\BaseClasses\AbstractEloquentRepository;
 use App\User;
 use Session;
-use App\Helpers\ConstantArray;
+use Constant;
+
 
 class EloquentUserRepository extends AbstractEloquentRepository implements UserInterface
 {
@@ -28,21 +29,17 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
 
     public function checkPermission(){
         if(Session::has('user_login_id')){
-            // dd(Session::get('user_login_id'));
             $per_no = User::getPermissionById(Session::get('user_login_id'));
-            // dd($per_no);
 
-            $actor = (new ConstantArray)->actor($per_no);
-            dd($actor);
+            $actor = Constant::actor($per_no);
 
-            
-            dd(permission($actor));
-            permission($actor);
+            return $permissions = Constant::permission($actor);
 
-            return view('dashboard.dashboard')->with('permission', $per_no);
+
+            // return view('dashboard.dashboard')->with('permission', $permissions);
         } else {
 
-            dd('dls;ajlfsa');
+            return '';
         }
     }
 }

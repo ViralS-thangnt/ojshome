@@ -2,7 +2,7 @@
 
 class ConstantArray
 {
-    protected $author_per       = [CREATE_MNS, UPDATE_MN, DELETE_MNS];
+    protected $author_per       = [CREATE_MNS, UPDATE_MNS, DELETE_MNS];
     protected $admin_per        = [CREATE_MNS, UPDATE_MNS, DELETE_MNS, CREATE_USER, UPDATE_USER, DELETE_USER];
 
     public function degree($degree_id)
@@ -39,7 +39,7 @@ class ConstantArray
     {
         $per_arr = explode(',', $per_no);
 
-        if (empty(array_diff($per_arr, $this->admin_per))) {
+        if (empty(array_diff($per_arr, $this->admin_per))) {    
             return ADMIN;
         }
 

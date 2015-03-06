@@ -24,17 +24,19 @@ class DashboardController extends Controller {
 	public function show()
 	{	
 		// dd(permission(ADMIN));
-		Session::put('user_login_id', '1');		//For test
+		Session::put('user_login_id', '1');		//For test - User logined
+
+		$permissions = $this->userRepo->checkPermission();
+
+		return view('dashboard.dashboard')->with('permission', $permissions);
 		
-		$is_per = $this->userRepo->checkPermission();
-		// dd($is_per);
-		if($is_per){
+		// if($is_per){
 
-			return view('dashboard.dashboard');
-		} else {
+		// 	
+		// } else {
 
-			return view('layout.master');
-		}
+		// 	return view('layout.master');
+		// }
 	}
 
 	
