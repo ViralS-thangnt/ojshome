@@ -1,5 +1,5 @@
 /*style.css*/
-
+/*This is my custom style*/
 .title-admin{
 	float: left;
 	font-size: 17px;
@@ -23,6 +23,24 @@
 	margin-bottom: 7px;
 }
 
+.text-form-large{
+	font-size: large;
+}
+
+.text-form-medium{
+	font-size: medium;
+}
+
+.text-form-small{
+	font-size: small;
+}
+
+.help-block-custom {
+	display: block;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	color: #737373;
+}
 /*.user-show{
 	float: right;
 }*/

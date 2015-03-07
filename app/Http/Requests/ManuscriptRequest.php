@@ -22,7 +22,6 @@ class ManuscriptRequest extends Request {
 	public function rules()
 	{
 		return [
-			// 'author_id'				=> 'required', 
 			'author_comments'		=> 'required', 
 			'type'					=> 'required', 
 			'expect_journal_id'		=> 'numeric', 
@@ -37,15 +36,15 @@ class ManuscriptRequest extends Request {
 			'propose_reviewer'		=> '',
 			'co_author'				=> '', 
 
-			// 'file'				=> 'required',
-			// 'file_final'			=> 'required',
+			// 'author_id'				=> 'required', 
+			// 'file'					=> 'required',
+			// 'file_final'				=> 'required',
 			// 'is_chief_review'		=> 'required',  
 			// 'is_revise'				=> 'required', 
 			// 'is_print_out'			=> 'required',
 			// 'is_pre_public'			=> 'required', 
-			// 'status'				=> 'required', 
+			// 'status'					=> 'required', 
 			// 'num_page'				=> 'required' 
-			
 		];
 	}
 

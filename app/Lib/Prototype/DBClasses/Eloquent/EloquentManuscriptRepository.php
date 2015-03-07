@@ -16,18 +16,18 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 
     public function formModify($data, $id = null)
     {
-        // if($id)
-        // {
-        //     $book = $this->model->find($id);
-        // }
-        // else 
-        // {
-        //     $book = $this->model;
-        // }
+        if($id)
+        {
+            $manuscript = $this->model->find($id);
+        }
+        else 
+        {
+            $manuscript = $this->model;
+        }
 
-        // $book->fill($data);
-        // $book->save();
+        $manuscript->fill($data);
+        $manuscript->save();
 
-        // return $book;
+        return $manuscript;
     }
 }
