@@ -148,6 +148,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\BookServiceProvider',
 		'App\Providers\ConstantServiceProvider',
+		'App\Providers\MacroServiceProvider',
 
 	],
 

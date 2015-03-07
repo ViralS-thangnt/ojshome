@@ -18,7 +18,8 @@ class CreateManuscriptsTable extends Migration {
 			$table->integer('author_id');
 			$table->text('author_comments');
 			$table->tinyInteger('type');
-			$table->integer('journal_id');
+			$table->integer('expect_journal_id');
+			$table->integer('publish_journal_id');
 			$table->string('name');
 			$table->text('summary_vi');
 			$table->string('keyword_vi');
@@ -37,7 +38,6 @@ class CreateManuscriptsTable extends Migration {
 			$table->tinyInteger('status');
 			$table->integer('num_public');
 			$table->integer('num_page');
-			$table->integer('propose_number_public');
 			$table->string('file_final');
 			$table->dateTime('send_at');
 			$table->timestamps();

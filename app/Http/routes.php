@@ -10,27 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+//Homepage
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
-
-Route::get('book', 'BooksController@index');
-Route::get('book/form/{id?}', 'BooksController@form');
-Route::post('book/update/{id?}', ['uses' => 'BooksController@update', 'as' => 'book_edit']);
-
-Route::get('user', 'Admin\UsersController@index');
+//User management
 Route::get('user/form/{id?}', 'Admin\UsersController@form');
 Route::post('user/form/{id?}', ['uses' => 'Admin\UsersController@update', 'as' => 'user.update']);
-
-Route::get('/master_page', function(){
-
-    return view('layout.master.master');
-});
-
-Route::get('/test', function(){
-
-    return view('test');
-});
+Route::resource('user', 'Admin\UsersController', ['except' => ['create', 'edit', 'store', 'show', 'update']]);
 
 Route::get('admin', array(
     'as'    => 'dashboard',
@@ -42,7 +28,6 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('users', 'Admin\UsersController');
 Route::resource('admin/manuscript', 'Admin\ManuscriptsController',
 		[
 			'names'		=> [
