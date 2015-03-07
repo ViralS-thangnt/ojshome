@@ -1,4 +1,4 @@
-<?php
+<?php 
 // app\Helpers\function.php 
 function create_menu_item($menu_name = 'menu', 
 							$number_child_items = 0,
@@ -65,95 +65,12 @@ function create_dashboard_item($icon_class, $color_class, $link = '#', $title = 
 
 }
 
-function input_text($name, $label, $type = 'text')
-{
-    $html = '<div class="form-group">';
-    $html .= Form::label($name, $label, array('class' => 'col-sm-2 control-label'));
-    $html .= ' <div class="col-sm-10">';
-
-    switch ($type) {
-        case 'email':
-            $html .= Form::email($name, '', ['class' => 'form-control']);
-            break;
-        case 'password':
-            $html .= Form::password($name, '', ['class' => 'form-control']);
-            break;
-        
-        default:
-            $html .= Form::text($name, '', ['class' => 'form-control']);
-            break;
-    }
-
-    $html .= '</div></div>';
-
-    return $html;
-}
-
 function output_text($label, $value)
 {
     return '<label class="col-sm-2 control-label">'.$label.'</label>
             <div class="col-sm-10">'.
               $value
             .'</div><div class="clear"></div>';
-}
-
-function input_radio($name, $label, $value = array(), $checked = '')
-{
-    $html =    '<label class="col-sm-2 control-label">'.$label.'</label>';
-    if (!empty($value)) {
-        foreach ($$value as $key => $item) {
-            if ($checked != '') {
-                $check = ($checked == $key) ? 'checked="checked"' : '';
-                $html .= '<label class="radio-inline">
-                          <input type="radio" name="'.$name.'" id="'.$name.'" value="'.$key.'" '.$checked.'> '.$item.'
-                          </label>';
-            } else {
-                $html .= '<label class="radio-inline">
-                          <input type="radio" name="'.$name.'" id="'.$name.'" value="'.$key.'"> '.$item.'
-                          </label>';
-            }
-        }
-    }
-    return $html;
-}
-
-function input_check($name, $value = array(), $selected = false)
-{
-    $html = '';
-    if (!empty($value)) {
-        if($selected !== false) {
-            $selected = explode(',', $selected);
-        }
-        foreach ($value as $key => $item) {
-            $select = '';
-            if(!empty($selected)) {
-                $select = (in_array($key, $selected)) ? 'checked="checked"' : '';    
-            }
-            
-            $html .= '<label class="checkbox-inline">
-                     <input type="checkbox" name="'.$name.'[]" value="'.$key.'" '.$select.'>'.$item.'</label>';
-        }
-    }
-    
-    return $html;
-}
-
-function input_select($name, $label, $value = array(), $selected = false)
-{
-    $html = '<label class="col-sm-2 control-label">'.$label.'</label>
-            <div class="col-sm-10">
-            <select class="form-control">';
-
-    if(!empty($value)) {
-        foreach ($value as $key => $item) {
-            $select = ($selected === $key) ? 'selected="seected"' : '';
-            $html .= '<option value="'.$key.'" '.$select.'>'.$item.'</option>';
-        }
-    }
-
-    $html .= '</select></div>';
-
-    return $html;
 }
 
 /**

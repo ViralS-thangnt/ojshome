@@ -18,7 +18,8 @@ class CreateManuscriptsTable extends Migration {
 			$table->integer('author_id');
 			$table->text('author_comments');
 			$table->tinyInteger('type');
-			$table->integer('journal_id');
+			$table->integer('expect_journal_id');
+			$table->integer('publish_journal_id');
 			$table->string('name');
 			$table->text('summary_vi');
 			$table->string('keyword_vi');

@@ -16,39 +16,39 @@
 {!! Form::model($user, ['route' => ['user.update', $id]]) !!}
     {!! ErrorDisplay::getInstance()->DisplayAll($errors) !!}
 
-    {!! input_text('username', 'Name') !!}
+    {!! Form::input_text('username', 'Name') !!}
 
-    {!! input_text('email', 'Email') !!}
+    {!! Form::input_text('email', 'Email', 'email') !!}
 
-    {!! input_select('degree_id', 'Degree', Constant::list_degree()) !!}
+    {!! Form::input_select('degree_id', 'Degree', Constant::list_degree()) !!}
 
-    {!! input_select('degree_id', 'Academic', Constant::list_academic()) !!}
+    {!! Form::input_select('academic_id', 'Academic', Constant::list_academic()) !!}
 
-    {!! input_text('password', 'Password', 'password') !!}
+    {!! Form::input_text('password', 'Password', 'password') !!}
 
-    {!! input_text('password_confirmation', 'Password Confirm', 'password') !!}
+    {!! Form::input_text('password_confirmation', 'Password Confirm', 'password') !!}
 
-    {!! input_text('last_name', 'Last Name') !!}
+    {!! Form::input_text('last_name', 'Last Name') !!}
 
-    {!! input_text('first_name', 'First Name') !!}
+    {!! Form::input_text('first_name', 'First Name') !!}
 
-    {!! input_text('middle_name', 'Middle Name') !!}
+    {!! Form::input_text('middle_name', 'Middle Name') !!}
 
-    {!! input_check('per_no', Constant::list_actors()) !!}
+    {!! Form::input_check('per_no', Constant::list_actors()) !!}
 
-    {!! input_text('year', 'Year') !!} 
+    {!! Form::input_text('year', 'Year') !!} 
 
-    {!! input_text('phone', 'Phone') !!}
+    {!! Form::input_text('phone', 'Phone') !!}
 
-    {!! input_text('address', 'Address') !!}
+    {!! Form::input_text('address', 'Address') !!}
 
-    {!! input_text('nation', 'Nation') !!}
+    {!! Form::input_text('nation', 'Nation') !!}
 
-    {!! input_text('research_area', 'Research Area') !!}
+    {!! Form::input_text('research_area', 'Research Area') !!}
 
-    {!! input_text('research', 'Research') !!}
+    {!! Form::input_text('research', 'Research') !!}
 
-    {!! Form::submit('submit') !!}
+    {!! Form::button_submit('Submit') !!}
 
 {!! Form::close() !!}
 
