@@ -37,6 +37,7 @@ class CreateManuscriptsTable extends Migration {
 			$table->tinyInteger('status');
 			$table->integer('num_public');
 			$table->integer('num_page');
+			$table->integer('propose_number_public');
 			$table->string('file_final');
 			$table->dateTime('send_at');
 			$table->timestamps();
