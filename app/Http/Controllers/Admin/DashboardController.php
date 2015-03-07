@@ -21,7 +21,7 @@ class DashboardController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function show()
+	public function index()
 	{	
 		Session::put('user_login_id', '1');		//Only For test - User logined
 

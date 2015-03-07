@@ -34,11 +34,11 @@ More extra - Page Title
     @endif
 
     @if(Constant::has_permission([CHIEF_EDITOR, MANAGING_EDITOR, SCREENING_EDITOR, SECTION_EDITOR, COPY_EDITOR, LAYOUT_EDITOR], $permissions))
-        {!! create_dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, 'editor', 'Biên tập', 77); !!}
+        {!! create_dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, url('show/editor'), 'Biên tập', 77); !!}
     @endif
     
     @if(in_array(CHIEF_EDITOR, $permissions))
-        {!! create_dashboard_item(ICON_STORAGE, COLOR_GREEN, 'response', 'Xuất bản', 14); !!}
+        {!! create_dashboard_item(ICON_STORAGE, COLOR_GREEN, url('show/publish'), 'Xuất bản', 14); !!}
     @endif
 
     

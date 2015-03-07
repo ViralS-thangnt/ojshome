@@ -1,9 +1,11 @@
 <?php
 namespace App\Lib\Prototype\DBClasses\Eloquent;
 
-use App\Lib\Prototype\Interfaces\BookInterface;
+// use App\Lib\Prototype\Interfaces\BookInterface;
 use App\Lib\Prototype\BaseClasses\AbstractEloquentRepository;
-use App\Book;
+use App\Lib\Prototype\Interfaces\ManuscriptInterface;
+use App\Manuscript;
+
 
 class EloquentManuscriptRepository extends AbstractEloquentRepository implements ManuscriptInterface
 {
@@ -14,18 +16,18 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 
     public function formModify($data, $id = null)
     {
-        if($id)
-        {
-            $book = $this->model->find($id);
-        }
-        else 
-        {
-            $book = $this->model;
-        }
+        // if($id)
+        // {
+        //     $book = $this->model->find($id);
+        // }
+        // else 
+        // {
+        //     $book = $this->model;
+        // }
 
-        $book->fill($data);
-        $book->save();
+        // $book->fill($data);
+        // $book->save();
 
-        return $book;
+        // return $book;
     }
 }

@@ -34,7 +34,7 @@ Route::get('/test', function(){
 
 Route::get('admin', array(
     'as'    => 'dashboard',
-    'uses'	=> 'Admin\DashboardController@show'
+    'uses'	=> 'Admin\DashboardController@index'
 ));
 
 Route::controllers([
@@ -45,13 +45,24 @@ Route::controllers([
 Route::resource('users', 'Admin\UsersController');
 Route::resource('admin/manuscript', 'Admin\ManuscriptsController',
 		[
-			'names'	=> [
+			'names'		=> [
 					'create'	=>	'manuscript.create',
 					'index'		=>	'manuscript.index',
 					'store'		=>	'manuscript.store',
 					'edit'		=>	'manuscript.edit',
 					'update'	=>	'manuscript.update',
 					'destroy'	=>	'manuscript.destroy',
+					'show'		=>	'manuscript.show'
+					],
+			'except'	=> [
+					'index',
+					// 'create',
+					// 'store',
+					'destroy',
+					'edit',
+					'update',
+					'show',
+					''
 					]
 		]
 	);

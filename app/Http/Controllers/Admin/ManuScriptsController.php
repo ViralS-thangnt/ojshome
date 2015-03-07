@@ -4,6 +4,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ManuscriptRequest;
+
+use App\Lib\Prototype\DBClasses\Eloquent\EloquentManuscriptRepository;
+use Input;
+use Session;
 
 class ManuscriptsController extends Controller {
 
@@ -40,10 +45,16 @@ class ManuscriptsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(ManuscriptRequest $request)
 	{
+		Session::put('user_login_id', '1');		//Only for test - User logined
 		dd(Input::all());
-		return 'fjdl;akl;;';
+		
+		$this->repo->create(
+			array_merge(
+				Input::except('_token', 'publish_journal_id'), 
+				['author_id' => Session::get('user_login_id')]));
+		return 'Success';
 	}
 
 	/**
