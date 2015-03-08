@@ -20,6 +20,7 @@ Route::resource('user', 'Admin\UsersController', ['except' => ['create', 'edit',
 
 // Dashboard
 Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
+Route::get('admin/author', ['as'	=>	'author.dashboard', 'uses'	=>	'Admin\DashboardController@index']);
 
 // Manuscript
 Route::get('admin/manuscript/{id?}', ['as' 	=> 	'manuscript.form', 'uses' 	=> 	'Admin\ManuscriptsController@form']);

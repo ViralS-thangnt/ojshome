@@ -14,16 +14,14 @@
         </div>
         
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        {!! Form::create_menu_item('Menu chính',
-                                0,
+        {!! Form::menu_item('Menu chính',
                                 [],
                                 [],
                                 ICON_MENU_SPEED_DIAL,
                                 0
                             ) !!}
 
-        {!! Form::create_menu_item('Trang chủ',
-                                0,
+        {!! Form::menu_item('Trang chủ',
                                 [],
                                 [],
                                 ICON_MENU_DASHBOARD,
@@ -33,24 +31,21 @@
 
         @yield('custom-menu')
 
-        {!! Form::create_menu_item('Tìm kiếm',
-                                6,      
+        {!! Form::menu_item('Tìm kiếm',
                                 ['Bản thảo', 'Tác giả', 'Nhà phản biện', 'Biên tập viên', 'Bình luận viên chuyên trách', 'Tạp chí'],
                                 ['#', '#', '#', '#', '#', '#'],
                                 ICON_MENU_SEARCH,
                                 1
                             ) !!}
 
-        {!! Form::create_menu_item('Thống kê',
-                                3,
+        {!! Form::menu_item('Thống kê',
                                 ['Bản thảo', 'Tác giả', 'Tạp chí'],
                                 ['#', '#', '#'],
                                 ICON_MENU_CHART,
                                 1
                             ) !!}
 
-        {!! Form::create_menu_item('Thông tin hỗ trợ',
-                                3,
+        {!! Form::menu_item('Thông tin hỗ trợ',
                                 ['Hướng dẫn sử dụng', 'Cấu hình kỹ thuật', 'Chính sách tạp chí'],
                                 ['#', '#', '#'],
                                 ICON_MENU_BOOK,

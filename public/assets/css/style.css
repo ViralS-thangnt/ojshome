@@ -41,6 +41,10 @@
 	margin-bottom: 1px;
 	color: #737373;
 }
+
+.padding-box{
+	padding-bottom: 25px;
+}
 /*.user-show{
 	float: right;
 }*/

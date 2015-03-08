@@ -48,8 +48,8 @@
                         <i class="glyphicon glyphicon-user"></i>
 
                         <span> @yield('username') <i class="caret"></i></span>
-
                     </a>
+
                     <ul class="dropdown-menu">
 
                         <!-- User image -->
@@ -61,15 +61,14 @@
                                 <small>@yield('username-extra-info')</small>
 
                             </p>
-                        </li>
+                        </li><!-- end User Image -->
 
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="col-xs-12 text-center">
                                 <a href="#">Change Password</a>
                             </div>
-                            
-                        </li>
+                        </li><!-- end User body -->
 
                         <!-- Menu Footer-->
                         <li class="user-footer">
@@ -79,11 +78,13 @@
                             <div class="pull-right">
                                 <a href="#" class="btn btn-default btn-flat">Log out</a>
                             </div>
-                        </li>
+                        </li><!-- end Footer -->
 
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                    </ul><!-- end dropdown-menu -->
+                </li><!-- end dropdown user user-menu -->
+            </ul><!-- end nav navbar-nav -->
+
+        </div><!-- end navbar-right -->
+
+    </nav><!-- end navbar navbar-static-top -->
 </header>

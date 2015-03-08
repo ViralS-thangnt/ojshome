@@ -31,5 +31,13 @@ class DashboardController extends Controller {
 	}
 
 	
+	// public function show()
+	// {	
+	// 	// Session::put('user_login_id', '1');		//Only For test - User logined
+
+	// 	// $permissions = $this->userRepo->getPermission();
+
+	// 	return view('dashboard.dashboard')->with('permissions', $permissions);
+	// }
 
 }

@@ -37,8 +37,8 @@ Main Page
 
 @section('custom-menu')
     <!-- This is create menu demo -->
-    {!! Form::create_menu_item('Thang') !!}
-    {!! Form::create_menu_item(
+    {!! Form::menu_item('Thang') !!}
+    {!! Form::menu_item(
     				'Menu 1', 
     				4, 
     				array('a', 'b', 'c', 'd'), 

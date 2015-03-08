@@ -66,11 +66,11 @@ Form::macro('button_submit', function($value = 'Submit', $class = 'btn btn-prima
 
 // Custom label 
 Form::macro('label_custom', function($content = 'label', 
-									$class = array(''), 
+									$class = '', 
 									$is_required_symbol = false){
 
 	$span = ($is_required_symbol) ? ' <span style="color: red">*</span>' : '';
-	$class = (empty($class)) ? '' : implode(' ', $class) ;
+	// $class = (empty($class)) ? '' : implode(' ', $class) ;
 
 	return $result = '<label for="type" class="' . $class . '">' . $content . $span . '</label>';
 
@@ -80,14 +80,13 @@ Form::macro('label_custom', function($content = 'label',
 // Custom combobox
 Form::macro('combobox_custom', function($name = 'combobox', 
 										$data = array(), 
-										$class = ['form-control'],
+										$class = 'form-control',
 										$is_multiple = 'true',
 										$selected = array(0)){
 
 	$multiple = ($is_multiple) ? ' multiple = "" ' : '';
-	$result = '<select class="' . implode(' ', $class) . '" id="' . $name . '" name="' . $name . '" ' . $multiple . '>';
+	$result = '<select class="' . $class . '" id="' . $name . '" name="' . $name . '" ' . $multiple . '>';
 	
-	// $result = $result . ;
 	if ($data) {
 		foreach ($data as $key => $value) {
 			if(in_array($key, $selected) )
@@ -103,9 +102,9 @@ Form::macro('combobox_custom', function($name = 'combobox',
 });
 
 // Custom help block style
-Form::macro('help_block', function($content = '', $class = array()){
+Form::macro('help_block', function($content = '', $class = ''){
 
-	return '<p name = "" class="help-block-custom ' . implode(' ', $class) . '">' . $content . '</p>';
+	return '<p class="help-block-custom ' . $class . '">' . $content . '</p>';
 });
 
 // Custom textarea
@@ -114,10 +113,10 @@ Form::macro('textarea_custom',
 						$content = '',
 						$rows = 5, 
 						$placeholder = 'Enter something...', 
-						$class = array('form-control')){
+						$class = 'form-control'){
 
 	return $result = '<textarea 
-						class = "' . implode(' ', $class) . '" 
+						class = "' . $class . '" 
 						rows = "' . $rows . '" 
 						placeholder = "' . $placeholder . '" 
 						name = "' . $name . '" 
@@ -131,15 +130,16 @@ Form::macro('image_custom', function($src = '', $alt = 'Image', $class = IMAGE_C
 });
 
 // Create custom menu item 
-Form::macro('create_menu_item', function ($menu_name = 'menu', 
-							$number_child_items = 0,
+Form::macro('menu_item', function ($menu_name = 'menu', 
+							// $number_child_items = 0,
 							$child_names = ['Menu'],
 							$child_links = ['#'],
-							$icon_menu_class = 'fa-th', 
+							$icon_menu_class = ICON_MENU_SPEED_DIAL, 
 							$is_active = 0,
 							$menu_link = '#'
 							){
-	if($number_child_items == 0 and $is_active == 0){
+	$total_items = count($child_names);
+	if($total_items == 0 and $is_active == 0){
 
 		return '<ul class="sidebar-menu">
 					<li>
@@ -148,7 +148,7 @@ Form::macro('create_menu_item', function ($menu_name = 'menu',
 						</a>
 					</li>
 				</ul>';
-	} elseif ($number_child_items == 0 and $is_active == 1) {
+	} elseif ($total_items == 0 and $is_active == 1) {
 
 		return '<ul class="sidebar-menu">
 					<li class="active">
@@ -166,19 +166,18 @@ Form::macro('create_menu_item', function ($menu_name = 'menu',
 									<i class="fa fa-angle-left pull-right"></i>
 								</a>
 							 <ul class="treeview-menu">';
-		$total_items = count($child_names);
-		for ($i = 0; $i < $total_items; $i++) {
+		
+		for ($i = 0; $i < $total_items; $i++)
 			$result = $result . '<li><a href="' . $child_links[$i] . '" style="margin-left: 10px;">
 										<i class="fa fa-angle-double-right"></i> '. $child_names[$i] .'</a></li>';
-		}
 
 		return $result . '</ul></li></ul>';
 	}
 });
 
 // Create dashboard item
-Form::macro('create_dashboard_item', function($icon_class, 
-												$color_class, 
+Form::macro('dashboard_item', function($icon_class = ICON_DOCUMENT_TEXT, 
+												$color_class = COLOR_LIME, 
 												$link = '#', 
 												$title = 'Box', 
 												$new_notify_number = 0){
@@ -204,10 +203,10 @@ Form::macro('create_dashboard_item', function($icon_class,
 });
 
 // Create navigate link
-Form::macro('create_navigate_link', function($icon_class = 'MENU_ICON_DASHBOARD', 
-												$navigate_names = array('Trang chủ'), 
-												$navigate_links = array('admin')
-												){
+Form::macro('navigate_link', function($icon_class = MENU_ICON_DASHBOARD, 
+										$navigate_names = array('Trang chủ'), 
+										$navigate_links = array('admin')
+										){
 	if (empty($navigate_names)) {
 		
 		return $result = '<ol class="breadcrumb">
@@ -226,8 +225,31 @@ Form::macro('create_navigate_link', function($icon_class = 'MENU_ICON_DASHBOARD'
 	return $result . '</ol>';
 });
 
+// Header Form for Input
+Form::macro('title_box_header', function($title){
+	
+	return '<div class="box-header">
+				<h3 class="box-title">' . $title . '</h3>
+			</div><!-- /.box-header -->';
+});
 
+// Custom <ul> for dashboard
+Form::macro('ul_custom', function($data = array(),
+									$links = array(), 
+									$new_notify_number = array(),
+									$ul_class = '', 
+									$li_class = ''){
+	$result = '<ul class="' . $ul_class . '">';
 
+	$count = count($data);
+	for($i = 0; $i < $count; $i++)
+		$result = $result . '<li class="' . $li_class . '">
+					<a href="' . $links[$i] . '">' . $data[$i] . '</a></li>';
+
+	$result = $result . '</ul';
+
+	return $result;
+});
 
 
 
