@@ -18,17 +18,12 @@ Route::get('user/form/{id?}', 'Admin\UsersController@form');
 Route::post('user/form/{id?}', ['uses' => 'Admin\UsersController@update', 'as' => 'user.update']);
 Route::resource('user', 'Admin\UsersController', ['except' => ['create', 'edit', 'store', 'show', 'update']]);
 
-Route::get('admin', array(
-    'as'    => 'dashboard',
-    'uses'	=> 'Admin\DashboardController@index'
-));
+// Dashboard
+Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
 
-Route::get('admin/manuscript/{id?}', 'Admin\ManuscriptsController@form');
-Route::post('admin/manuscript/{id?}', 
-	[
-		'as'	=>	'manuscript.update',
-		'uses'	=>	'Admin\ManuscriptsController@update'
-	]);
+// Manuscript
+Route::get('admin/manuscript/{id?}', ['as' 	=> 	'manuscript.form', 'uses' 	=> 	'Admin\ManuscriptsController@form']);
+Route::post('admin/manuscript/{id?}', ['as'	=>	'manuscript.update','uses'	=>	'Admin\ManuscriptsController@update']);
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

@@ -46,7 +46,7 @@ define('ICON_DEVELOPER', 'ion-android-developer');
 define('ICON_DISPLAY', 'ion-android-display');
 
 // Define menu icon
-define('ICON_MENU_SPEED_DIAL', 'fa fa-th');
+define('ICON_MENU_SPEED_DIAL', 'fa-th');
 define('ICON_MENU_DASHBOARD', 'fa-dashboard');
 define('ICON_MENU_SEARCH', 'fa-search');
 define('ICON_MENU_CHART', 'fa-bar-chart-o');
@@ -68,3 +68,8 @@ define('COLOR_OLIVE', 'bg-olive');
 define('COLOR_LIME', 'bg-lime');
 define('COLOR_ORANGE', 'bg-orange');
 define('COLOR_PURPLE', 'bg-purple');
+
+// Define frame type of image
+define('IMAGE_CIRCLE', 'img-circle');
+
+

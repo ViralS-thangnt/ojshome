@@ -47,10 +47,9 @@ class EloquentUserRepository extends AbstractEloquentRepository implements Manus
             // return $permissions = Constant::permission($actor);
 
             // return view('dashboard.dashboard')->with('permission', $permissions);
-        } else {
+        } 
 
-            return '';
-        }
+        return '';
     }
 
     // public function checkPermission(){

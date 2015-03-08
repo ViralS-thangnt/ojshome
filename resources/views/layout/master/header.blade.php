@@ -15,7 +15,6 @@
             <span class="icon-bar"></span>
         </a>
 
-
         <span class="title-admin">
             @yield('title-page-admin')
             <!-- Hệ thống gửi bài và phản biện trực tuyến -->
@@ -26,6 +25,7 @@
 
         <div class="navbar-right">
             <ul class="nav navbar-nav">
+
             	<li>
 	            	<span class="search-bar-admin">
 			        	<form class="search-form" action="#" method="get" >
@@ -41,21 +41,28 @@
 						</form>
 			        </span>
                 </li>
+
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
+
                         <span> @yield('username') <i class="caret"></i></span>
+
                     </a>
                     <ul class="dropdown-menu">
+
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="img/avatar3.png" class="img-circle" alt="User Image">
+                            <!-- <img src="img/avatar3.png" class="img-circle" alt="User Image"> -->
+                            @yield('user-avatar-header')
                             <p>
                                 @yield('username-info')
                                 <small>@yield('username-extra-info')</small>
+
                             </p>
                         </li>
+
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="col-xs-12 text-center">
@@ -63,6 +70,7 @@
                             </div>
                             
                         </li>
+
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
@@ -72,6 +80,7 @@
                                 <a href="#" class="btn btn-default btn-flat">Log out</a>
                             </div>
                         </li>
+
                     </ul>
                 </li>
             </ul>

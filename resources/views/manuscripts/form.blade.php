@@ -22,7 +22,7 @@ Nhập thông tin bản thảo
         {!! ErrorDisplay::getInstance()->DisplayAll($errors) !!}
 
         <div class="form-group">
-            {!! Form::label_custom('Thể loại bài viết', ['text-form-large'], true)!!}
+            {!! Form::label_custom('Thể loại bài viết', ['text-form-large'], true) !!}
 
             {!! Form::help_block('(Chọn 1 thể loại cho bản thảo)') !!}
 
