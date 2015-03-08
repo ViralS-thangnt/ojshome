@@ -101,15 +101,15 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#',
-                    '#',
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#'
+                    url('admin/manuscript'), 
+                    url('admin/manuscript/unsubmit'), 
+                    url('admin/manuscript/in_screening'), 
+                    url('admin/manuscript/in_review'), 
+                    url('admin/manuscript/in_editing'), 
+                    url('admin/manuscript/withdraw'), 
+                    url('admin/manuscript/reject'), 
+                    url('admin/manuscript/publish'), 
+                    url('admin/manuscript/all'), 
                     ]) !!}
 
     @elseif(in_array(MANAGING_EDITOR, $permissions))
@@ -126,13 +126,13 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#',
-                    '#',
-                    '#', 
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
                     ]) !!}
 
     @elseif(in_array(SCREENING_EDITOR, $permissions))
@@ -143,7 +143,7 @@ Trang chủ
                     'Sơ loại', 
                     ], 
                 [
-                    '#'
+                    url('admin/manuscript'),
                     ]) !!}
 
     @elseif(in_array(SECTION_EDITOR, $permissions))
@@ -159,12 +159,12 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#',
-                    '#',
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'), 
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript')
                     ]) !!}
 
     @elseif(in_array(CHIEF_EDITOR, $permissions))
@@ -181,13 +181,13 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#',
-                    '#',
-                    '#', 
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript')
                     ]) !!}
 
     @elseif(in_array(COPY_EDITOR, $permissions))
@@ -200,9 +200,9 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript')
                     ]) !!}
 
     @elseif(in_array(LAYOUT_EDITOR, $permissions))
@@ -215,9 +215,9 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript')
                     ]) !!}
 
     @elseif(in_array(REVIEWER, $permissions))
@@ -230,14 +230,14 @@ Trang chủ
                     'Bản thảo không nhận phản biện',
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript')
                     ]) !!}
 
 <!--  -->
     @elseif(in_array(PRODUCTION_EDITOR, $permissions))
-        {!! Form::title_box_header('Thư ký toà soạn') !!}
+        {!! Form::title_box_header('Biên tập viên xuất bản') !!}
 
         {!! Form::ul_custom(
                 [
@@ -252,19 +252,19 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#',
-                    '#',
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript')
                     ]) !!}
 
     @elseif(in_array(ADMIN, $permissions))
-        {!! Form::title_box_header('Thư ký toà soạn') !!}
+        {!! Form::title_box_header('Quản trị') !!}
 
         {!! Form::ul_custom(
                 [
@@ -279,15 +279,15 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#',
-                    '#',
-                    '#', 
-                    '#', 
-                    '#', 
-                    '#'
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript'),
+                    url('admin/manuscript')
                     ]) !!}
 
     @endif

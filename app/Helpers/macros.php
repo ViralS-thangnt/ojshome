@@ -234,8 +234,8 @@ Form::macro('title_box_header', function($title){
 });
 
 // Custom <ul> for dashboard
-Form::macro('ul_custom', function($data = array(),
-									$links = array(), 
+Form::macro('ul_custom', function($data = [ ['', ''] ],
+									// $links = array(), 
 									$new_notify_number = array(),
 									$ul_class = '', 
 									$li_class = ''){
@@ -244,7 +244,7 @@ Form::macro('ul_custom', function($data = array(),
 	$count = count($data);
 	for($i = 0; $i < $count; $i++)
 		$result = $result . '<li class="' . $li_class . '">
-					<a href="' . $links[$i] . '">' . $data[$i] . '</a></li>';
+					<a href="' . $data[$i][1] . '">' . $data[$i][0] . '</a></li>';
 
 	$result = $result . '</ul';
 
