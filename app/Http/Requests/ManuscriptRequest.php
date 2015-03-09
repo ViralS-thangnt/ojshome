@@ -26,20 +26,23 @@ class ManuscriptRequest extends Request {
 		// $this->redirectRoute = "manuscript.confirm";
 		return [
 			// 'author_comments'		=> 'required', 
-			'type'					=> 'required', 
-			'expect_journal_id'		=> 'numeric', 
-			'publish_journal_id'	=> 'numeric', 
-			'name'					=> 'required',//|max:20', 
-			'summary_vi'			=> 'required',//|min:150|max:200', 
-			'keyword_vi'			=> 'required', 
-			'summary_en'			=> 'required',//|min:150|max:200', 
-			'keyword_en'			=> 'required', 
+			// 'type'					=> 'required', 
+			// 'expect_journal_id'		=> 'numeric', 
+			
+			// 'name'					=> 'required',//|max:20', 
+			// 'summary_vi'			=> 'required',//|min:150|max:200', 
+			// 'keyword_vi'			=> 'required', 
+			// 'summary_en'			=> 'required',//|min:150|max:200', 
+			// 'keyword_en'			=> 'required', 
 			'topic'					=> 'required', 
 			'recommend'				=> '', 
 			'propose_reviewer'		=> '',
 			'co_author'				=> '', 
-			'confirm'				=> 'in:1'
+			'confirm'				=> 'in:1', 
+			// 'file_upload'			=> 'required'
 
+			// 'publish_journal_id'	=> 'numeric', 
+			
 			// 'author_id'				=> 'required', 
 			// 'file'					=> 'required',
 			// 'file_final'				=> 'required',

@@ -73,5 +73,6 @@ define('COLOR_PURPLE', 'bg-purple');
 define('IMAGE_CIRCLE', 'img-circle');
 
 // Define 
-
+define('IMAGE_PATH', '/images/');
+define('FILE_PATH', '/files/');
 

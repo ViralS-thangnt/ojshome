@@ -33,10 +33,19 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		// dd($this->model);
 		// echo 'formModify - EloquentManuscriptRepository';
 		// dd($data);
-		
+
 		$manuscript->fill($data);
 		$manuscript->save();
 
 		return $manuscript;
+	}
+
+	public function uploadFile($file_upload_path){
+		// dd($file_upload_path);
+		// if(Input::hasFile($file_upload_path)){
+			
+		// }
+		doUploadDocument();
+		
 	}
 }

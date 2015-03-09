@@ -63,5 +63,7 @@ return [
 
 	// new OJS system
 	'title_page_admin' 			=> "BẢN THẢO",
-	'manuscript_info'				=> "Thông tin bản thảo",
+	'manuscript_info'			=> "Thông tin bản thảo",
+	'validation.numeric'		=> 'Phải là số',
+	'validation.required'		=> 'Cần phải điền',
 ];

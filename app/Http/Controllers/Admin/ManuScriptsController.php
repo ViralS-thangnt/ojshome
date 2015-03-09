@@ -17,29 +17,29 @@ class ManuscriptsController extends Controller {
 	public function __construct(EloquentManuscriptRepository $repo){
 		// $this->middleware('auth');
 		$this->repo = $repo;
-        \App::setLocale(\Session::get('lang', 'en'));
+		\App::setLocale(\Session::get('lang', 'en'));
 	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function form($id = null)
-    {
-        if ($id) 
-        {
-            $manuscripts = $this->repo->getById($id);
-        } 
-        else 
-        {
-            $manuscripts = $this->repo;
-        }
-
-        // dd($manuscripts);
-        return view('manuscripts.form', compact('manuscripts', 'id'));
-    }
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function form($id = null)
+	{
+		if ($id) 
+		{
+			$manuscripts = $this->repo->getById($id);
+		} 
+		else 
+		{
+			$manuscripts = $this->repo;
+		}
+		// doUpload('fdklskaj');
+		// dd($manuscripts);
+		return view('manuscripts.form', compact('manuscripts', 'id'));
+	}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -68,6 +68,8 @@ class ManuscriptsController extends Controller {
 	public function update(ManuscriptRequest $request, $id = null)
 	{
 		// dd(Input::all());
+
+		$this->repo->uploadFile(Input::hasFile('file_upload'));
 		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
 		return redirect('/admin');

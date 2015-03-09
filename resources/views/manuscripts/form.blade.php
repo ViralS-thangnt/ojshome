@@ -5,14 +5,14 @@
 @stop
 
 @section('title')
-Nhập thông tin bản thảo
+{!! Lang::get('admin.manuscript_info') !!}
 @stop
 
 <!-- Content -->
 @section('content')
 
 <!-- form start -->   
-{!! Form::model($manuscripts, ['route' => ['manuscript.update', $id]]) !!}
+{!! Form::model($manuscripts, ['route' => ['manuscript.update', $id], 'enctype' => 'multipart/form-data'] ) !!}
 
 <!-- <div class="box box-primary"> -->
 {!! Form::div_open('box box-primary padding-box') !!}
