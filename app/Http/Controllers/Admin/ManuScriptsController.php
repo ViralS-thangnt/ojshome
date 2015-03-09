@@ -17,38 +17,46 @@ class ManuscriptsController extends Controller {
 	public function __construct(EloquentManuscriptRepository $repo){
 		// $this->middleware('auth');
 		$this->repo = $repo;
+        \App::setLocale(\Session::get('lang', 'en'));
 	}
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function form($id = null)
+    {
+        if ($id) 
+        {
+            $manuscripts = $this->repo->getById($id);
+        } 
+        else 
+        {
+            $manuscripts = $this->repo;
+        }
+
+        // dd($manuscripts);
+        return view('manuscripts.form', compact('manuscripts', 'id'));
+    }
 
 	/**
-	 * Show the form for editing the specified resource.
+	 * Store a newly created resource in storage.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function form($id = null)
-	{
-		// dd(Input::all());
-		if ($id) 
-		{
-			$manuscripts = $this->repo->getById($id);
-		} 
-		else 
-		{
-			$manuscripts = $this->repo;
-		}
-
-		// dd($manuscripts);
-		return view('manuscripts.form', compact('manuscripts', 'id'));
-	}
-
-
-	// public function confirm()
+	// public function store(ManuscriptRequest $request)
 	// {
-	// 	// echo 'djklsa;fjl;';
-	// 	echo 'confirm';
-	// 	dd($request);
+	// 	Session::put('user_login_id', '1');		//Only for test - User logined
+	// 	dd(Input::all());
+		
+	// 	$this->repo->create(
+	// 		array_merge(
+	// 			Input::except('_token', 'publish_journal_id'), 
+	// 			['author_id' => Session::get('user_login_id')]));
 
-	// 	return view('manuscripts.confirm')->with('data', Input::all());
+	// 	return 'Success';
 	// }
 
 	/**
@@ -59,8 +67,7 @@ class ManuscriptsController extends Controller {
 	 */
 	public function update(ManuscriptRequest $request, $id = null)
 	{
-		// dd(Input::all());
-		$this->repo->formModify(Input::except('_token'), $id);
+		$this->repo->formModify(Input::all(), $id);
 
 		return redirect('/admin');
 	}
