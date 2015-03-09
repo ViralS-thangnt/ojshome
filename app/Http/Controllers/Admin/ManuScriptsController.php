@@ -69,7 +69,7 @@ class ManuscriptsController extends Controller {
 	{
 		// dd(Input::all());
 
-		$this->repo->uploadFile(Input::hasFile('file_upload'));
+		dd($this->repo->uploadFile(Input::hasFile('file_upload')));
 		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
 		return redirect('/admin');

@@ -28,7 +28,6 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		else 
 		{
 			$manuscript = $this->model;
-
 		}
 		// dd($this->model);
 		// echo 'formModify - EloquentManuscriptRepository';
@@ -40,12 +39,12 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		return $manuscript;
 	}
 
-	public function uploadFile($file_upload_path){
-		// dd($file_upload_path);
-		// if(Input::hasFile($file_upload_path)){
+	public function uploadFile(){
+		if(doUploadDocument()){
 			
-		// }
-		doUploadDocument();
-		
+			return $_FILES["file"]["name"];
+		}
+
+		return '';
 	}
 }

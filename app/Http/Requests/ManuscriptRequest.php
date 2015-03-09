@@ -34,11 +34,11 @@ class ManuscriptRequest extends Request {
 			// 'keyword_vi'			=> 'required', 
 			// 'summary_en'			=> 'required',//|min:150|max:200', 
 			// 'keyword_en'			=> 'required', 
-			'topic'					=> 'required', 
+			// 'topic'					=> 'required', 
 			'recommend'				=> '', 
 			'propose_reviewer'		=> '',
 			'co_author'				=> '', 
-			'confirm'				=> 'in:1', 
+			// 'confirm'				=> 'in:1', 
 			// 'file_upload'			=> 'required'
 
 			// 'publish_journal_id'	=> 'numeric', 

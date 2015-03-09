@@ -122,11 +122,11 @@ function doUploadDocument(){
 	// dd($_FILES["file"]["tmp_name"]);
 	// dd(file_exists($target_file));
 
-	// // Check file size
-	// if ($_FILES["fileToUpload"]["size"] > 500000) {
-	//     echo "Sorry, your file is too large.";
-	//     $uploadOk = 0;
-	// }
+	// Check file size
+	if ($_FILES["file"]["size"] > 500000) {
+	    echo "Sorry, your file is too large.";
+	    $uploadOk = 0;
+	}
 	// // Allow certain file formats
 	// if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 	// && $imageFileType != "gif" ) {
@@ -145,9 +145,11 @@ function doUploadDocument(){
 
 		if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 			echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+			$uploadOk = 1;
 		} else {
 			echo "Sorry, there was an error uploading your file.";
+			$uploadOk = 0;
 		}
 	}
-	dd('success');
+	return $uploadOk;
 }
