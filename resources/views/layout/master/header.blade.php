@@ -21,7 +21,7 @@
             <!-- Journal Open Source -->
         </span>
 
-        
+
 
         <div class="navbar-right">
             <ul class="nav navbar-nav">
@@ -41,6 +41,16 @@
 						</form>
 			        </span>
                 </li>
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <select name="locale" id="chose_locale">
+                        <option value="en">English</option>
+                        <option value="fr">Francai</option>
+                        <option value="ja">日本</option>
+                        <option value="vi">Tiếng Việt</option>
+                    </select>
+                </li><!-- end dropdown user locales -->                
 
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
@@ -88,3 +98,34 @@
 
     </nav><!-- end navbar navbar-static-top -->
 </header>
+
+<script type="text/javascript">
+
+    function setLocale(lang) {
+       $.ajax({
+            url: "{{ route("admin.setLocale") }}",
+            enctype: 'multipart/form-data',
+            type: 'GET',
+            data: 'lang='+lang,
+            cache: false,
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function(data) {
+                   location.reload();
+            },
+            error: function() {
+                    // Handle errors here
+            }, 
+            async: false
+        });
+    }
+
+    function getSelectedLocale() {
+        return $('#chose_locale option:selected').val();
+    }
+
+    $('#chose_locale').change(function() {
+        setLocale(getSelectedLocale());
+    });
+
+</script>

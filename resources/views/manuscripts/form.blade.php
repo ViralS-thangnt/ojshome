@@ -1,7 +1,7 @@
 @extends('layout.master.master')
 
 @section('title-page-admin')
-BẢN THẢO
+{!! Lang::get('admin.title_page_admin') !!}
 @stop
 
 @section('title')
@@ -19,7 +19,7 @@ Nhập thông tin bản thảo
 	
 	<!-- box-header -->
 	{!! Form::div_open('box-header') !!}
-		{!! Form::h_custom(3, 'Thông tin bản thảo', 'box-title') !!}
+		{!! Form::h_custom(3, Lang::get('admin.manuscript_info'), 'box-title') !!}
 	{!! Form::div_close() !!}<!-- /.box-header -->
 	
 	
