@@ -40,4 +40,17 @@ class DashboardController extends Controller {
 	// 	return view('dashboard.dashboard')->with('permissions', $permissions);
 	// }
 
+
+    public function setLocale() {
+        // TODO check lang is valid or exist
+    	$lang = $_GET['lang'];
+
+        if($lang != '') {
+            \Session::put('lang', $lang);
+            \App::setLocale($lang);
+            return json_encode($lang);
+        }
+        return json_encode($lang);
+    }
+
 }

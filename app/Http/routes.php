@@ -19,7 +19,9 @@ Route::post('user/form/{id?}', ['uses' => 'Admin\UsersController@update', 'as' =
 Route::resource('user', 'Admin\UsersController', ['except' => ['create', 'edit', 'store', 'show', 'update']]);
 
 // Dashboard
-Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
+Route::get('admin', ['as'   =>  'dashboard', 'uses' =>  'Admin\DashboardController@index']);
+// Route::post('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
+Route::get('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
 // Route::get('admin/author', ['as'	=>	'author.dashboard', 'uses'	=>	'Admin\DashboardController@index']);
 
 // Manuscript

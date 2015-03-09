@@ -1,7 +1,7 @@
 @extends('layout.master.master')
 
 @section('title-page-admin')
-BẢN THẢO
+{!! Lang::get('admin.title_page_admin') !!}
 @stop
 
 @section('title')
@@ -14,7 +14,7 @@ Nhập thông tin bản thảo
 <div class="box box-primary">
 
     <div class="box-header">
-        <h3 class="box-title">Thông tin bản thảo</h3>
+        <h3 class="box-title">@lang('admin.manuscript_info')</h3>
     </div><!-- /.box-header -->
 
     <!-- form start -->   
