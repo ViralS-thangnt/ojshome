@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        
         <title>Admin Page</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <!-- Custom style -->
         <link href="{{ url('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
@@ -69,10 +69,12 @@
     <body class="skin-blue">
         @include('layout.master.header')
 
-        <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 648px;">
+        <!-- <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 648px;"> -->
+        {!! Form::div_open('wrapper row-offcanvas row-offcanvas-left wrapper-frame-master') !!}
             @include('layout.master.left')
             @include('layout.master.right')
-        </div>
+        {!! Form::div_close() !!}
+
         @include('layout.master.footer')
 
     </body>

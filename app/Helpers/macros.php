@@ -211,7 +211,7 @@ Form::macro('navigate_link', function($icon_class = MENU_ICON_DASHBOARD,
 		
 		return $result = '<ol class="breadcrumb">
 							<li><a href="' . (empty($navigate_links) ? '' : $navigate_links[0]) . '"><i class="fa ' . $icon_class . '">
-								</i> Trang chủ</a></li></ol>dsaljfdlks;àlkd;';
+								</i> Trang chủ</a></li></ol>';
 	} 
 
 	$result = '<ol class="breadcrumb">
@@ -234,26 +234,38 @@ Form::macro('title_box_header', function($title){
 });
 
 // Custom <ul> for dashboard
-Form::macro('ul_custom', function($data = [ ['', ''] ],
-									// $links = array(), 
+Form::macro('ul_custom', function($data = [''],
+									$links = array(), 
 									$new_notify_number = array(),
 									$ul_class = '', 
 									$li_class = ''){
 	$result = '<ul class="' . $ul_class . '">';
-
 	$count = count($data);
 	for($i = 0; $i < $count; $i++)
 		$result = $result . '<li class="' . $li_class . '">
-					<a href="' . $data[$i][1] . '">' . $data[$i][0] . '</a></li>';
+					<a href="' . $links[$i] . '">' . $data[$i] . '</a></li>';
 
 	$result = $result . '</ul';
 
 	return $result;
 });
 
+// Custom div
+Form::macro('div_open', function($class = '', $id = ''){
 
+	return '<div class="' . $class . '" ' . (empty($id) ?  '' : $id ) . '>';
+});
 
+Form::macro('div_close', function(){
 
+	return '</div>';
+});
+
+// Custom <h>
+Form::macro('h_custom', function($level_number = 3, $content = '', $class = ''){
+
+	return '<h' . $level_number . ' class="' . $class . '">' . $content . '</h' . $level_number . '>';
+});
 
 
 

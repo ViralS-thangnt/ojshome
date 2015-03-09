@@ -45,6 +45,18 @@
 .padding-box{
 	padding-bottom: 25px;
 }
+
+.margin-box-input{
+	margin: 15px
+}
+
+.wrapper-frame-master{
+	min-height: 648px;
+}
+
+.error{
+	color: red;
+}
 /*.user-show{
 	float: right;
 }*/

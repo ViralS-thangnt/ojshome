@@ -20,37 +20,14 @@ Route::resource('user', 'Admin\UsersController', ['except' => ['create', 'edit',
 
 // Dashboard
 Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
-// Route::get('admin/author', ['as'	=>	'author.dashboard', 'uses'	=>	'Admin\DashboardController@index']);
+Route::get('admin/user', ['as'	=>	'user.dashboard', 'uses'	=>	'Admin\DashboardController@user_dashboard']);
 
 // Manuscript
 Route::get('admin/manuscript/{id?}', ['as' 	=> 	'manuscript.form', 'uses' 	=> 	'Admin\ManuscriptsController@form']);
 Route::post('admin/manuscript/{id?}', ['as'	=>	'manuscript.update','uses'	=>	'Admin\ManuscriptsController@update']);
+// Route::get('admin/manuscript-confirm', ['as'	=>	'manuscript.confirm', 'uses'	=> 'Admin\ManuscriptsController@confirm']);
 
 Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
 ]);
-
-// Route::resource('admin/manuscript', 'Admin\ManuscriptsController',
-// 		[
-// 			'names'		=> [
-// 					'create'	=>	'manuscript.create',
-// 					'index'		=>	'manuscript.index',
-// 					'store'		=>	'manuscript.store',
-// 					'edit'		=>	'manuscript.edit',
-// 					'update'	=>	'manuscript.update',
-// 					'destroy'	=>	'manuscript.destroy',
-// 					'show'		=>	'manuscript.show'
-// 					],
-// 			'except'	=> [
-// 					'index',
-// 					// 'create',
-// 					// 'store',
-// 					'destroy',
-// 					'edit',
-// 					'update',
-// 					'show',
-// 					''
-// 					]
-// 		]
-// 	);
