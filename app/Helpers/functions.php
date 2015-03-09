@@ -88,3 +88,11 @@ function doUpload($file)
 
     return $filename;
 }
+
+function doUploadDocument($file){
+	$filename           = $file->getClientOriginalName();
+    $destination_path   = public_path(IMAGE_PATH);
+    $file->move($destination_path, $filename);
+
+    return $filename;
+}

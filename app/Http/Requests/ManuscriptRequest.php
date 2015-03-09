@@ -38,6 +38,7 @@ class ManuscriptRequest extends Request {
 			'recommend'				=> '', 
 			'propose_reviewer'		=> '',
 			'co_author'				=> '', 
+			'confirm'				=> 'in:1'
 
 			// 'author_id'				=> 'required', 
 			// 'file'					=> 'required',

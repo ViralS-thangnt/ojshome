@@ -60,7 +60,7 @@ class ManuscriptsController extends Controller {
 	public function update(ManuscriptRequest $request, $id = null)
 	{
 		// dd(Input::all());
-		$this->repo->formModify(Input::except('_token'), $id);
+		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
 		return redirect('/admin');
 	}
