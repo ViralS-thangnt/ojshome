@@ -3,7 +3,7 @@
 use App\Book;
 use App\Lib\Prototype\DbClasses\Eloquent\EloquentBookRepository;
 
-class UserTest extends TestCase {
+class BookTest extends TestCase {
 
     /**
      * A basic functional test example.
