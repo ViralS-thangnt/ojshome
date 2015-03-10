@@ -31,8 +31,6 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		
-		return 'alsdjfklsadf';
 		return view('welcome');
 	}
 

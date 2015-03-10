@@ -35,7 +35,7 @@
 
             {!! Form::input_text('password_confirmation', 'Password Confirm', 'password') !!}
 
-            {!! Form::input_check('actor_no', Constant::$actor) !!}
+            {!! Form::multi_check('actor_no', Constant::$actor) !!}
         </div>
 
         <div class="col-xs-12 col-md-6">
