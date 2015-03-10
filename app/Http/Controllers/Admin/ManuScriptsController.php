@@ -41,23 +41,6 @@ class ManuscriptsController extends Controller {
 		return view('manuscripts.form', compact('manuscripts', 'id'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	// public function store(ManuscriptRequest $request)
-	// {
-	// 	Session::put('user_login_id', '1');		//Only for test - User logined
-	// 	dd(Input::all());
-		
-	// 	$this->repo->create(
-	// 		array_merge(
-	// 			Input::except('_token', 'publish_journal_id'), 
-	// 			['author_id' => Session::get('user_login_id')]));
-
-	// 	return 'Success';
-	// }
 
 	/**
 	 * Update the specified resource in storage.
@@ -69,7 +52,7 @@ class ManuscriptsController extends Controller {
 	{
 		// dd(Input::all());
 
-		dd($this->repo->uploadFile(Input::hasFile('file_upload')));
+		$this->repo->uploadFile(Input::hasFile('file_upload'));
 		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
 		return redirect('/admin');
