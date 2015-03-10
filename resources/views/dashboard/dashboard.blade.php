@@ -56,6 +56,7 @@ Trang chủ
 
 <!-- Main content -->
 @section('content')
+
 {!! Form::div_open('row', 'margin-box-input') !!}
 
 	<!-- This is demo for dashboard -->

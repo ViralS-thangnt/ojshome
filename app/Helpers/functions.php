@@ -26,7 +26,7 @@ function doUpload($file, $path = IMAGE_PATH)
 
 function doUploadDocument(){
 	$target_dir = public_path() . FILE_PATH . $_FILES["file"]["tmp_name"] ;
-	$target_file = $target_dir . basename($_FILES["file"]["name"]);
+	$target_file = $target_dir . '/' . basename($_FILES["file"]["name"]);
 	$uploadOk = 1;
 
 	// Check if file already exists
