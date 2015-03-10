@@ -38,7 +38,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $user = User::find($id);
         if($user)
 
-            return $user->per_no;
+            return $user->actor_no;
 
         return '';
     }

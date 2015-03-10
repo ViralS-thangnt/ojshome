@@ -26,7 +26,7 @@ class DashboardController extends Controller {
 		Session::put('user_login_id', '1');		// Only For test - User logined
 
 		$permissions = $this->userRepo->getPermission();
-
+		// dd($permissions);
 		return view('dashboard.dashboard')->with('permissions', $permissions);
 	}
 
@@ -37,25 +37,12 @@ class DashboardController extends Controller {
 	 */
 	public function user_dashboard()
 	{	
-
 		Session::put('user_login_id', '1');		// Only For test - User logined
-		// dd('dsfklafdlsajkl');
 
 		$permissions = $this->userRepo->getPermission();
 
 		return view('dashboard.user-dashboard')->with('permissions', $permissions);
 	}
-	
-
-	// public function show()
-	// {	
-	// 	// Session::put('user_login_id', '1');		//Only For test - User logined
-
-	// 	// $permissions = $this->userRepo->getPermission();
-
-	// 	return view('dashboard.dashboard')->with('permissions', $permissions);
-	// }
-
 
     public function setLocale() {
         // TODO check lang is valid or exist

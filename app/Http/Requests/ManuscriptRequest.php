@@ -22,10 +22,16 @@ class ManuscriptRequest extends Request {
 	 */
 	public function rules()
 	{
-		// dd(Input::all());
+
+		$keyword_vi = empty(Input::get('keyword_vi')) ? null : implode(',', Input::get('keyword_vi')); 
+		$keyword_en = empty(Input::get('keyword_en')) ? null : implode(',', Input::get('keyword_en')); 
+		$type = empty(Input::get('type')) ? null : implode(',', Input::get('type'));
+
+		Input::merge(['keyword_vi' => $keyword_vi, 'keyword_en' => $keyword_en, 'type' => $type]);
+
 		// $this->redirectRoute = "manuscript.confirm";
 		return [
-			'author_comments'		=> 'required', 
+			// 'author_comments'		=> 'required', 
 			'type'					=> 'required', 
 			'expect_journal_id'		=> 'numeric', 
 			
@@ -38,11 +44,10 @@ class ManuscriptRequest extends Request {
 			'recommend'				=> '', 
 			'propose_reviewer'		=> '',
 			'co_author'				=> '', 
-			// 'confirm'				=> 'in:1', 
-			// 'file_upload'			=> 'required'
+			'confirm'				=> 'in:1', 
+			'file'					=> 'required'
 
 			// 'publish_journal_id'	=> 'numeric', 
-			
 			// 'author_id'				=> 'required', 
 			// 'file'					=> 'required',
 			// 'file_final'				=> 'required',

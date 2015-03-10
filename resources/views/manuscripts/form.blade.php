@@ -32,7 +32,7 @@
 
 			{!! Form::help_block('(Chọn 1 thể loại cho bản thảo)') !!}
 
-			{!! Form::combobox_custom('type', Constant::list_degree(), 'form-control', false) !!}
+			{!! Form::combobox_custom('type', ['A', 'B', 'C', 'D', 'E', 'F'], 'form-control', false) !!}
 		{!! Form::div_close() !!}
 
 
@@ -48,7 +48,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Tóm tắt Tiếng Việt', 'text-form-large', true)!!}
 
-			{!! Form::help_block('Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ)') !!}
+			{!! Form::help_block('(Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ)') !!}
 
 			{!! Form::textarea_custom('summary_vi', '', 5, '(Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...' ) !!}
 			
@@ -60,7 +60,7 @@
 
 			{!! Form::help_block('(Tối đa 3 - 5 từ khoá)') !!}
 
-			{!! Form::combobox_custom('keyword_vi', Constant::list_degree(), 'form-control', true ) !!}
+			{!! Form::combobox_custom('keyword_vi', ['A', 'B', 'C', 'D', 'E', 'F'], 'form-control', true ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -68,7 +68,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Tóm tắt Tiếng Anh', 'text-form-large', true)!!}
 
-			{!! Form::help_block('Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ)') !!}
+			{!! Form::help_block('(Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ)') !!}
 
 			{!! Form::textarea_custom('summary_en', '', 5, 'Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ ...' ) !!}
 			
@@ -80,7 +80,7 @@
 
 			{!! Form::help_block('(Tối đa 3 - 5 từ khoá)') !!}
 
-			{!! Form::combobox_custom('keyword_en', Constant::list_degree(), 'form-control', true ) !!}
+			{!! Form::combobox_custom('keyword_en', ['A', 'B', 'C', 'D', 'E', 'F'], 'form-control', true ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -143,7 +143,7 @@
 
 			{!! Form::help_block('(Bạn hãy ghi rõ thông tin của đồng tác giả nếu có)') !!}
 
-			{!! Form::textarea_custom('expect_journal_id', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
+			{!! Form::textarea_custom('co_author', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
 		
 		{!! Form::div_close() !!}
 
@@ -194,8 +194,10 @@
 
 {!! Form::div_close() !!}<!-- /.box box-primary -->
 	
+
 <!-- Submit	 -->
 {!! Form::submit('Gửi bài', ['class' => 'btn btn-primary']) !!}
 
+<!-- End form -->
 {!! Form::close() !!}
 @stop

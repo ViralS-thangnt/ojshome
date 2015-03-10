@@ -28,16 +28,13 @@ class ManuscriptsController extends Controller {
 	 */
 	public function form($id = null)
 	{
-		if ($id) 
-		{
+		if ($id) {
 			$manuscripts = $this->repo->getById($id);
 		} 
 		else 
 		{
 			$manuscripts = $this->repo;
 		}
-		// doUpload('fdklskaj');
-		// dd($manuscripts);
 		return view('manuscripts.form', compact('manuscripts', 'id'));
 	}
 
@@ -50,23 +47,9 @@ class ManuscriptsController extends Controller {
 	 */
 	public function update(ManuscriptRequest $request, $id = null)
 	{
-		// dd(Input::all());
-
-		$this->repo->uploadFile(Input::hasFile('file_upload'));
+		$this->repo->uploadFile();
 		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
 		return redirect('/admin');
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	// public function destroy($id)
-	// {
-	// 	//
-	// }
-
 }
