@@ -1,5 +1,5 @@
 @extends('layout.master.master')
-<!-- Page Title -->
+<!-- Page Title --> 
 @section('title')
 
 @if($id)
@@ -27,15 +27,15 @@
 
             {!! Form::input_text('email', 'Email', 'email') !!}
 
-            {!! Form::input_select('degree_id', 'Degree', Constant::list_degree()) !!}
+            {!! Form::input_select('degree_id', 'Degree', Constant::$degree) !!}
 
-            {!! Form::input_select('academic_id', 'Academic', Constant::list_academic()) !!}
+            {!! Form::input_select('academic_id', 'Academic', Constant::$academic) !!}
 
             {!! Form::input_text('password', 'Password', 'password') !!}
 
             {!! Form::input_text('password_confirmation', 'Password Confirm', 'password') !!}
 
-            {!! Form::input_check('actor_no', Constant::list_actors()) !!}
+            {!! Form::input_check('actor_no', Constant::$actor) !!}
         </div>
 
         <div class="col-xs-12 col-md-6">

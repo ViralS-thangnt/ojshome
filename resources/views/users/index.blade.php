@@ -24,7 +24,7 @@
     <tr>
         <td>{{$user->username}}</td>
         <td>{{$user->email}}</td>
-        <td>{{Constant::actor($user->actor_no)}}</td>
+        <td>{{actor($user->actor_no)}}</td>
         @if($user->actor_no != ADMIN)
         <td><a href="{!! url('admin/user/form/'. $user->id) !!}">Edit</a></td>
         <td><a href="{!! url('admin/user/'. $user->id) !!}" class="delete">Delete</a></td>

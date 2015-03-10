@@ -3,7 +3,7 @@
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Lib\Prototype\DbClasses\Eloquent\EloquentUserRepository;
-use Constant;
+//use Constant;
 use Input;
 
 use Illuminate\Http\Request;
