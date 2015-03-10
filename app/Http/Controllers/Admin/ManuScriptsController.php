@@ -17,47 +17,30 @@ class ManuscriptsController extends Controller {
 	public function __construct(EloquentManuscriptRepository $repo){
 		// $this->middleware('auth');
 		$this->repo = $repo;
-        \App::setLocale(\Session::get('lang', 'en'));
+		\App::setLocale(\Session::get('lang', 'en'));
 	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function form($id = null)
-    {
-        if ($id) 
-        {
-            $manuscripts = $this->repo->getById($id);
-        } 
-        else 
-        {
-            $manuscripts = $this->repo;
-        }
-
-        // dd($manuscripts);
-        return view('manuscripts.form', compact('manuscripts', 'id'));
-    }
-
 	/**
-	 * Store a newly created resource in storage.
+	 * Show the form for editing the specified resource.
 	 *
+	 * @param  int  $id
 	 * @return Response
 	 */
-	// public function store(ManuscriptRequest $request)
-	// {
-	// 	Session::put('user_login_id', '1');		//Only for test - User logined
-	// 	dd(Input::all());
-		
-	// 	$this->repo->create(
-	// 		array_merge(
-	// 			Input::except('_token', 'publish_journal_id'), 
-	// 			['author_id' => Session::get('user_login_id')]));
+	public function form($id = null)
+	{
+		if ($id) 
+		{
+			$manuscripts = $this->repo->getById($id);
+		} 
+		else 
+		{
+			$manuscripts = $this->repo;
+		}
+		// doUpload('fdklskaj');
+		// dd($manuscripts);
+		return view('manuscripts.form', compact('manuscripts', 'id'));
+	}
 
-	// 	return 'Success';
-	// }
 
 	/**
 	 * Update the specified resource in storage.
@@ -67,7 +50,10 @@ class ManuscriptsController extends Controller {
 	 */
 	public function update(ManuscriptRequest $request, $id = null)
 	{
-		$this->repo->formModify(Input::all(), $id);
+		// dd(Input::all());
+
+		$this->repo->uploadFile(Input::hasFile('file_upload'));
+		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
 		return redirect('/admin');
 	}

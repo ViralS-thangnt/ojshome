@@ -83,20 +83,8 @@ Form::macro('combobox_custom', function($name = 'combobox',
 										$class = 'form-control',
 										$is_multiple = 'true',
 										$selected = array(0)){
-
-	$multiple = ($is_multiple) ? ' multiple = "" ' : '';
-	$result = '<select class="' . $class . '" id="' . $name . '" name="' . $name . '" ' . $multiple . '>';
-	
-	if ($data) {
-		foreach ($data as $key => $value) {
-			if(in_array($key, $selected) )
-				$result = $result . '<option value="' . $key . '" selected >' . $value . '</option>';
-			else 
-				$result = $result . '<option value="' . $key . '" >' . $value . '</option>';
-		}
-	}
-
-	$result = $result . "</select>";
+	$multiple = ($is_multiple) ? ' multiple ' : '';
+	$result = Form::select($name, $data, null, ['class' => $class, 'multiple' => $multiple, 'name' => $name . '[]']);
 
 	return $result;
 });
@@ -114,13 +102,12 @@ Form::macro('textarea_custom',
 						$rows = 5, 
 						$placeholder = 'Enter something...', 
 						$class = 'form-control'){
+	if ($rows == 1) {
 
-	return $result = '<textarea 
-						class = "' . $class . '" 
-						rows = "' . $rows . '" 
-						placeholder = "' . $placeholder . '" 
-						name = "' . $name . '" 
-						id = "' . $name . '">' . $content . '</textarea>';
+		return $result = Form::text($name, $content, ['class' => $class, 'placeholder' => $placeholder]);
+	} 
+
+	return $result = Form::textarea($name, $content, ['class' => $class, 'placeholder' => $placeholder, 'rows' => $rows]);
 });
 
 // Custom image
@@ -239,11 +226,20 @@ Form::macro('ul_custom', function($data = [''],
 									$new_notify_number = array(),
 									$ul_class = '', 
 									$li_class = ''){
+	
 	$result = '<ul class="' . $ul_class . '">';
+	$count_links = count($links);
 	$count = count($data);
+	if (empty(count($links))) {
+		for($i = 0; $i < $count; $i++)
+			$result = $result . '<li class="' . $li_class . '">' . $data[$i] . '</li>';
+
+		return $result;
+	}
+	
 	for($i = 0; $i < $count; $i++)
-		$result = $result . '<li class="' . $li_class . '">
-					<a href="' . $links[$i] . '">' . $data[$i] . '</a></li>';
+		if($count_links >= $i)
+			$result = $result . '<li class="' . $li_class . '"><a href="' . $links[$i] . '">' . $data[$i] . '</a></li>';
 
 	$result = $result . '</ul';
 

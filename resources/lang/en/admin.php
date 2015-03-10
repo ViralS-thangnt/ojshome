@@ -68,6 +68,7 @@ return [
 
 	// new OJS system
 	'title_page_admin' 			=> "DRAFT",
-	'manuscript_info'				=> "Manuscript infomation",
-
+	'manuscript_info'			=> "Manuscript infomation",
+	'validation.numeric'		=> 'Field data must is numeric',
+	'validation.required'		=> 'Field data is require',
 ];
