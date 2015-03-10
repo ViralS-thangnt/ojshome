@@ -28,15 +28,23 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		else 
 		{
 			$manuscript = $this->model;
-
 		}
 		// dd($this->model);
 		// echo 'formModify - EloquentManuscriptRepository';
 		// dd($data);
-		
+
 		$manuscript->fill($data);
 		$manuscript->save();
 
 		return $manuscript;
+	}
+
+	public function uploadFile(){
+		if(doUploadDocument()){
+			
+			return $_FILES["file"]["name"];
+		}
+
+		return '';
 	}
 }
