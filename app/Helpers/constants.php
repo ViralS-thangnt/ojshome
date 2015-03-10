@@ -30,6 +30,9 @@ define('CREATE_USER', 4);
 define('UPDATE_USER', 5);
 define('DELETE_USER', 6);
 
+//define message type
+define('SUCCESS_MESSAGE', 'success-message');
+
 // Define box icon 
 define('ICON_PEOPLE', 'ion-ios7-people');
 define('ICON_CHATBOX', 'ion-ios7-chatboxes');
@@ -72,7 +75,9 @@ define('COLOR_PURPLE', 'bg-purple');
 // Define frame type of image
 define('IMAGE_CIRCLE', 'img-circle');
 
-// Define 
+// Define paths
 define('IMAGE_PATH', '/images/');
 define('FILE_PATH', '/files/');
+
+define('FILE_SIZE_MAX', 50000);
 

@@ -8,7 +8,7 @@
 
 <!-- Main content -->
 @section('content')
-<a href="{!! url('user/form') !!}">Create new user</a>
+<a href="{!! url('admin/user/form') !!}">Create new user</a>
 <table class="table">
 <thead>
     <tr>
@@ -24,9 +24,14 @@
     <tr>
         <td>{{$user->username}}</td>
         <td>{{$user->email}}</td>
-        <td>{{Constant::actor($user->per_no)}}</td>
-        <td><a href="{!! url('user/form/'. $user->id) !!}">Edit</a></td>
-        <td><a href="{!! url('user/'. $user->id) !!}" class="delete">Delete</a></td>
+        <td>{{actor($user->actor_no)}}</td>
+        @if($user->actor_no != ADMIN)
+        <td><a href="{!! url('admin/user/form/'. $user->id) !!}">Edit</a></td>
+        <td><a href="{!! url('admin/user/'. $user->id) !!}" class="delete">Delete</a></td>
+        @else
+        <td></td>
+        <td></td>
+        @endif
     </tr>
     @endforeach
 </tbody>

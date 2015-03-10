@@ -3,7 +3,7 @@
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Lib\Prototype\DbClasses\Eloquent\EloquentUserRepository;
-use Constant;
+use Illuminate\Support\Facades\Session;
 use Input;
 
 use Illuminate\Http\Request;
@@ -51,7 +51,7 @@ class UsersController extends Controller
     {
         $this->userRepo->formModify(Input::all(), $id);
 
-        return redirect('/user');
+        return redirect('admin/user');
     }
 
     /**
@@ -62,6 +62,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        
+        $this->userRepo->delete($id);
+        Session::flash(SUCCESS_MESSAGE, 'Delete user successfully');
+
+        return redirect('admin/user');
     }
 }

@@ -32,7 +32,7 @@
 
 			{!! Form::help_block('(Chọn 1 thể loại cho bản thảo)') !!}
 
-			{!! Form::combobox_custom('type', Constant::list_degree(), 'form-control', false) !!}
+			{!! Form::combobox_custom('type', ['A', 'B', 'C', 'D', 'E', 'F'], 'form-control', false) !!}
 		{!! Form::div_close() !!}
 
 
@@ -60,7 +60,7 @@
 
 			{!! Form::help_block('(Tối đa 3 - 5 từ khoá)') !!}
 
-			{!! Form::combobox_custom('keyword_vi', Constant::list_degree(), 'form-control', true ) !!}
+			{!! Form::combobox_custom('keyword_vi', ['A', 'B', 'C', 'D', 'E', 'F'], 'form-control', true ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -80,7 +80,7 @@
 
 			{!! Form::help_block('(Tối đa 3 - 5 từ khoá)') !!}
 
-			{!! Form::combobox_custom('keyword_en', Constant::list_degree(), 'form-control', true ) !!}
+			{!! Form::combobox_custom('keyword_en', ['A', 'B', 'C', 'D', 'E', 'F'], 'form-control', true ) !!}
 			
 		{!! Form::div_close() !!}
 

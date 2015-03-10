@@ -11,4 +11,5 @@ interface BaseInterface {
     public function has($relation, array $with = array());
     public function create($data);
     public function formModify($data, $id = null);
+    public function delete($id);
 }

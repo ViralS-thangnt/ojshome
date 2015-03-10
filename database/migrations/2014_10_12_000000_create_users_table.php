@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration {
 			$table->string('nation');
 			$table->string('research_area');
 			$table->string('research');
-			$table->string('per_no');
+			$table->string('actor_no');
 			$table->rememberToken();
 			$table->timestamps();
 		});

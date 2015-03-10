@@ -23,8 +23,8 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
             $user = $this->model;
         }
 
-        if($data['per_no']) {
-            $data['per_no'] = implode(',', $data['per_no']);
+        if ($data['actor_no']) {
+            $data['actor_no'] = implode(',', $data['actor_no']);
         }
 
         $data['password'] = sha1($data['password']);
@@ -33,33 +33,14 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
         $user->save();
     }
 
-    public function getPermission(){
-        if(Session::has('user_login_id')){
-            $per_no = User::getPermissionById(Session::get('user_login_id'));
-
-            return explode(',', $per_no);
-
-            // return $per_arr = explode(',', $per_no);
-
-            // $actor = Constant::actor($per_no);
-
-            // return $permissions = Constant::permission($actor);
-
-            // return view('dashboard.dashboard')->with('permission', $permissions);
-        } 
+    public function getPermission()
+    {
+        if (Session::has('user_login_id')) {
+            $actor_no = User::getPermissionById(Session::get('user_login_id'));
+            
+            return explode(',', $actor_no);
+        }
 
         return '';
     }
-
-    // public function checkPermission(){
-    //     if(Session::has('user_login_id')){
-    //         $per_no = User::getPermissionById(Session::get('user_login_id'));
-
-    //         return explode(',', $per_no);
-    //     } else {
-
-    //         return '';
-    //     }
-    // }
-
 }

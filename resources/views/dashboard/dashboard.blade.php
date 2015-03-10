@@ -67,7 +67,7 @@ Trang chủ
 		{!! Form::dashboard_item(ICON_CHATBOX, COLOR_RED, url('admin/user-dashboard'), 'Phản biện', 150); !!}
 	@endif
 
-	@if(Constant::has_permission([CHIEF_EDITOR, MANAGING_EDITOR, SCREENING_EDITOR, SECTION_EDITOR, COPY_EDITOR, LAYOUT_EDITOR], $permissions))
+	@if(has_permission([CHIEF_EDITOR, MANAGING_EDITOR, SCREENING_EDITOR, SECTION_EDITOR, COPY_EDITOR, LAYOUT_EDITOR], $permissions))
 		{!! Form::dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, url('admin/user-dashboard'), 'Biên tập', 77); !!}
 	@endif
 	

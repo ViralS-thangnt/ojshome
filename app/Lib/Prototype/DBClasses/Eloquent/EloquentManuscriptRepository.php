@@ -10,6 +10,7 @@ use Input;
 
 class EloquentManuscriptRepository extends AbstractEloquentRepository implements ManuscriptInterface
 {
+
 	public function __construct(Manuscript $model)
 	{
 		$this->model = $model;

@@ -1,4 +1,5 @@
 <?php 
+
 // // app\Helpers\function.php 
 function output_text($label, $value)
 {
@@ -16,23 +17,18 @@ function output_text($label, $value)
  */
 function doUpload($file, $path = IMAGE_PATH)
 {
-	$filename           = $file->getClientOriginalName();
-	$destination_path   = public_path($path);
-	$file->move($destination_path, $filename);
+    $filename           = $file->getClientOriginalName();
+    $destination_path   = public_path($path);
+    $file->move($destination_path, $filename);
 
-	return $filename;
+    return $filename;
 }
 
 function doUploadDocument(){
-	// $path = public_path().'/uploads/test';
-	// File::makeDirectory($path, $mode = 0777, true, true);
-	$target_dir = public_path() . "/uploads" . $_FILES["file"]["tmp_name"] ;
+	$target_dir = public_path() . FILE_PATH . $_FILES["file"]["tmp_name"] ;
 	$target_file = $target_dir . basename($_FILES["file"]["name"]);
 	$uploadOk = 1;
-	// $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-	// dd($_FILES["file"]["tmp_name"]);
-	// dd($target_file);
 	// Check if file already exists
 	if (file_exists($target_file)) {
 		Session::flash('msg_response', "Sorry, file already exists.");
@@ -40,7 +36,7 @@ function doUploadDocument(){
 	}
 
 	// Check file size
-	if ($_FILES["file"]["size"] > 500000) {
+	if ($_FILES["file"]["size"] > FILE_SIZE_MAX) {
 		Session::flash('msg_response', "Sorry, your file is too large.");
 		$uploadOk = 0;
 	}
@@ -61,4 +57,32 @@ function doUploadDocument(){
 	}
 
 	return $uploadOk;
+}
+
+//get actor string from actor id
+function actor($actor_no)
+{
+    $actor_arr = explode(',', $actor_no);
+    $actors = Constant::$actor;
+    $actor = '';
+    foreach ($actor_arr as $key => $value) {
+        if ($key == count($actor_arr)-1) {
+            $actor .= $actors[$value];  
+        } else {
+            $actor .= $actors[$value].', ';
+        }
+        
+    }
+
+    return $actor;
+}
+
+function has_permission($require_per, $user_per){
+    foreach ($require_per as $value) {
+        if (in_array($value, $user_per))
+        	
+            return true;
+    }
+
+    return false;
 }

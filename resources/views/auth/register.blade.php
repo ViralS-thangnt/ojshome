@@ -1,65 +1,57 @@
-@extends('app')
+@extends('layout.bg-black.bg_black')
+
+@section('page-title')
+Register
+@stop
+
+@section('title')
+Register
+@stop
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+{!! Form::open(['url' => 'auth/register']) !!}
+    {!! ErrorDisplay::getInstance()->DisplayAll($errors) !!}
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            {!! Form::input_text('username', 'Name') !!}
 
-					<form class="form-horizontal" role="form" method="POST" action="/auth/register">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+            {!! Form::input_text('email', 'Email', 'email') !!}
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Name</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
-							</div>
-						</div>
+            {!! Form::input_select('degree_id', 'Degree', Constant::list_degree()) !!}
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
+            {!! Form::input_select('academic_id', 'Academic', Constant::list_academic()) !!}
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
+            {!! Form::input_text('password', 'Password', 'password') !!}
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
-							</div>
-						</div>
+            {!! Form::input_text('password_confirmation', 'Password Confirm', 'password') !!}
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Register
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-@endsection
+            {!! Form::input_check('actor_no', Constant::list_actors()) !!}
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            {!! Form::input_text('last_name', 'Last Name') !!}
+
+            {!! Form::input_text('first_name', 'First Name') !!}
+
+            {!! Form::input_text('middle_name', 'Middle Name') !!}
+
+
+            {!! Form::input_text('year', 'Year') !!} 
+
+            {!! Form::input_text('phone', 'Phone') !!}
+
+            {!! Form::input_text('address', 'Address') !!}
+
+            {!! Form::input_text('nation', 'Nation') !!}
+
+            {!! Form::input_text('research_area', 'Research Area') !!}
+
+            {!! Form::input_text('research', 'Research') !!}
+
+             {!! Form::button_submit('Submit') !!}
+        </div>
+    </div>
+
+{!! Form::close() !!}
+@stop
+

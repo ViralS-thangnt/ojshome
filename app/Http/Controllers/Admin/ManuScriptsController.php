@@ -47,7 +47,7 @@ class ManuscriptsController extends Controller {
 	 */
 	public function update(ManuscriptRequest $request, $id = null)
 	{
-		$this->repo->uploadFile(Input::hasFile('file_upload'));
+		$this->repo->uploadFile();
 		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
 		return redirect('/admin');

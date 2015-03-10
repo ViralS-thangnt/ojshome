@@ -25,7 +25,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $fillable = ['degree_id', 'academic_id', 'username', 'password', 'last_name', 'first_name',
                             'middle_name', 'sex', 'year', 'email', 'phone','address', 'nation',
-                            'research_area', 'research', 'per_no'];
+                            'research_area', 'research', 'actor_no'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -38,7 +38,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $user = User::find($id);
         if($user)
 
-            return $user->per_no;
+            return $user->actor_no;
 
         return '';
     }
