@@ -1,6 +1,7 @@
 <?php namespace App\Lib\Prototype\Common;
 
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 
 trait CustomAuth
@@ -32,5 +33,14 @@ trait CustomAuth
                     ->withErrors([
                         'email' => $this->getFailedLoginMesssage(),
                     ]);
+    }
+
+    public function redirectPath()
+    {
+        if (property_exists($this, 'redirectPath')) {
+            return $this->redirectPath;
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/admin';
     }
 }

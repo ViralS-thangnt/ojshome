@@ -25,7 +25,7 @@ Register
 
             {!! Form::input_text('password_confirmation', 'Password Confirm', 'password') !!}
 
-            {!! Form::input_check('actor_no', Constant::$actor) !!}
+            {!! Form::multi_check('actor_no', Constant::$actor_register) !!}
         </div>
 
         <div class="col-xs-12 col-md-6">
@@ -54,7 +54,7 @@ Register
 
         <button type="submit" class="btn bg-olive btn-block">Sign me up</button>
 
-        <a href="login.html" class="text-center">I already have a membership</a>
+        <a href="{!! url('auth/login') !!}" class="text-center">I already have a membership</a>
     </div>
 
 {!! Form::close() !!}

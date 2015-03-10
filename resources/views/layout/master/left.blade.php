@@ -15,8 +15,8 @@
         
         <!-- sidebar menu: : style can be found in sidebar.less -->
         {!! Form::menu_item('Menu chính',
-                                [],
-                                [],
+                                ['item1', 'item2'],
+                                ['link1', 'link2'],
                                 ICON_MENU_SPEED_DIAL,
                                 0
                             ) !!}

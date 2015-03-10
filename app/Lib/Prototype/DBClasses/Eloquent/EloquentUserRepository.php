@@ -3,6 +3,7 @@ namespace App\Lib\Prototype\DBClasses\Eloquent;
 
 use App\Lib\Prototype\Interfaces\UserInterface;
 use App\Lib\Prototype\BaseClasses\AbstractEloquentRepository;
+use Illuminate\Contracts\Auth\Guard;
 use App\User;
 use Session;
 use Constant;
@@ -10,9 +11,12 @@ use Constant;
 
 class EloquentUserRepository extends AbstractEloquentRepository implements UserInterface
 {
-    public function __construct(User $model)
+    protected $auth;
+
+    public function __construct(User $model, Guard $auth)
     {
         $this->model = $model;
+        $this->auth = $auth;
     }
 
     public function formModify($data, $id = null)
@@ -35,12 +39,12 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
 
     public function getPermission()
     {
-        if (Session::has('user_login_id')) {
-            $actor_no = User::getPermissionById(Session::get('user_login_id'));
-            
-            return explode(',', $actor_no);
+        $user = $this->auth->user();
+
+        if ($user->actor_no) {
+            return explode(',', $user->actor_no);
         }
 
-        return '';
+        return false;
     }
 }

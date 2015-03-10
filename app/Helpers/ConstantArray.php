@@ -29,4 +29,11 @@ class ConstantArray
             LAYOUT_EDITOR           => 'Layout Editor',
             PRODUCTION_EDITOR       => 'Production Editor',
     ];
+    public static $actor_register   = [
+            AUTHOR                  => 'Author',
+            REVIEWER                => 'Reviewer',
+    ];
+    public static $admin_links      = [
+            'Manage User'           => 'admin/user',
+    ];
 }
