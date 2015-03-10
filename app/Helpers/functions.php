@@ -31,27 +31,27 @@ function doUploadDocument(){
 
 	// Check if file already exists
 	if (file_exists($target_file)) {
-		Session::flash('msg_response', "Sorry, file already exists.");
+		Session::flash('SUCCESS_MESSAGE', "Sorry, file already exists.");
 		$uploadOk = 0;
 	}
 
 	// Check file size
 	if ($_FILES["file"]["size"] > FILE_SIZE_MAX) {
-		Session::flash('msg_response', "Sorry, your file is too large.");
+		Session::flash('SUCCESS_MESSAGE', "Sorry, your file is too large.");
 		$uploadOk = 0;
 	}
 
 	File::makeDirectory($target_dir, $mode = 0777, true, true);
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0) {
-		Session::flash('msg_response', "Sorry, your file was not uploaded.");
+		Session::flash('SUCCESS_MESSAGE', "Sorry, your file was not uploaded.");
 	} else {
 		// if everything is ok, try to upload file
 		if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-			Session::flash('msg_response', "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.");
+			Session::flash('SUCCESS_MESSAGE', "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.");
 			$uploadOk = 1;
 		} else {
-			Session::flash('msg_response', "Sorry, there was an error uploading your file.");
+			Session::flash('SUCCESS_MESSAGE', "Sorry, there was an error uploading your file.");
 			$uploadOk = 0;
 		}
 	}
