@@ -9,7 +9,7 @@ class ManuscriptInReviewController extends Controller {
 
 	public function __contruct(){
 		// \App::setLocale(\Session::get('lang', 'vi'));
-		// \App::setLocale(\Session::get('lang', 'en'));
+		\App::setLocale(\Session::get('lang', 'en'));
 	}
 
 	/**
@@ -67,5 +67,16 @@ class ManuscriptInReviewController extends Controller {
 	}
 
 
+	public function setLocale() {
+        // TODO check lang is valid or exist
+        $lang = $_GET['lang'];
+
+        if($lang != '') {
+            \Session::put('lang', $lang);
+            \App::setLocale($lang);
+            return json_encode($lang);
+        }
+        return json_encode($lang);
+    }
 
 }

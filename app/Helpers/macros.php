@@ -36,23 +36,23 @@ Form::macro('input_select', function($name, $label, $value = array(), $help_bloc
 
 
 Form::macro('multi_check', function($name, $value = array()) {
-    $html = '';
-    if (!empty($value)) {
-        foreach ($value as $key => $item) {
-            $html .= '<div class="checkbox">';
-            $html .= Form::checkbox($name.'[]', $key);
-            $html .= $item;
-            $html .= '</div>';
-        }
-    }
-    
-    return $html;
+	$html = '';
+	if (!empty($value)) {
+		foreach ($value as $key => $item) {
+			$html .= '<div class="checkbox">';
+			$html .= Form::checkbox($name.'[]', $key);
+			$html .= $item;
+			$html .= '</div>';
+		}
+	}
+	
+	return $html;
 });
 
 Form::macro('input_check', function($name, $label, $value = true) {
-    $html = '<div class="form-group">
-                <input type="checkbox" name="'.$name.'" value="'.$value.'" /> '.$label.'
-            </div>';
+	$html = '<div class="form-group">
+				<input type="checkbox" name="'.$name.'" value="'.$value.'" /> '.$label.'
+			</div>';
 });
 
 Form::macro('input_radio', function($name, $label = '', $value = array()) {
@@ -75,24 +75,24 @@ Form::macro('button_submit', function($value = 'Submit', $class = 'btn btn-prima
 // Custom label 
 Form::macro('label_custom', function($content = 'label', 
 
-                                    $class = '', 
-                                    $is_required_symbol = false){
-    $span = ($is_required_symbol) ? ' <span style="color: red">*</span>' : '';
+									$class = '', 
+									$is_required_symbol = false){
+	$span = ($is_required_symbol) ? ' <span style="color: red">*</span>' : '';
 
-    return $result = '<label for="type" class="' . $class . '">' . $content . $span . '</label>';
+	return $result = '<label for="type" class="' . $class . '">' . $content . $span . '</label>';
 });
 
 // Custom combobox
 Form::macro('combobox_custom', function($name = 'combobox', 
-                                        $data = array(), 
-                                        $class = 'form-control',
-                                        $is_multiple = true,
-                                        $selected = array(0)){
-    if($is_multiple)
+										$data = array(), 
+										$class = 'form-control',
+										$is_multiple = true,
+										$selected = array(0)){
+	if($is_multiple)
 
-        return $result = Form::select($name, $data, null, ['class' => $class, 'multiple' => 'multiple', 'name' => $name . '[]']);
-    
-    return $result = Form::select($name, $data, null, ['class' => $class, 'name' => $name . '[]']);
+		return $result = Form::select($name, $data, null, ['class' => $class, 'multiple' => 'multiple', 'name' => $name . '[]']);
+	
+	return $result = Form::select($name, $data, null, ['class' => $class, 'name' => $name . '[]']);
 });
 
 // Custom help block style
@@ -107,13 +107,15 @@ Form::macro('textarea_custom',
 						$content = '',
 						$rows = 5, 
 						$placeholder = 'Enter something...', 
-						$class = 'form-control'){
+						$class = 'form-control',
+						$attr = ['' => '']){
+					// dd('dfjkls');
 	if ($rows == 1) {
 
-		return $result = Form::text($name, $content, ['class' => $class, 'placeholder' => $placeholder]);
+		return $result = Form::text($name, $content, ['class' => $class, 'placeholder' => $placeholder, key($attr) => current($attr)]);
 	} 
 
-	return $result = Form::textarea($name, $content, ['class' => $class, 'placeholder' => $placeholder, 'rows' => $rows]);
+	return $result = Form::textarea($name, $content, ['class' => $class, 'placeholder' => $placeholder, 'rows' => $rows, key($attr) => current($attr)]);
 });
 
 // Custom image
@@ -254,7 +256,7 @@ Form::macro('ul_custom', function($data = [''],
 // Custom div
 Form::macro('div_open', function($class = '', $id = ''){
 
-	return '<div class="' . $class . '" ' . (empty($id) ?  '' : $id ) . '>';
+	return '<div class="' . $class . '" id ="' . (empty($id) ?  '' : $id ) . '"">';
 });
 
 Form::macro('div_close', function(){

@@ -35,6 +35,7 @@ class ManuscriptsController extends Controller {
 		{
 			$manuscripts = $this->repo;
 		}
+
 		return view('manuscripts.form', compact('manuscripts', 'id'));
 	}
 
@@ -52,4 +53,16 @@ class ManuscriptsController extends Controller {
 
 		return redirect('/admin');
 	}
+
+	public function setLocale() {
+        // TODO check lang is valid or exist
+        $lang = $_GET['lang'];
+
+        if($lang != '') {
+            \Session::put('lang', $lang);
+            \App::setLocale($lang);
+            return json_encode($lang);
+        }
+        return json_encode($lang);
+    }
 }
