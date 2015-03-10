@@ -108,4 +108,14 @@ class ConstantArray
 
         return false;
     }
+
+    public function list_locale() 
+    {
+        return [
+            'en'                    => 'English',
+            'fr'                    => 'Francai',
+            'ja'                    => '日本',
+            'vi'                    => 'Tiếng Việt',
+        ];
+    }
 }

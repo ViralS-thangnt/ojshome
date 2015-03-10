@@ -267,6 +267,19 @@ Form::macro('h_custom', function($level_number = 3, $content = '', $class = ''){
 	return '<h' . $level_number . ' class="' . $class . '">' . $content . '</h' . $level_number . '>';
 });
 
+// Select form with selected value and other options.
+Form::macro('mySelectList', function($attributeValueList , $options = array(), $attr_name='attribute_value'){
+    $selectors = [];
+    // if(!empty($options['select_none'])) { // Add none select option on select form
+    //     $selectors += [ATTRIBUTE_VALUE_NOT_SET => $options['select_none']];
+    // }   
+    foreach ($attributeValueList as $attrKey => $attrValue) {
+        $selectors += [$attrKey => $attrValue];
+    }   
+
+    return Form::select($attr_name, $selectors, isset($options['default']) ? $options['default'] : null, array('id' => $options['id'], 'name' => $options['name']));
+});
+
 
 
 
