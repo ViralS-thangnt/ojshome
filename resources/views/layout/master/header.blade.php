@@ -44,12 +44,8 @@
 
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
-                    <select name="locale" id="chose_locale">
-                        <option value="en">English</option>
-                        <option value="fr">Francai</option>
-                        <option value="ja">日本</option>
-                        <option value="vi">Tiếng Việt</option>
-                    </select>
+                    <?php $list_locale = Config::get('constants.langs'); ?>
+                    {!! Form::mySelectList($list_locale, array('default' => \Session::get('lang'), 'id'=>'chose_locale', 'name'=>'locale'), 'select_lang') !!}
                 </li><!-- end dropdown user locales -->                
 
                 <!-- User Account: style can be found in dropdown.less -->
