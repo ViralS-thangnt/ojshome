@@ -143,7 +143,7 @@
 
 			{!! Form::help_block('(Bạn hãy ghi rõ thông tin của đồng tác giả nếu có)') !!}
 
-			{!! Form::textarea_custom('expect_journal_id', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
+			{!! Form::textarea_custom('co-author', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
 		
 		{!! Form::div_close() !!}
 
@@ -194,8 +194,10 @@
 
 {!! Form::div_close() !!}<!-- /.box box-primary -->
 	
+
 <!-- Submit	 -->
 {!! Form::submit('Gửi bài', ['class' => 'btn btn-primary']) !!}
 
+<!-- End form -->
 {!! Form::close() !!}
 @stop
