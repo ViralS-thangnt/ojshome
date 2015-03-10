@@ -8,6 +8,12 @@
 {!! Lang::get('admin.manuscript_info') !!}
 @stop
 
+@section('navigation-link')
+
+{!! Form::navigate_link(ICON_MENU_BOOK, ['Bản thảo' => url('admin/'), 'Thêm mới bản thảo' => url('admin/manuscript')]) !!}
+
+@stop
+
 <!-- Content -->
 @section('content')
 
