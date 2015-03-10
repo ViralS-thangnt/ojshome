@@ -5,8 +5,6 @@
         <title>Admin Page</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <!-- Custom style -->
-        <link href="{{ url('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- bootstrap 3.0.2 -->
         <link href="{{ url('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -26,6 +24,8 @@
         <link href="{{ url('assets/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="{{ url('assets/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Custom style -->
+        <link href="{{ url('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
 
         <!-- jQuery 2.0.2 -->

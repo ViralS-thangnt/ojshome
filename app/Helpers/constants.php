@@ -30,6 +30,9 @@ define('CREATE_USER', 4);
 define('UPDATE_USER', 5);
 define('DELETE_USER', 6);
 
+//define message type
+define('SUCCESS_MESSAGE', 'success-message');
+
 // Define box icon 
 define('ICON_PEOPLE', 'ion-ios7-people');
 define('ICON_CHATBOX', 'ion-ios7-chatboxes');
