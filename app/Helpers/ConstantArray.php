@@ -40,9 +40,9 @@ class ConstantArray
         $actor_arr = explode(',', $actor_no);
         $actors = $this->list_actors();
         $actor = '';
-        foreach($actor_arr as $key => $value) {
-            if($key == count($actor_arr)-1) {
-                $actor .= $actors[$value];    
+        foreach ($actor_arr as $key => $value) {
+            if ($key == count($actor_arr)-1) {
+                $actor .= $actors[$value];  
             } else {
                 $actor .= $actors[$value].', ';
             }

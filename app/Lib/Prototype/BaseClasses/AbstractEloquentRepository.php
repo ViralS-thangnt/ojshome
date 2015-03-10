@@ -115,4 +115,9 @@ abstract class AbstractEloquentRepository
     {
         $this->model->create($data);
     }
+
+    public function delete($ids)
+    {
+        $this->model->destroy($ids);
+    }
 }

@@ -51,7 +51,7 @@ class UsersController extends Controller
     {
         $this->userRepo->formModify(Input::all(), $id);
 
-        return redirect('/user');
+        return redirect('admin/user');
     }
 
     /**
@@ -62,6 +62,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        
+        $this->userRepo->delete($id);
+
+        return redirect('admin/user');
     }
 }

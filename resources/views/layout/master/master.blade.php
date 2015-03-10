@@ -57,10 +57,6 @@
 
         <!-- AdminLTE App -->
         <script src="{{ url('assets/js/AdminLTE/app.js') }}" type="text/javascript"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="{{ url('assets/js/AdminLTE/dashboard.js') }}" type="text/javascript"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="{{ url('assets/js/AdminLTE/demo.js') }}" type="text/javascript"></script>
 
     </head>
     <title>

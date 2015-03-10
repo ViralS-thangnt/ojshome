@@ -1,15 +1,14 @@
 <?php
 namespace App\Lib\Prototype\DBClasses\Eloquent;
 
-use App\Lib\Prototype\Interfaces\ManuscriptInterface;
+use App\Lib\Prototype\Interfaces\UserInterface;
 use App\Lib\Prototype\BaseClasses\AbstractEloquentRepository;
-// use App\Lib\Prototype\Interfaces\ManuscriptInterface;
 use App\User;
 use Session;
 use Constant;
 
 
-class EloquentUserRepository extends AbstractEloquentRepository implements ManuscriptInterface
+class EloquentUserRepository extends AbstractEloquentRepository implements UserInterface
 {
     public function __construct(User $model)
     {
@@ -18,24 +17,25 @@ class EloquentUserRepository extends AbstractEloquentRepository implements Manus
 
     public function formModify($data, $id = null)
     {
-        // if ($id) {
-        //     $user = $this->model->find($id);
-        // } else {
-        //     $user = $this->model;
-        // }
+        if ($id) {
+            $user = $this->model->find($id);
+        } else {
+            $user = $this->model;
+        }
 
-        // if($data['per_no']) {
-        //     $data['per_no'] = implode(',', $data['per_no']);
-        // }
+        if ($data['actor_no']) {
+            $data['actor_no'] = implode(',', $data['actor_no']);
+        }
 
-        // $data['password'] = sha1($data['password']);
+        $data['password'] = sha1($data['password']);
 
-        // $user->fill($data);
-        // $user->save();
+        $user->fill($data);
+        $user->save();
     }
 
-    public function getPermission(){
-        if(Session::has('user_login_id')){
+    public function getPermission()
+    {
+        if (Session::has('user_login_id')) {
             $per_no = User::getPermissionById(Session::get('user_login_id'));
 
             return explode(',', $per_no);
@@ -47,7 +47,7 @@ class EloquentUserRepository extends AbstractEloquentRepository implements Manus
             // return $permissions = Constant::permission($actor);
 
             // return view('dashboard.dashboard')->with('permission', $permissions);
-        } 
+        }
 
         return '';
     }
@@ -62,5 +62,4 @@ class EloquentUserRepository extends AbstractEloquentRepository implements Manus
     //         return '';
     //     }
     // }
-
 }
