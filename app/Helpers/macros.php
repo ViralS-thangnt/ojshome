@@ -68,25 +68,22 @@ Form::macro('button_submit', function($value = 'Submit', $class = 'btn btn-prima
 Form::macro('label_custom', function($content = 'label', 
 									$class = '', 
 									$is_required_symbol = false){
-
 	$span = ($is_required_symbol) ? ' <span style="color: red">*</span>' : '';
-	// $class = (empty($class)) ? '' : implode(' ', $class) ;
 
 	return $result = '<label for="type" class="' . $class . '">' . $content . $span . '</label>';
-
-	 // '<label for="type" style="font-size: large">Thể loại bài viết  (<span style="color: red">*</span>)</label>';
 });
 
 // Custom combobox
 Form::macro('combobox_custom', function($name = 'combobox', 
 										$data = array(), 
 										$class = 'form-control',
-										$is_multiple = 'true',
+										$is_multiple = true,
 										$selected = array(0)){
-	$multiple = ($is_multiple) ? ' multiple ' : '';
-	$result = Form::select($name, $data, null, ['class' => $class, 'multiple' => $multiple, 'name' => $name . '[]']);
+	if($is_multiple)
 
-	return $result;
+		return $result = Form::select($name, $data, null, ['class' => $class, 'multiple' => 'multiple', 'name' => $name . '[]']);
+	
+	return $result = Form::select($name, $data, null, ['class' => $class, 'name' => $name . '[]']);
 });
 
 // Custom help block style

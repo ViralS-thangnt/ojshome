@@ -48,7 +48,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Tóm tắt Tiếng Việt', 'text-form-large', true)!!}
 
-			{!! Form::help_block('Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ)') !!}
+			{!! Form::help_block('(Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ)') !!}
 
 			{!! Form::textarea_custom('summary_vi', '', 5, '(Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...' ) !!}
 			
@@ -68,7 +68,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Tóm tắt Tiếng Anh', 'text-form-large', true)!!}
 
-			{!! Form::help_block('Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ)') !!}
+			{!! Form::help_block('(Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ)') !!}
 
 			{!! Form::textarea_custom('summary_en', '', 5, 'Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ ...' ) !!}
 			
@@ -143,7 +143,7 @@
 
 			{!! Form::help_block('(Bạn hãy ghi rõ thông tin của đồng tác giả nếu có)') !!}
 
-			{!! Form::textarea_custom('co-author', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
+			{!! Form::textarea_custom('co_author', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
 		
 		{!! Form::div_close() !!}
 

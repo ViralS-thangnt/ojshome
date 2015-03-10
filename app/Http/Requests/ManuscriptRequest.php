@@ -23,22 +23,15 @@ class ManuscriptRequest extends Request {
 	public function rules()
 	{
 
-		// $keyword_vi = Input::get('keyword_vi');
-
 		$keyword_vi = empty(Input::get('keyword_vi')) ? null : implode(',', Input::get('keyword_vi')); 
 		$keyword_en = empty(Input::get('keyword_en')) ? null : implode(',', Input::get('keyword_en')); 
 		$type = empty(Input::get('type')) ? null : implode(',', Input::get('type'));
-		// dd($keyword_en);
-		// $temp = Input::all();
-		// $temp = array_merge($temp, ['keyword_vi' => $keyword_vi, 'keyword_en' => $keyword_en, 'type' => $type]);
-		
-		// dd($temp);
+
 		Input::merge(['keyword_vi' => $keyword_vi, 'keyword_en' => $keyword_en, 'type' => $type]);
 
-		// dd(Input::all());
 		// $this->redirectRoute = "manuscript.confirm";
 		return [
-			'author_comments'		=> 'required', 
+			// 'author_comments'		=> 'required', 
 			'type'					=> 'required', 
 			'expect_journal_id'		=> 'numeric', 
 			
@@ -52,10 +45,9 @@ class ManuscriptRequest extends Request {
 			'propose_reviewer'		=> '',
 			'co_author'				=> '', 
 			'confirm'				=> 'in:1', 
-			'file_upload'			=> 'required'
+			'file'					=> 'required'
 
 			// 'publish_journal_id'	=> 'numeric', 
-
 			// 'author_id'				=> 'required', 
 			// 'file'					=> 'required',
 			// 'file_final'				=> 'required',

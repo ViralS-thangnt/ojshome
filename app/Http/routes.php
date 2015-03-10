@@ -20,7 +20,7 @@ Route::resource('user', 'Admin\UsersController', ['except' => ['create', 'edit',
 
 // Dashboard
 Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
-Route::get('admin/user', ['as'	=>	'user.dashboard', 'uses'	=>	'Admin\DashboardController@user_dashboard']);
+Route::get('admin/user-dashboard', ['as'	=>	'dashboard.user', 'uses'	=>	'Admin\DashboardController@user_dashboard']);
 // Route::post('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
 Route::get('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
 

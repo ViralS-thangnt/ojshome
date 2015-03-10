@@ -60,19 +60,19 @@ Trang chủ
 
 	<!-- This is demo for dashboard -->
 	@if(in_array(AUTHOR, $permissions))
-	   {!! Form::dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('show/author'), 'Tác giả', 30); !!}
+	   {!! Form::dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('admin/user-dashboard'), 'Tác giả', 30); !!}
 	@endif
 
 	@if(in_array(REVIEWER, $permissions))
-		{!! Form::dashboard_item(ICON_CHATBOX, COLOR_RED, url('show/response'), 'Phản biện', 150); !!}
+		{!! Form::dashboard_item(ICON_CHATBOX, COLOR_RED, url('admin/user-dashboard'), 'Phản biện', 150); !!}
 	@endif
 
 	@if(Constant::has_permission([CHIEF_EDITOR, MANAGING_EDITOR, SCREENING_EDITOR, SECTION_EDITOR, COPY_EDITOR, LAYOUT_EDITOR], $permissions))
-		{!! Form::dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, url('show/editor'), 'Biên tập', 77); !!}
+		{!! Form::dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, url('admin/user-dashboard'), 'Biên tập', 77); !!}
 	@endif
 	
 	@if(in_array(CHIEF_EDITOR, $permissions))
-		{!! Form::dashboard_item(ICON_STORAGE, COLOR_GREEN, url('show/publish'), 'Xuất bản', 14); !!}
+		{!! Form::dashboard_item(ICON_STORAGE, COLOR_GREEN, url('admin/user-dashboard'), 'Xuất bản', 14); !!}
 	@endif
 
 {!! Form::div_close() !!}
