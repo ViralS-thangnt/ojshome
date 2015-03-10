@@ -15,15 +15,13 @@
         
         <!-- sidebar menu: : style can be found in sidebar.less -->
         {!! Form::menu_item('Menu chính',
-                                ['item1', 'item2'],
-                                ['link1', 'link2'],
+                                ['' => ''],
                                 ICON_MENU_SPEED_DIAL,
                                 0
                             ) !!}
 
         {!! Form::menu_item('Trang chủ',
-                                [],
-                                [],
+                                ['' => ''],
                                 ICON_MENU_DASHBOARD,
                                 1,
                                 url('admin')
@@ -32,22 +30,19 @@
         @yield('custom-menu')
 
         {!! Form::menu_item('Tìm kiếm',
-                                ['Bản thảo', 'Tác giả', 'Nhà phản biện', 'Biên tập viên', 'Bình luận viên chuyên trách', 'Tạp chí'],
-                                ['#', '#', '#', '#', '#', '#'],
+                                ['Bản thảo' => '#', 'Tác giả' => '#', 'Nhà phản biện'  => '#', 'Biên tập viên'  => '#', 'Bình luận viên chuyên trách'  => '#', 'Tạp chí'  => '#'],
                                 ICON_MENU_SEARCH,
                                 1
                             ) !!}
 
         {!! Form::menu_item('Thống kê',
-                                ['Bản thảo', 'Tác giả', 'Tạp chí'],
-                                ['#', '#', '#'],
+                                ['Bản thảo'  => '#', 'Tác giả'  => '#', 'Tạp chí'  => '#'],
                                 ICON_MENU_CHART,
                                 1
                             ) !!}
 
         {!! Form::menu_item('Thông tin hỗ trợ',
-                                ['Hướng dẫn sử dụng', 'Cấu hình kỹ thuật', 'Chính sách tạp chí'],
-                                ['#', '#', '#'],
+                                ['Hướng dẫn sử dụng' => '#', 'Cấu hình kỹ thuật'  => '#', 'Chính sách tạp chí' => '#'],
                                 ICON_MENU_BOOK,
                                 1
                             ) !!}                    

@@ -35,5 +35,9 @@ class ConstantArray
     ];
     public static $admin_links      = [
             'Manage User'           => 'admin/user',
+            'Create Manuscript'     => 'admin/manuscript',
+    ];
+    public static $author_links     = [
+            'Create Manuscript'     => 'admin/manuscript',
     ];
 }

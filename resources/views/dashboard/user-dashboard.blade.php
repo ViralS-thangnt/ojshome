@@ -79,7 +79,7 @@ Trang chủ
                     url('admin/manuscript'), 
                     url('admin/manuscript/unsubmit'), 
                     url('admin/manuscript/in_screening'), 
-                    url('admin/manuscript/in_review'), 
+                    url('admin/manuscript-in-review'), 
                     url('admin/manuscript/in_editing'), 
                     url('admin/manuscript/withdraw'), 
                     url('admin/manuscript/reject'), 
@@ -108,7 +108,7 @@ Trang chủ
                     ], 
                 [
                     url('admin/manuscript'),
-                    url('admin/manuscript'),
+                    url('admin/manuscript-in-review'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
@@ -153,7 +153,7 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    url('admin/manuscript'),
+                    url('admin/manuscript-in-review'),
                     url('admin/manuscript'), 
                     url('admin/manuscript'),
                     url('admin/manuscript'),
@@ -182,7 +182,7 @@ Trang chủ
                     ], 
                 [
                     url('admin/manuscript'),
-                    url('admin/manuscript'),
+                    url('admin/manuscript-in-review'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
@@ -311,7 +311,7 @@ Trang chủ
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
-                    url('admin/manuscript'),
+                    url('admin/manuscript-in-review'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),

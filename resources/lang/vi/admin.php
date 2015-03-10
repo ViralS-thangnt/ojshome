@@ -64,6 +64,16 @@ return [
 	// new OJS system
 	'title_page_admin' 			=> "BẢN THẢO",
 	'manuscript_info'			=> "Thông tin bản thảo",
-	'validation.numeric'		=> 'Phải là số',
-	'validation.required'		=> 'Cần phải điền',
+
+	'manuscript_in_review.title_page_admin'=>"BẢN THẢO",
+	"manuscript_in_review.title"=>"Thông tin các bản thảo đang bình duyệt",
+	// "manuscript_in_review.title"				=>	"Bản thảo",
+	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo",
+	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
+	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
+	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
+	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
+
+
+
 ];

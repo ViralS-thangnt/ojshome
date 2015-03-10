@@ -22,6 +22,7 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
 // Dashboard
 Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
 Route::get('admin/user-dashboard', ['as'	=>	'dashboard.user', 'uses'	=>	'Admin\DashboardController@user_dashboard']);
@@ -32,3 +33,8 @@ Route::get('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admi
 // Manuscript
 Route::get('admin/manuscript/{id?}', ['as'  =>  'manuscript.form', 'uses'   =>  'Admin\ManuscriptsController@form']);
 Route::post('admin/manuscript/{id?}', ['as' =>  'manuscript.update','uses'  =>  'Admin\ManuscriptsController@update']);
+
+// In Review Manuscript
+Route::get('admin/manuscript-in-review', ['as'	=>	'manuscript.in_review', 'uses'	=>	'Admin\ManuscriptInReviewController@index']);
+
+

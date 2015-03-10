@@ -123,15 +123,14 @@ Form::macro('image_custom', function($src = '', $alt = 'Image', $class = IMAGE_C
 
 // Create custom menu item 
 Form::macro('menu_item', function ($menu_name = 'menu', 
-                            // $number_child_items = 0,
-                            $child_names = ['Menu'],
-                            $child_links = ['#'],
+                            $childs = ['Menu' => '#'],
                             $icon_menu_class = ICON_MENU_SPEED_DIAL, 
                             $is_active = 0,
                             $menu_link = '#'
                             ){
-    $total_items = count($child_names);
-    if($total_items == 0 and $is_active == 0){
+    // dd($icon_menu_class);
+    $total_items = count($childs);
+    if($total_items == 1 and $is_active == 0){
 
         return '<ul class="sidebar-menu">
                     <li>
@@ -140,7 +139,7 @@ Form::macro('menu_item', function ($menu_name = 'menu',
                         </a>
                     </li>
                 </ul>';
-    } elseif ($total_items == 0 and $is_active == 1) {
+    } elseif ($total_items == 1 and $is_active == 1) {
 
         return '<ul class="sidebar-menu">
                     <li class="active">
@@ -158,11 +157,14 @@ Form::macro('menu_item', function ($menu_name = 'menu',
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                              <ul class="treeview-menu">';
-        
-        for ($i = 0; $i < $total_items; $i++)
-            $result = $result . '<li><a href="' . $child_links[$i] . '" style="margin-left: 10px;">
-                                        <i class="fa fa-angle-double-right"></i> '. $child_names[$i] .'</a></li>';
+    
 
+        
+        foreach ($childs as $key => $value) {
+            $result = $result . '<li><a href="' . $value . '" style="margin-left: 10px;">
+                                        <i class="fa fa-angle-double-right"></i> '. $key .'</a></li>';
+        }
+        
         return $result . '</ul></li></ul>';
     }
 });
@@ -207,7 +209,7 @@ Form::macro('navigate_link', function($icon_class = MENU_ICON_DASHBOARD,
     } 
 
     $result = '<ol class="breadcrumb">
-                <li><a href="#"><i class="fa ' . $icon_class . '">
+                <li><a href="' . $navigate_links[0] . '"><i class="fa ' . $icon_class . '">
                     </i> ' . $navigate_names[0] . '</a></li>';
 
     $count = count($navigate_names);
