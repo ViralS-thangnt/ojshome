@@ -5,7 +5,7 @@
 @stop
 
 @section('title')
-{!! Lang::get('admin.manuscript_info') !!}
+{!! Lang::get('admin.manuscript_info')  !!}
 @stop
 
 <!-- Content -->
