@@ -18,18 +18,18 @@ class ManuscriptsController extends Controller {
 	protected $repo;
 
 	public function __construct(EloquentManuscriptRepository $repo){
-		// $this->middleware('auth');
+		$this->middleware('auth');
 		$this->repo = $repo;
 		\App::setLocale(\Session::get('lang', 'en'));
 	}
 
-	
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function in_review()
+	public function unsubmit()
+	{
+		
+	}
+
+
+	public function inReview()
 	{
 		$manuscripts = $this->repo->getByStatus(IN_REVIEW);
 

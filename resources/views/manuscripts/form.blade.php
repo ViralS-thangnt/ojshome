@@ -18,7 +18,7 @@
 @section('content')
 
 <!-- form start -->   
-{!! Form::model($manuscripts, ['route' => ['manuscript.update', $id], 'enctype' => 'multipart/form-data'] ) !!}
+{!! Form::model($manuscripts, ['route' => ['manuscript.update', $id], 'enctype' => 'multipart/form-data', 'id' => 'form-manuscript'] ) !!}
 
 <!-- <div class="box box-primary"> -->
 {!! Form::div_open('box box-primary padding-box') !!}
@@ -210,9 +210,24 @@
 
 {!! Form::div_close() !!}<!-- /.box box-primary -->
 	
-
+<input type="hidden" name="status" id="submit-form" />
 <!-- Submit	 -->
-{!! Form::submit('Gửi bài', ['class' => 'btn btn-primary']) !!}
+{!! Form::button('Gửi bài', ['class' => 'send btn btn-primary']) !!}
+{!! Form::button('Lưu', ['class' => 'btn btn-primary']) !!}
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-primary').click(function(){
+			if ($(this).hasClass('send')) {
+				$('#submit-form').val({{IN_SCREENING}});
+			} else {
+				$('#submit-form').val({{UNSUBMIT}});
+			}
+
+			$('#form-manuscript').submit();
+		});
+	})
+</script>
 
 <!-- End form -->
 {!! Form::close() !!}

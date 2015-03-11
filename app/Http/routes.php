@@ -33,9 +33,12 @@ Route::get('admin/user-dashboard', ['as'    =>  'dashboard.user',
 Route::get('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
 
 // Manuscript
-Route::get('admin/manuscript/form/{id?}', ['as'  =>  'manuscript.form', 'uses'   =>  'Admin\ManuscriptsController@form']);
-Route::post('admin/manuscript/form/{id?}', ['as' =>  'manuscript.update','uses'  =>  'Admin\ManuscriptsController@update']);
-
-// In Review Manuscript
-Route::get('admin/manuscript/in-review', ['as'  =>  'manuscript.in_review',
-                                          'uses'  =>  'Admin\ManuscriptsController@in_review']);
+Route::get(Constant::$author_per['admin.manuscript.create']. '/{id?}', ['as'  =>  'manuscript.form', 'uses'   =>  'Admin\ManuscriptsController@form']);
+Route::post(Constant::$author_per['admin.manuscript.create']. '/{id?}', ['as' =>  'manuscript.update','uses'  =>  'Admin\ManuscriptsController@update']);
+Route::get(Constant::$author_per['admin.manuscript.unsubmit'],    ['uses' => 'Admin\ManuscriptsController@unsubmit']);
+Route::get(Constant::$author_per['admin.manuscript.inScreening'], ['uses' => 'Admin\ManuscriptsController@inScreening']);
+Route::get(Constant::$author_per['admin.manuscript.inReview'],    ['uses' => 'Admin\ManuscriptsController@inReview']);
+Route::get(Constant::$author_per['admin.manuscript.inEditing'],   ['uses' => 'Admin\ManuscriptsController@inEditing']);
+Route::get(Constant::$author_per['admin.manuscript.rejected'],    ['uses' => 'Admin\ManuscriptsController@rejected']);
+Route::get(Constant::$author_per['admin.manuscript.withdrawn'],   ['uses' => 'Admin\ManuscriptsController@withdrawn']);
+Route::get(Constant::$author_per['admin.manuscript.published'],   ['uses' => 'Admin\ManuscriptsController@published']);
