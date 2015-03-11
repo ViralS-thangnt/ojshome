@@ -111,12 +111,11 @@ Bản thảo
 			</tr>
 		</tfoot>
 		<tbody role="alert" aria-live="polite" aria-relevant="all">
-			
-			{{ $temp = true }}
+
 			@foreach($data as $row)
-				<tr class="odd">
+				<tr class="{{ ($is_odd) ? 'odd' : 'even' }}">
 					<td class=" sorting_1">{{ $row->id }}</td>
-					<td class="">{{ $row->created_at }}</td>
+					<td class="">{{ $row->send_at }}</td>
 					<td class="">{{ $row->name }}</td>
 					<td class="">{{ $row->last_name }}</td>
 					<td class="">{{ $row->id }}</td>
@@ -125,11 +124,8 @@ Bản thảo
 
 			@endforeach
 
-
 		</tbody>
 		</table>
-
-	
 
 	</div><!-- example1_wrapper -->
 

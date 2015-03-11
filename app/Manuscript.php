@@ -38,9 +38,6 @@ class Manuscript extends Model {
 	}
 
 	public static function getInReviewByStatus($status){
-		// dd(Manuscript::where('status', '=', $status)
-		// 					->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
-		// 					->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')->get());
 
 		return Manuscript::where('status', '=', $status)
 							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')

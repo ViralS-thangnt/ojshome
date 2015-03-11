@@ -35,7 +35,9 @@ class ManuscriptsController extends Controller {
 
 		// dd($manuscripts->get()->first());
 
-		return view('manuscripts.manuscript')->with('data', $manuscripts);
+		return view('manuscripts.manuscript')
+				->with('data', $manuscripts)
+				->with('is_odd', true);
 	}
 
 
