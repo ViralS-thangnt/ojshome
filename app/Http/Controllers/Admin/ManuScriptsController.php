@@ -25,7 +25,10 @@ class ManuscriptsController extends Controller {
 
 	public function unsubmit()
 	{
-		
+		return view('manuscripts.index')->with([
+											'manuscripts' 	=> $this->repo->getByStatus(UNSUBMIT),
+											'permissions'	=> $this->repo->getPermission(),
+										]);
 	}
 
 

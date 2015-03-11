@@ -12,22 +12,24 @@
 <table class="table">
 <thead>
     <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Actor</th>
+        <th>ID</th>
+        <th>{{ trans('admin.manuscript.lastModified') }}</th>
+        <th>{{ trans('admin.manuscript.name') }}</th>
+        <th>{{ trans('admin.manuscript.author') }}</th>
         <th colspan="2">Operations</th>
     </tr>
 </thead>
 
 <tbody>
-    @foreach($users as $user)
+    @foreach($manuscripts as $manuscript)
     <tr>
-        <td>{{$user->username}}</td>
-        <td>{{$user->email}}</td>
-        <td>{{actor($user->actor_no)}}</td>
-        @if($user->actor_no != ADMIN)
-        <td><a href="{!! url('admin/user/form/'. $user->id) !!}">Edit</a></td>
-        <td><a href="{!! url('admin/user/'. $user->id) !!}" class="delete">Delete</a></td>
+        <td>{{$manuscript->id}}</td>
+        <td>{{$manuscript->updated_at}}</td>
+        <td>{{$manuscript->name}}</td>
+        <td>{{$manuscript->last_name.' '.$manuscript->middle_name.' '.$manuscript->first_name}}</td>
+        @if (in_array(AUTHOR, $permissions))
+        <td><a href="{!! url('admin/manuscript/form/'. $manuscript->id) !!}">{{trans('admin.edit')}}</a></td>
+        <td><a class="delete" href="{!! url('admin/manuscript/'. $manuscript->id) !!}">{{trans('admin.delete')}}</a></td>
         @else
         <td></td>
         <td></td>

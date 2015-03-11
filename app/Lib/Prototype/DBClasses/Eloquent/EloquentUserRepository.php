@@ -14,6 +14,7 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
     {
         $this->model = $model;
         $this->auth = $auth;
+        $this->user = $this->auth->user();
     }
 
     public function formModify($data, $id = null)
@@ -32,16 +33,5 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
 
         $user->fill($data);
         $user->save();
-    }
-
-    public function getPermission()
-    {
-        $user = $this->auth->user();
-
-        if ($user->actor_no) {
-            return explode(',', $user->actor_no);
-        }
-
-        return false;
     }
 }

@@ -31,22 +31,13 @@ class Manuscript extends Model {
 							'send_at'];
 	protected $guarded 	= ['id'];
 
-	public static function getByStatus($status){
-
-		return Manuscript::where('status', '=', $status)->get();
-
-	}
-
-	public static function getInReviewByStatus($status){
-		// dd(Manuscript::where('status', '=', $status)
-		// 					->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
-		// 					->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')->get());
-
-		return Manuscript::where('status', '=', $status)
-							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
-							->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')
-							->get();
-
+	public function scopeStatus($query, $status, $author_id)
+	{
+		return $query->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')
+					 ->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
+					 ->where('manuscripts.status', '=', $status)
+					 ->where('manuscripts.author_id', '=', $author_id)
+					 ->get();
 	}
 
 }

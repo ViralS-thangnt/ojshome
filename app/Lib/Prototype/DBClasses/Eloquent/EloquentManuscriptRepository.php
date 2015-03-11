@@ -14,6 +14,7 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 	{
 		$this->model = $model;
 		$this->auth = $auth;
+		$this->user = $this->auth->user();
 	}
 
 	public function formModify($data, $id = null)
@@ -26,21 +27,15 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 			$manuscript = $this->model;
 		}
 
-		$user = $this->auth->user();
-		$data['author_id'] = $user->id;
+		$data['author_id'] = $this->user->id;
 		$manuscript->fill($data);
 		$manuscript->save();
 
 		return $manuscript;
 	}
 
-	public function getByStatus($status = null){
-		if ($status) {
-
-			return Manuscript::getInReviewByStatus($status);
-		}
-		
-		return $this->all();
+	public function getByStatus($status){
+		return Manuscript::status($status, $this->user->id);
 	}
 
 	public function uploadFile(){
