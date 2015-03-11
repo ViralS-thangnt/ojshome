@@ -24,8 +24,9 @@ Route::controllers([
 ]);
 
 // Dashboard
-Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
-Route::get('admin/user-dashboard', ['as'	=>	'dashboard.user', 'uses'	=>	'Admin\DashboardController@user_dashboard']);
+Route::get('admin', ['as'   =>  'dashboard', 'uses' =>  'Admin\DashboardController@index']);
+Route::get('admin/user-dashboard', ['as'    =>  'dashboard.user',
+                                    'uses'    =>  'Admin\DashboardController@userDashboard']);
 
 // Route::post('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
 Route::get('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
@@ -35,6 +36,5 @@ Route::get('admin/manuscript/{id?}', ['as'  =>  'manuscript.form', 'uses'   =>  
 Route::post('admin/manuscript/{id?}', ['as' =>  'manuscript.update','uses'  =>  'Admin\ManuscriptsController@update']);
 
 // In Review Manuscript
-Route::get('admin/manuscript-in-review', ['as'	=>	'manuscript.in_review', 'uses'	=>	'Admin\ManuscriptInReviewController@index']);
-
-
+Route::get('admin/manuscript-in-review', ['as'  =>  'manuscript.in_review',
+                                          'uses'  =>  'Admin\ManuscriptInReviewController@index']);

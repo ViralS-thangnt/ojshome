@@ -2,8 +2,20 @@
 
 class ConstantArray
 {
-    public static $author_per       = [CREATE_MNS, UPDATE_MNS, DELETE_MNS];
-    public static $admin_per        = [CREATE_MNS, UPDATE_MNS, DELETE_MNS, CREATE_USER, UPDATE_USER, DELETE_USER];
+    public static $author_per       = [
+            'manuscript.create'         =>  'admin/manuscript',
+            'manuscript.unsubmit'       =>  'admin/manuscript/unsubmit',
+            'manuscript.inScreening'    =>  'admin/manuscript/in-screening',
+            'manuscript.inReview'       =>  'admin/manuscript/in-review',
+            'manuscript.inEditing'      =>  'admin/manuscript/in-editing',
+            'manuscript.rejected'       =>  'admin/manuscript/rejected',
+            'manuscript.withdrawn'      =>  'admin/manuscript/withdrawn',
+            'manuscript.published'      =>  'admin/manuscript/published',
+    ];
+    public static $admin_per            = [
+            'user.create'               =>  'admin/user/form',
+            'user.index'                =>  'admin/user',
+    ];
     public static $degree           = [
             BACHELOR                =>  'Bachelor',
             MASTER                  =>  'Master',
@@ -32,12 +44,5 @@ class ConstantArray
     public static $actor_register   = [
             AUTHOR                  => 'Author',
             REVIEWER                => 'Reviewer',
-    ];
-    public static $admin_links      = [
-            'Manage User'           => 'admin/user',
-            'Create Manuscript'     => 'admin/manuscript',
-    ];
-    public static $author_links     = [
-            'Create Manuscript'     => 'admin/manuscript',
     ];
 }

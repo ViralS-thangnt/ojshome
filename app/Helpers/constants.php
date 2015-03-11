@@ -22,17 +22,20 @@ define('COPY_EDITOR', 8);
 define('LAYOUT_EDITOR', 9);
 define('PRODUCTION_EDITOR', 10);
 
-//define user permissions
-define('CREATE_MNS', 1);
-define('UPDATE_MNS', 2);
-define('DELETE_MNS', 3);
-define('CREATE_USER', 4);
-define('UPDATE_USER', 5);
-define('DELETE_USER', 6);
+//define require permission session
 define('REQUIRE_PERMISSION', 'require_permission');
 
 //define message type
 define('SUCCESS_MESSAGE', 'success-message');
+
+//define manuscript status
+define('UNSUBMIT', 0);
+define('IN_SCREENING', 1);
+define('IN_REVIEW', 2);
+define('IN_EDITING', 3);
+define('REJECTED', 4);
+define('WITHDRAWN', 5);
+define('PUBLISHED', 6);
 
 // Define box icon 
 define('ICON_PEOPLE', 'ion-ios7-people');
