@@ -20,6 +20,21 @@ class ManuscriptsController extends Controller {
 		\App::setLocale(\Session::get('lang', 'en'));
 	}
 
+	
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index($status)
+	{
+		
+		
+		
+		return view('manuscripts.manuscript');
+	}
+
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *

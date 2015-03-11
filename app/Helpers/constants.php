@@ -23,12 +23,6 @@ define('LAYOUT_EDITOR', 9);
 define('PRODUCTION_EDITOR', 10);
 
 //define user permissions
-define('CREATE_MNS', 1);
-define('UPDATE_MNS', 2);
-define('DELETE_MNS', 3);
-define('CREATE_USER', 4);
-define('UPDATE_USER', 5);
-define('DELETE_USER', 6);
 define('REQUIRE_PERMISSION', 'require_permission');
 
 //define message type

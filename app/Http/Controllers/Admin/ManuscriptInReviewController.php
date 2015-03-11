@@ -12,17 +12,18 @@ class ManuscriptInReviewController extends Controller {
 		\App::setLocale(\Session::get('lang', 'en'));
 	}
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
+	// /**
+	//  * Display a listing of the resource.
+	//  *
+	//  * @return Response
+	//  */
+	// public function index()
+	// {
 		
 		
-		return view('manuscripts.manuscript_in_review');
-	}
+		
+	// 	return view('manuscripts.manuscript_in_review');
+	// }
 
 	/**
 	 * Show the form for creating a new resource.

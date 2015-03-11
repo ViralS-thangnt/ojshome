@@ -57,17 +57,24 @@ Bản thảo
 
 @section('content')
 	
-<!-- page script -->
+
+<!-- DATA TABES SCRIPT -->
+<script src="{{ url('assets/js/plugins/datatables/jquery.dataTables.js') }} " type="text/javascript"></script>
+
+<script src="{{ url('assets/js/plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+
+<!-- DATA TABLES -->
+<link href="{{ url('assets/css/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript">
     $(function() {
-        $("#example1").dataTable();
-        $('#example2').dataTable({
+        $('#example1').dataTable({
             "bPaginate": true,
-            "bLengthChange": false,
-            "bFilter": false,
+            "bLengthChange": true,
+            "bFilter": true,
             "bSort": true,
             "bInfo": true,
-            "bAutoWidth": false
+            "bAutoWidth": true
         });
     });
 </script>
@@ -78,22 +85,7 @@ Bản thảo
 </div><!-- /.box-header -->
 <div class="box-body table-responsive">
 	<div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
-		<div class="row">
-			<div class="col-xs-6">
-				<div id="example1_length" class="dataTables_length">
-					<label><select size="1" name="example1_length" aria-controls="example1">
-						<option value="10" selected="selected">10</option>
-						<option value="25">25</option>
-						<option value="50">50</option>
-						<option value="100">100</option>
-					</select> records per page</label>
-				</div>
-			</div>
-			<div class="col-xs-6">
-				<div class="dataTables_filter" id="example1_filter">
-					<label>Search: <input type="text" aria-controls="example1"></label>
-				</div>
-			</div></div>
+		
 
 		<!-- Table -->
 		<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
@@ -177,25 +169,76 @@ Bản thảo
 					<td class=" sorting_1">Win 98+ / OSX.1+</td>
 					<td class="">1.8</td>
 					<td class="">A</td>
-				</tr></tbody></table><div class="row">
-			<div class="col-xs-6">
-		<div class="dataTables_info" id="example1_info">Showing 1 to 10 of 57 entries</div>
-	</div>
-	<div class="col-xs-6">
-		<div class="dataTables_paginate paging_bootstrap">
-		<ul class="pagination">
-			<li class="prev disabled"><a href="#">← Previous</a></li>
-			<li class="active"><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a>
-			</li><li class="next"><a href="#">Next → </a></li>
-		</ul>
-		</div>
-	</div>
-</div>
-</div>
+				</tr>
+				<tr class="odd">
+					<td class="">Misc</td>
+					<td class=" ">IE Mobile</td>
+					<td class=" sorting_1">Windows Mobile 6</td>
+					<td class="">-</td>
+					<td class="">C</td>
+				</tr><tr class="even">
+					<td class="">Trident</td>
+					<td class=" ">Internet Explorer 7</td>
+					<td class=" sorting_1">Win XP SP2+</td>
+					<td class="">7</td>
+					<td class="">A</td>
+				</tr><tr class="odd">
+					<td class="">Trident</td>
+					<td class=" ">AOL browser (AOL desktop)</td>
+					<td class=" sorting_1">Win XP</td>
+					<td class="">6</td>
+					<td class="">A</td>
+				</tr><tr class="even">
+					<td class="">Gecko</td>
+					<td class=" ">Netscape Browser 8</td>
+					<td class=" sorting_1">Win 98SE+</td>
+					<td class="">1.7</td>
+					<td class="">A</td>
+				</tr><tr class="odd">
+					<td class="">Gecko</td>
+					<td class=" ">Firefox 1.5</td>
+					<td class=" sorting_1">Win 98+ / OSX.2+</td>
+					<td class="">1.8</td>
+					<td class="">A</td>
+				</tr><tr class="even">
+					<td class="">Gecko</td>
+					<td class=" ">Firefox 2.0</td>
+					<td class=" sorting_1">Win 98+ / OSX.2+</td>
+					<td class="">1.8</td>
+					<td class="">A</td>
+				</tr><tr class="odd">
+					<td class="">Gecko</td>
+					<td class=" ">Netscape Navigator 9</td>
+					<td class=" sorting_1">Win 98+ / OSX.2+</td>
+					<td class="">1.8</td>
+					<td class="">A</td>
+				</tr><tr class="even">
+					<td class="">Gecko</td>
+					<td class=" ">Seamonkey 1.1</td>
+					<td class=" sorting_1">Win 98+ / OSX.2+</td>
+					<td class="">1.8</td>
+					<td class="">A</td>
+				</tr><tr class="odd">
+					<td class="">Gecko</td>
+					<td class=" ">Firefox 1.0</td>
+					<td class=" sorting_1">Win 98+ / OSX.2+</td>
+					<td class="">1.7</td>
+					<td class="">A</td>
+				</tr><tr class="even">
+					<td class="">Gecko</td>
+					<td class=" ">Mozilla 1.8</td>
+					<td class=" sorting_1">Win 98+ / OSX.1+</td>
+					<td class="">1.8</td>
+					<td class="">A</td>
+				</tr>
+
+			</tbody>
+			</table>
+
+	
+
+	</div><!-- example1_wrapper -->
+
 </div><!-- /.box-body -->
 </div>
 
