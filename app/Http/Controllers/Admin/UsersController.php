@@ -14,7 +14,8 @@ class UsersController extends Controller
 
     public function __construct(EloquentUserRepository $userRepo)
     {
-        //$this->middleware('auth');
+        Session::put(REQUIRE_PERMISSION, ADMIN);
+        $this->middleware('auth');
         $this->userRepo = $userRepo;
     }
 

@@ -17,15 +17,15 @@ Register
 
             {!! Form::input_text('email', 'Email', 'email') !!}
 
-            {!! Form::input_select('degree_id', 'Degree', Constant::list_degree()) !!}
+            {!! Form::input_select('degree_id', 'Degree', Constant::$degree) !!}
 
-            {!! Form::input_select('academic_id', 'Academic', Constant::list_academic()) !!}
+            {!! Form::input_select('academic_id', 'Academic', Constant::$academic) !!}
 
             {!! Form::input_text('password', 'Password', 'password') !!}
 
             {!! Form::input_text('password_confirmation', 'Password Confirm', 'password') !!}
 
-            {!! Form::input_check('actor_no', Constant::list_actors()) !!}
+            {!! Form::multi_check('actor_no', Constant::$actor_register) !!}
         </div>
 
         <div class="col-xs-12 col-md-6">
@@ -47,9 +47,14 @@ Register
             {!! Form::input_text('research_area', 'Research Area') !!}
 
             {!! Form::input_text('research', 'Research') !!}
-
-             {!! Form::button_submit('Submit') !!}
         </div>
+    </div>
+
+    <div class="footer">                    
+
+        <button type="submit" class="btn bg-olive btn-block">Sign me up</button>
+
+        <a href="{!! url('auth/login') !!}" class="text-center">I already have a membership</a>
     </div>
 
 {!! Form::close() !!}

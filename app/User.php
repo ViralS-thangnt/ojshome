@@ -33,13 +33,4 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
-    public static function getPermissionById($id){
-        $user = User::find($id);
-        if($user)
-
-            return $user->per_no;
-
-        return '';
-    }
 }

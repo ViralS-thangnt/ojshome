@@ -9,57 +9,42 @@ use Session;
 
 class DashboardController extends Controller {
 
-	protected $userRepo;
+    protected $userRepo;
 
-	public function __construct(EloquentUserRepository $userRepo){
-		// $this->middleware('auth');
-		$this->userRepo = $userRepo;
-	}
+    public function __construct(EloquentUserRepository $userRepo)
+    {
+        $this->middleware('auth');
+        $this->userRepo = $userRepo;
+    }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{	
-		Session::put('user_login_id', '1');		// Only For test - User logined
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {  
+        $permissions = $this->userRepo->getPermission();
+        return view('dashboard.dashboard')->with('permissions', $permissions);
+    }
 
-		$permissions = $this->userRepo->getPermission();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function user_dashboard()
+    {   
+        Session::put('user_login_id', '1');     // Only For test - User logined
 
-		return view('dashboard.dashboard')->with('permissions', $permissions);
-	}
+        $permissions = $this->userRepo->getPermission();
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function user_dashboard()
-	{	
-
-		Session::put('user_login_id', '1');		// Only For test - User logined
-		// dd('dsfklafdlsajkl');
-
-		$permissions = $this->userRepo->getPermission();
-
-		return view('dashboard.user-dashboard')->with('permissions', $permissions);
-	}
-	
-
-	// public function show()
-	// {	
-	// 	// Session::put('user_login_id', '1');		//Only For test - User logined
-
-	// 	// $permissions = $this->userRepo->getPermission();
-
-	// 	return view('dashboard.dashboard')->with('permissions', $permissions);
-	// }
-
+        return view('dashboard.user-dashboard')->with('permissions', $permissions);
+    }
 
     public function setLocale() {
         // TODO check lang is valid or exist
-    	$lang = $_GET['lang'];
+        $lang = $_GET['lang'];
 
         if($lang != '') {
             \Session::put('lang', $lang);

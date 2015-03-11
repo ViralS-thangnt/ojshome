@@ -6,6 +6,9 @@
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
+        <!-- OJS New System -->
+        <script src="{{ url('assets/js/ojs.js') }}" type="text/javascript"></script>
+
         <!-- bootstrap 3.0.2 -->
         <link href="{{ url('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->

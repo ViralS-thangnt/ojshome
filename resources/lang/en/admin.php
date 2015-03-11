@@ -67,8 +67,11 @@ return [
 
 
 	// new OJS system
-	'title_page_admin' 			=> "DRAFT",
-	'manuscript_info'			=> "Manuscript infomation",
-	'validation.numeric'		=> 'Field data must is numeric',
-	'validation.required'		=> 'Field data is require',
+	'title_page_admin'=>"DRAFT",
+	'manuscript_info'=>"Manuscript infomation",
+	// 'validation.numeric'		=> 'Field data must is numeric',
+	// 'validation.required'		=> 'Field data is require',
+
+	'manuscript_in_review.title_page_admin'=>"BẢN THẢO",
+	"manuscript_in_review.title"=>"Thông tin các bản thảo đang bình duyệt",
 ];

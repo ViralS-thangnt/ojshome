@@ -29,6 +29,7 @@ define('DELETE_MNS', 3);
 define('CREATE_USER', 4);
 define('UPDATE_USER', 5);
 define('DELETE_USER', 6);
+define('REQUIRE_PERMISSION', 'require_permission');
 
 //define message type
 define('SUCCESS_MESSAGE', 'success-message');
@@ -59,6 +60,7 @@ define('ICON_MENU_ANGLE_DOUBLE_LEFT', 'fa-angle-double-left');
 define('ICON_MENU_ANGLE_RIGHT', 'fa-angle-right');
 define('ICON_MENU_ANGLE_LEFT', 'fa-angle-left');
 define('ICON_MENU_ARROW_CIRCLE_RIGHT', 'fa-arrow-circle-right');
+define('ICON_MENU_EDIT', 'fa-edit');
 
 // Define box color
 define('COLOR_AQUA', 'bg-aqua');
@@ -75,8 +77,9 @@ define('COLOR_PURPLE', 'bg-purple');
 // Define frame type of image
 define('IMAGE_CIRCLE', 'img-circle');
 
-// Define 
+// Define paths
 define('IMAGE_PATH', '/images/');
 define('FILE_PATH', '/files/');
 
+define('FILE_SIZE_MAX', 50000);
 
