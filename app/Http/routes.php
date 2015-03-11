@@ -13,6 +13,7 @@
 //Homepage
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
+Route::get('book', 'BooksController@index');
 //User management
 Route::get('admin/user/form/{id?}', 'Admin\UsersController@form');
 Route::post('admin/user/form/{id?}', ['uses' => 'Admin\UsersController@update', 'as' => 'user.update']);

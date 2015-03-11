@@ -20,9 +20,9 @@ Bản thảo
 <!-- Navigation Link -->
 @section('navigation-link')
 	
-	{!! Form::navigate_link(ICON_DOCUMENT_TEXT, 
+	<!-- {!! Form::navigate_link(ICON_DOCUMENT_TEXT, 
 							['Bản thảo', 'Bản thảo đang bình duyệt'],
-							[ url('admin/'), url('admin/manuscript-in-review')]) !!}
+							[ url('admin/'), url('admin/manuscript-in-review')]) !!} -->
 @stop
 
 
