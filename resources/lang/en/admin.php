@@ -86,6 +86,10 @@ return [
 	'manuscript.rejected' 		=>	'Rejected Manuscript',
 	'manuscript.withdrawn' 		=>	'Withdrawn Manuscript',
 	'manuscript.published' 		=>	'Published Manuscript',
+	//review
+	'manuscript.unReview'       =>  'Manuscript Waiting For Review',
+    'manuscript.reviewed'       =>  'Manuscript Reviewed',
+    'manuscript.rejectedReview' =>  'Manuscript Rejected Review',
 
 	//user
 	'user.create'				=>	'Create New User',

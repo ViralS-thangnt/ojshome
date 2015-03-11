@@ -22,6 +22,7 @@ define('COPY_EDITOR', 8);
 define('LAYOUT_EDITOR', 9);
 define('PRODUCTION_EDITOR', 10);
 
+
 //define require permission session
 define('REQUIRE_PERMISSION', 'require_permission');
 

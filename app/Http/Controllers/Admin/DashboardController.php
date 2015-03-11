@@ -26,7 +26,6 @@ class DashboardController extends Controller {
     
     public function userDashboard()
     {
-
         $permissions = $this->userRepo->getPermission();
 
         return view('dashboard.user-dashboard')->with('permissions', $permissions);

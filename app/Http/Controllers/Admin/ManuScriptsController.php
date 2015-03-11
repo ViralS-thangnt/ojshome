@@ -2,11 +2,14 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Admin\ManuscriptsController;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ManuscriptRequest;
 
+
 use App\Lib\Prototype\DBClasses\Eloquent\EloquentManuscriptRepository;
+
 use Input;
 use Session;
 
@@ -15,10 +18,26 @@ class ManuscriptsController extends Controller {
 	protected $repo;
 
 	public function __construct(EloquentManuscriptRepository $repo){
-		// $this->middleware('auth');
+		$this->middleware('auth');
 		$this->repo = $repo;
 		\App::setLocale(\Session::get('lang', 'en'));
 	}
+
+	public function unsubmit()
+	{
+		
+	}
+
+
+	public function inReview()
+	{
+		$manuscripts = $this->repo->getByStatus(IN_REVIEW);
+
+		// dd($manuscripts->get()->first());
+
+		return view('manuscripts.manuscript')->with('data', $manuscripts);
+	}
+
 
 	/**
 	 * Show the form for editing the specified resource.

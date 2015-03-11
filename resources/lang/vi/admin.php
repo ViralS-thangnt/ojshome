@@ -68,7 +68,7 @@ return [
 	
 	'manuscript_in_review.title_page_admin'=>"BẢN THẢO",
 	"manuscript_in_review.title"=>"Thông tin các bản thảo đang bình duyệt",
-	
+
 	//manuscript
 	'manuscript.create'			=>	'Tạo bản thảo mới',
 	'manuscript.unsubmit' 		=>	'Bản thảo chưa gửi',
@@ -78,6 +78,10 @@ return [
 	'manuscript.rejected' 		=>	'Bản thảo bị từ chối',
 	'manuscript.withdrawn' 		=>	'Bản thảo rút nộp',
 	'manuscript.published' 		=>	'Bản thảo xuất bản',
+	//review
+	'manuscript.unReview'       =>  'Bản thảo chờ phản biện',
+    'manuscript.reviewed'       =>  'Bản thảo đã phản biện',
+    'manuscript.rejectedReview' =>  'Bản thảo không nhận phản ',
 
 	//user
 	'user.create'				=>	'Thêm User',

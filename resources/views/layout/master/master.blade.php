@@ -9,6 +9,17 @@
         <!-- OJS New System -->
         <script src="{{ url('assets/js/ojs.js') }}" type="text/javascript"></script>
 
+
+
+
+
+
+        
+
+
+
+
+
         <!-- bootstrap 3.0.2 -->
         <link href="{{ url('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
@@ -30,6 +41,10 @@
         <!-- Custom style -->
         <link href="{{ url('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
+
+
+
+        
 
         <!-- jQuery 2.0.2 -->
         <script src="{{ url('assets/js/jquery.min.js') }}  "></script>
