@@ -118,7 +118,7 @@ Bản thảo
 					<td class="">{{ $row->send_at }}</td>
 					<td class="">{{ $row->name }}</td>
 					<td class="">{{ $row->last_name }}</td>
-					<td class="">{{ $row->id }}</td>
+					<td class="">Bình duyệt vòng \ {{ $row->round_loop_review }}</td>
 					<td class="">{{ $row->id }}</td>
 				</tr>
 

@@ -35,9 +35,9 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 	}
 
 	public function getByStatus($status = null){
-		if ($status) {
+		if ($status == IN_REVIEW) {
 
-			return Manuscript::getInReviewByStatus($status);
+			return Manuscript::getInReviewByStatus($status, $this->auth->user()->id);
 		}
 		
 		return $this->all();

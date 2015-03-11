@@ -1,6 +1,8 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Contracts\Auth\Guard;
+
 
 class Manuscript extends Model {
 	public $timestamps 	= true;
@@ -31,19 +33,40 @@ class Manuscript extends Model {
 							'send_at'];
 	protected $guarded 	= ['id'];
 
+
+
 	public static function getByStatus($status){
 
 		return Manuscript::where('status', '=', $status)->get();
-
 	}
 
-	public static function getInReviewByStatus($status){
+
+	public static function getInReviewByStatus($status, $user_id){
+		// dd(Manuscript::where('status', '=', $status)
+		// 					->where('manuscripts.author_id', '=', $user_id)
+		// 					->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
+		// 					->leftJoin('section_manuscripts', function($join){
+		// 						$join->on('users.id', '=', 'section_manuscripts.user_id')
+		// 							->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+		// 					})
+		// 					->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name', 'section_manuscripts.*')
+		// 					->get());
 
 		return Manuscript::where('status', '=', $status)
+							->where('manuscripts.author_id', '=', $user_id)
 							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
-							->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')
+							->leftJoin('section_manuscripts', function($join){
+								$join->on('users.id', '=', 'section_manuscripts.user_id')
+									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+							})
+							->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name', 'section_manuscripts.section_editor_no as round_loop_review')
 							->get();
 
 	}
+
+	public function user(){
+
+        return $this->belongsTo('User', 'author_id');
+    }
 
 }

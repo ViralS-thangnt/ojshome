@@ -2,7 +2,6 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-// use App\Http\Controllers\Admin\ManuscriptsController;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ManuscriptRequest;
@@ -12,6 +11,8 @@ use App\Lib\Prototype\DBClasses\Eloquent\EloquentManuscriptRepository;
 
 use Input;
 use Session;
+use App\User;
+use App\Manuscript;
 
 class ManuscriptsController extends Controller {
 
@@ -30,10 +31,11 @@ class ManuscriptsController extends Controller {
 
 
 	public function inReview()
-	{
+	{	
+		// $temp = User::find(1)->manuscripts;
+		// // $temp = Manuscript::find(1)->user;
+		// dd($temp);
 		$manuscripts = $this->repo->getByStatus(IN_REVIEW);
-
-		// dd($manuscripts->get()->first());
 
 		return view('manuscripts.manuscript')
 				->with('data', $manuscripts)
