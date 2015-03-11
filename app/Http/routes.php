@@ -13,6 +13,7 @@
 //Homepage
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
+Route::get('book', 'BooksController@index');
 //User management
 Route::get('admin/user/form/{id?}', 'Admin\UsersController@form');
 Route::post('admin/user/form/{id?}', ['uses' => 'Admin\UsersController@update', 'as' => 'user.update']);
@@ -24,17 +25,17 @@ Route::controllers([
 ]);
 
 // Dashboard
-Route::get('admin', ['as'	=>	'dashboard', 'uses'	=>	'Admin\DashboardController@index']);
-Route::get('admin/user-dashboard', ['as'	=>	'dashboard.user', 'uses'	=>	'Admin\DashboardController@user_dashboard']);
+Route::get('admin', ['as'   =>  'dashboard', 'uses' =>  'Admin\DashboardController@index']);
+Route::get('admin/user-dashboard', ['as'    =>  'dashboard.user',
+                                    'uses'    =>  'Admin\DashboardController@userDashboard']);
 
 // Route::post('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
 Route::get('admin/setLocale', ['as'    =>  'admin.setLocale', 'uses'   =>  'Admin\DashboardController@setLocale']);
 
 // Manuscript
-Route::get('admin/manuscript/{id?}', ['as'  =>  'manuscript.form', 'uses'   =>  'Admin\ManuscriptsController@form']);
-Route::post('admin/manuscript/{id?}', ['as' =>  'manuscript.update','uses'  =>  'Admin\ManuscriptsController@update']);
+Route::get('admin/manuscript/form/{id?}', ['as'  =>  'manuscript.form', 'uses'   =>  'Admin\ManuscriptsController@form']);
+Route::post('admin/manuscript/form/{id?}', ['as' =>  'manuscript.update','uses'  =>  'Admin\ManuscriptsController@update']);
 
 // In Review Manuscript
-Route::get('admin/manuscript-in-review', ['as'	=>	'manuscript.in_review', 'uses'	=>	'Admin\ManuscriptInReviewController@index']);
-
-
+Route::get('admin/manuscript/in-review', ['as'  =>  'manuscript.in_review',
+                                          'uses'  =>  'Admin\ManuscriptsController@in_review']);

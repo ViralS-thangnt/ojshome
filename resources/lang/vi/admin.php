@@ -65,15 +65,21 @@ return [
 	'title_page_admin' 			=> "BẢN THẢO",
 	'manuscript_info'			=> "Thông tin bản thảo",
 
+	
 	'manuscript_in_review.title_page_admin'=>"BẢN THẢO",
 	"manuscript_in_review.title"=>"Thông tin các bản thảo đang bình duyệt",
-	// "manuscript_in_review.title"				=>	"Bản thảo",
-	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo",
-	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
-	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
-	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
-	// "manuscript_in_review.title_page_admin"		=>	"Bản thảo"
+	
+	//manuscript
+	'manuscript.create'			=>	'Tạo bản thảo mới',
+	'manuscript.unsubmit' 		=>	'Bản thảo chưa gửi',
+	'manuscript.inScreening' 	=>	'Bản thảo đang sơ loại',
+	'manuscript.inReview' 		=>	'Bản thảo đang bình duyệt',
+	'manuscript.inEditing' 		=>	'Bản thảo đang biên tập',
+	'manuscript.rejected' 		=>	'Bản thảo bị từ chối',
+	'manuscript.withdrawn' 		=>	'Bản thảo rút nộp',
+	'manuscript.published' 		=>	'Bản thảo xuất bản',
 
-
-
+	//user
+	'user.create'				=>	'Thêm User',
+	'user.index'				=>	'Danh sách User'
 ];

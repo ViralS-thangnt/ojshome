@@ -2,11 +2,14 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Admin\ManuscriptsController;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ManuscriptRequest;
 
+
 use App\Lib\Prototype\DBClasses\Eloquent\EloquentManuscriptRepository;
+
 use Input;
 use Session;
 
@@ -26,12 +29,13 @@ class ManuscriptsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index($status)
+	public function in_review()
 	{
-		
-		
-		
-		return view('manuscripts.manuscript');
+		$manuscripts = $this->repo->getByStatus(IN_REVIEW);
+
+		// dd($manuscripts->get()->first());
+
+		return view('manuscripts.manuscript')->with('data', $manuscripts);
 	}
 
 

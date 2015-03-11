@@ -58,7 +58,7 @@ function actor($actor_no)
     $actor = '';
     foreach ($actor_arr as $key => $value) {
         if ($key == count($actor_arr)-1) {
-            $actor .= $actors[$value];  
+            $actor .= $actors[$value]; 
         } else {
             $actor .= $actors[$value].', ';
         }
@@ -68,8 +68,20 @@ function actor($actor_no)
     return $actor;
 }
 
-//get array of menu links by actor_no
-function getMenuItem($actors)
+//get dashboard item by user permission
+function getDashboardItem($permissions)
 {
-    
+    $actors = Constant::$actor;
+    unset($actors[ADMIN]);
+
+    $html = '';
+    foreach ($actors as $key => $value) {
+        if(in_array($key, $permissions) || in_array(ADMIN, $permissions)) {
+            $html .= Form::dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('admin/user-dashboard'), $value, 30);
+        }
+    }
+
+    return $html;
 }
+
+//get 
