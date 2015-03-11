@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Manuscript extends Model {
 	public $timestamps 	= true;
 	protected $table 	= 'manuscripts';
-	protected $fillable = ['author', 
+	protected $fillable = [ 'author_id', 
 							'author_comments', 
 							'type', 
 							'expect_journal_id', 

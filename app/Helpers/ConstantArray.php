@@ -3,18 +3,23 @@
 class ConstantArray
 {
     public static $author_per       = [
-            'manuscript.create'         =>  'admin/manuscript',
-            'manuscript.unsubmit'       =>  'admin/manuscript/unsubmit',
-            'manuscript.inScreening'    =>  'admin/manuscript/in-screening',
-            'manuscript.inReview'       =>  'admin/manuscript/in-review',
-            'manuscript.inEditing'      =>  'admin/manuscript/in-editing',
-            'manuscript.rejected'       =>  'admin/manuscript/rejected',
-            'manuscript.withdrawn'      =>  'admin/manuscript/withdrawn',
-            'manuscript.published'      =>  'admin/manuscript/published',
+            'admin.manuscript.create'         =>  'admin/manuscript/form',
+            'admin.manuscript.unsubmit'       =>  'admin/manuscript/unsubmit',
+            'admin.manuscript.inScreening'    =>  'admin/manuscript/in-screening',
+            'admin.manuscript.inReview'       =>  'admin/manuscript/in-review',
+            'admin.manuscript.inEditing'      =>  'admin/manuscript/in-editing',
+            'admin.manuscript.rejected'       =>  'admin/manuscript/rejected',
+            'admin.manuscript.withdrawn'      =>  'admin/manuscript/withdrawn',
+            'admin.manuscript.published'      =>  'admin/manuscript/published',
     ];
     public static $admin_per            = [
-            'user.create'               =>  'admin/user/form',
-            'user.index'                =>  'admin/user',
+            'admin.user.create'               =>  'admin/user/form',
+            'admin.user.index'                =>  'admin/user',
+    ];
+    public static $reviewer_per         = [
+            'admin.manuscript.unReview'       =>  'admin/manuscript/un-review',
+            'admin.manuscript.reviewed'       =>  'admin/manuscript/reviewed',
+            'admin.manuscript.rejectedReview' =>  'admin/manuscript/rejected-review',
     ];
     public static $degree           = [
             BACHELOR                =>  'Bachelor',

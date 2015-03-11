@@ -1,9 +1,9 @@
-<?php
-namespace App\Lib\Prototype\BaseClasses;
+<?php namespace App\Lib\Prototype\BaseClasses;
 
 abstract class AbstractEloquentRepository
 {
     protected $model;
+    protected $auth;
     
     /**
      * Return all users

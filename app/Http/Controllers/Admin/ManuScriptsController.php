@@ -15,9 +15,14 @@ class ManuscriptsController extends Controller {
 	protected $repo;
 
 	public function __construct(EloquentManuscriptRepository $repo){
-		// $this->middleware('auth');
+		$this->middleware('auth');
 		$this->repo = $repo;
 		\App::setLocale(\Session::get('lang', 'en'));
+	}
+
+	public function unsubmit()
+	{
+		
 	}
 
 	/**

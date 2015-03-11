@@ -84,4 +84,24 @@ function getDashboardItem($permissions)
     return $html;
 }
 
-//get 
+//get dashboard menu item by user permission
+function getMenuItem($permissions)
+{
+    $html = '';
+    if (!empty($permissions)) {
+        foreach ($permissions as $permission) {
+            switch ($permission) {
+                case ADMIN:
+                    $html .= Form::menu_item('Administrator', Constant::$admin_per);
+                case AUTHOR:
+                    $html .= Form::menu_item('Author', Constant::$author_per);
+                    break;
+                case REVIEWER:
+                    $html .= Form::menu_item('Reviewer', Constant::$reviewer_per);
+                    break;          
+            }
+        }
+    }
+
+    return $html;
+}
