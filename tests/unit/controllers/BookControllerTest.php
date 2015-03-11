@@ -1,32 +1,28 @@
 <?php
+
 class BookControllerTest extends TestCase {
  
- 
-  public function mock($class)
-  {
-      $mock = Mockery::mock('App\Model', $class);
+protected $bookMock;
 
-      app()->instance($class, $mock);
+public function setUp()
+{
+    parent::setUp();
 
-      return $mock;
-  }
-
+    $this->mock = Mockery::mock('App\Lib\Prototype\DBClasses\Eloquent\EloquentBookRepository');
+    $this->app->instance('App\Lib\Prototype\DBClasses\Eloquent\EloquentBookRepository' , $this->mock);
+}
   public function tearDown()
-  {
+{
       Mockery::close();
-  }
- 
-  public function testIndex()
-  {
-      $this->mock
+}
+
+    public function testBookIndex()
+    {
+        $this->mock
            ->shouldReceive('all')
            ->once();
- 
-      $this->call('GET', 'book');
- 
-    $this->assertResponseOk();
-    // $this->assertViewHas('user');
-    // $this->assertViewNameIs('users.show');
-  }
- 
+
+        $this->call('get', 'book');
+       
+    }
 }
