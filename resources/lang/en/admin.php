@@ -91,6 +91,14 @@ return [
     'manuscript.reviewed'       =>  'Manuscript Reviewed',
     'manuscript.rejectedReview' =>  'Manuscript Rejected Review',
 
+    'manuscript.lastModified'	=>  'Last Modified',
+    'manuscript.name'			=>	'Name',
+    'manuscript.author' 		=>	'Author',
+
+    //operations
+    'edit'						=>	'Edit',
+    'delete'					=>	'Delete',
+
 	//user
 	'user.create'				=>	'Create New User',
 	'user.index'				=>	'List Users'

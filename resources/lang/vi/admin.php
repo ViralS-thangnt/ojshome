@@ -83,6 +83,14 @@ return [
     'manuscript.reviewed'       =>  'Bản thảo đã phản biện',
     'manuscript.rejectedReview' =>  'Bản thảo không nhận phản ',
 
+    'manuscript.lastModified'	=>  'Lần chỉnh sửa cuối',
+    'manuscript.name'			=>	'Tên bản thảo',
+    'manuscript.author' 		=>	'Tác giả',
+
+    //operations
+    'edit'						=>	'Sửa',
+    'delete'					=>	'Xoá',
+
 	//user
 	'user.create'				=>	'Thêm User',
 	'user.index'				=>	'Danh sách User'
