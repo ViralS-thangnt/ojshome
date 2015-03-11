@@ -20,9 +20,9 @@ public function setUp()
     {
         $this->mock
            ->shouldReceive('all')
-           ->once();
-
+           ->once()
+           ->andReturn(array());
         $this->call('get', 'book');
-       
+        $this->assertViewHas('books');
     }
 }
