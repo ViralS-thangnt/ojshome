@@ -2,11 +2,14 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Admin\ManuscriptsController;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ManuscriptRequest;
 
+
 use App\Lib\Prototype\DBClasses\Eloquent\EloquentManuscriptRepository;
+
 use Input;
 use Session;
 
@@ -24,6 +27,17 @@ class ManuscriptsController extends Controller {
 	{
 		
 	}
+
+
+	public function inReview()
+	{
+		$manuscripts = $this->repo->getByStatus(IN_REVIEW);
+
+		// dd($manuscripts->get()->first());
+
+		return view('manuscripts.manuscript')->with('data', $manuscripts);
+	}
+
 
 	/**
 	 * Show the form for editing the specified resource.

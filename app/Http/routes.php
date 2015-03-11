@@ -42,4 +42,3 @@ Route::get(Constant::$author_per['admin.manuscript.inEditing'],   ['uses' => 'Ad
 Route::get(Constant::$author_per['admin.manuscript.rejected'],    ['uses' => 'Admin\ManuscriptsController@rejected']);
 Route::get(Constant::$author_per['admin.manuscript.withdrawn'],   ['uses' => 'Admin\ManuscriptsController@withdrawn']);
 Route::get(Constant::$author_per['admin.manuscript.published'],   ['uses' => 'Admin\ManuscriptsController@published']);
-

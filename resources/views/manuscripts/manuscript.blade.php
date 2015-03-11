@@ -79,8 +79,6 @@ Bản thảo
     });
 </script>
 
-{{ $manuscripts }}
-
 <div class="box">
 <div class="box-header">
 	<h3 class="box-title">Data Table With Full Features</h3>
@@ -93,7 +91,6 @@ Bản thảo
 		<table id="table_data" class="table table-bordered table-striped dataTable" aria-describedby="table_data_info">
 		<thead>
 			<tr role="row">
-
 				<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="table_data" rowspan="1" colspan="1" style="width: 162px;" aria-label="Rendering engine: activate to sort column ascending">ID</th>
 				<th class="sorting" role="columnheader" tabindex="0" aria-controls="table_data" rowspan="1" colspan="1" style="width: 162px;" aria-label="Rendering engine: activate to sort column ascending">Ngày gửi </th>
 				<th class="sorting" role="columnheader" tabindex="0" aria-controls="table_data" rowspan="1" colspan="1" style="width: 235px;" aria-label="Browser: activate to sort column ascending">Tên bài</th>
@@ -113,35 +110,24 @@ Bản thảo
 				<th rowspan="1" colspan="1">Quyết định của ban biên tập</th>
 			</tr>
 		</tfoot>
-			<tbody role="alert" aria-live="polite" aria-relevant="all">
+		<tbody role="alert" aria-live="polite" aria-relevant="all">
+			
+			{{ $temp = true }}
+			@foreach($data as $row)
 				<tr class="odd">
-					<td class="">Misc</td>
-					<td class=" ">IE Mobile</td>
-					<td class=" sorting_1">Windows Mobile 6</td>
-					<td class="">-</td>
-					<td class="">C</td>
-				</tr><tr class="even">
-					<td class="">Trident</td>
-					<td class=" ">Internet Explorer 7</td>
-					<td class=" sorting_1">Win XP SP2+</td>
-					<td class="">7</td>
-					<td class="">A</td>
+					<td class=" sorting_1">{{ $row->id }}</td>
+					<td class="">{{ $row->created_at }}</td>
+					<td class="">{{ $row->name }}</td>
+					<td class="">{{ $row->last_name }}</td>
+					<td class="">{{ $row->id }}</td>
+					<td class="">{{ $row->id }}</td>
 				</tr>
 
-				@foreach($data as $row)
-					<tr class="odd">
-						<td class="">$row->id</td>
-						<td class=" ">$row->id</td>
-						<td class=" sorting_1">$row->id</td>
-						<td class="">$row->id</td>
-						<td class="">$row->id</td>
-					</tr>
-
-				@endforeach
+			@endforeach
 
 
-			</tbody>
-			</table>
+		</tbody>
+		</table>
 
 	
 

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Manuscript extends Model {
 	public $timestamps 	= true;
 	protected $table 	= 'manuscripts';
-	protected $fillable = [ 'author_id', 
+	protected $fillable = ['author_id', 
 							'author_comments', 
 							'type', 
 							'expect_journal_id', 
@@ -30,5 +30,23 @@ class Manuscript extends Model {
 							'file_final', 
 							'send_at'];
 	protected $guarded 	= ['id'];
+
+	public static function getByStatus($status){
+
+		return Manuscript::where('status', '=', $status)->get();
+
+	}
+
+	public static function getInReviewByStatus($status){
+		// dd(Manuscript::where('status', '=', $status)
+		// 					->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
+		// 					->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')->get());
+
+		return Manuscript::where('status', '=', $status)
+							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
+							->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')
+							->get();
+
+	}
 
 }
