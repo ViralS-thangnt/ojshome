@@ -34,8 +34,26 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		return $manuscript;
 	}
 
-	public function getByStatus($status){
-		return Manuscript::status($status, $this->user->id);
+	public function getById($id, array $with = array()){
+
+		return $this->model->find($id);
+	}
+
+
+	public function getByStatus($status = null){
+		switch ($status) {
+			case IN_REVIEW:
+
+				return Manuscript::getDataAndPermissionInReview($this->user);
+
+			case UNSUBMIT:
+				
+				break;
+			default:
+
+				return null;
+				break;
+		}
 	}
 
 	public function uploadFile(){

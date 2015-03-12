@@ -113,7 +113,7 @@ Trang chủ
                     ], 
                 [
                     url('admin/manuscript'),
-                    url('admin/manuscript-in-review'),
+                    url('admin/manuscript/in-review'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
@@ -187,7 +187,7 @@ Trang chủ
                     ], 
                 [
                     url('admin/manuscript'),
-                    url('admin/manuscript-in-review'),
+                    url('admin/manuscript/in-review'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
