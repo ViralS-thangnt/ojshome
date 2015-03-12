@@ -41,16 +41,19 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 
 
 	public function getByStatus($status = null){
-		if ($status == IN_REVIEW) {
+		switch ($status) {
+			case IN_REVIEW:
 
-			return Manuscript::getDataAndPermissionInReview($this->user);
+				return Manuscript::getDataAndPermissionInReview($this->user);
 
-		} elseif($status == UNSUBMIT) {
+			case UNSUBMIT:
+				
+				break;
+			default:
 
+				return null;
+				break;
 		}
-
-		
-		return null;
 	}
 
 	public function uploadFile(){
