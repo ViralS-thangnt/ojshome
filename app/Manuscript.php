@@ -29,7 +29,8 @@ class Manuscript extends Model {
 							'is_pre_public', 
 							'status', 
 							'num_page',  
-							'file_final', 
+							'file_final',
+							'section_loop', 
 							'send_at'];
 	protected $guarded 	= ['id'];
 
@@ -37,7 +38,6 @@ class Manuscript extends Model {
 
 		return Manuscript::where('status', '=', $status)->get();
 	}
-
 
 	public static function getDataAndPermissionInReview($user){
 

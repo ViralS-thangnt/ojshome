@@ -21,6 +21,7 @@ class CreateSreenManuscriptsTable extends Migration {
 			$table->integer('screen_editor_review');
 			$table->integer('screen_editor_suggest');
 			$table->tinyInteger('decide');
+			$table->integer('screen_loop');
 			$table->timestamps();
 		});
 	}

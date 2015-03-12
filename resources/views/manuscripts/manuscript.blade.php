@@ -34,8 +34,7 @@ Bản thảo
 @stop
 
 @section('user-welcome')
-	<p>Hello, Thang</p>
-	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+
 @stop
 
 
@@ -57,9 +56,6 @@ Bản thảo
 
 @section('content')
 	
-
-
-
 <script type="text/javascript">
     $(function() {
         $('#table_data').dataTable({

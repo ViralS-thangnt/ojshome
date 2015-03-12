@@ -44,8 +44,8 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		switch ($status) {
 			case IN_REVIEW:
 
-				return Manuscript::getDataAndPermissionInReview($this->user);
-
+				$data = Manuscript::getDataAndPermissionInReview($this->user);
+				break;
 			case UNSUBMIT:
 				
 				break;
@@ -54,6 +54,8 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 				return null;
 				break;
 		}
+
+		return $data;
 	}
 
 	public function uploadFile(){

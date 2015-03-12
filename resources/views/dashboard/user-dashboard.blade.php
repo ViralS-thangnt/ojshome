@@ -81,7 +81,7 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    url('admin/manuscript'), 
+                    url(Constant::$author_per['admin.manuscript.create']), 
                     url('admin/manuscript/unsubmit'), 
                     url('admin/manuscript/in_screening'), 
                     url('admin/manuscript-in-review'), 

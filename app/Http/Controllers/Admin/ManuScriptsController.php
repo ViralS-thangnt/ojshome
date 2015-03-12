@@ -32,7 +32,6 @@ class ManuscriptsController extends Controller {
 										]);
 	}
 
-
 	public function inReview()
 	{	
 		$data = $this->repo->getByStatus(IN_REVIEW);
