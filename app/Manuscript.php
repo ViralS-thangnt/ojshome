@@ -41,6 +41,11 @@ class Manuscript extends Model {
 		return Manuscript::where('status', '=', $status)->get();
 	}
 
+	public function scopeAuthorId($query, $user_id){
+
+		return $query->where('manuscripts.author_id', '=', $user_id);
+	}
+
 	public static function getDataAndPermissionInReview($user){
 
 		$permissions = explode(',', $user->actor_no);
@@ -66,8 +71,6 @@ class Manuscript extends Model {
 									'review_manuscripts.user_id as reviewer')
 							->get();
 
-			return array('manuscripts' => $manuscripts, 'permission' => CHIEF_EDITOR);
-
 		} else if(in_array(SECTION_EDITOR, $permissions)) {
 
 			$manuscripts = Manuscript::where('status', '=', IN_REVIEW)
@@ -87,8 +90,6 @@ class Manuscript extends Model {
 									'section_manuscripts.user_id as section_editor',
 									'manuscripts.is_chief_review as notify_chief_editor')
 							->get();
-
-			return array('manuscripts' => $manuscripts, 'permission' => SECTION_EDITOR);
 
 		} else if(in_array(MANAGING_EDITOR, $permissions)) {
 			
@@ -110,10 +111,8 @@ class Manuscript extends Model {
 									'review_manuscripts.user_id as reviewer')
 							->get();
 
-			return array('manuscripts' => $manuscripts, 'permission' => MANAGING_EDITOR);
-
 		} else if (in_array(AUTHOR, $permissions)) {
-			
+
 			$manuscripts = Manuscript::where('status', '=', IN_REVIEW)
 							->where('manuscripts.author_id', '=', $user->id)
 							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
@@ -125,10 +124,11 @@ class Manuscript extends Model {
 									'users.last_name', //'users.first_name', 'users.middle_name', 
 									'section_manuscripts.section_loop as round_no_review',
 									'section_manuscripts.section_editor_comments as round_decide_editor')
+
 							->get();
-							// dd($manuscripts);
-			return $manuscripts;
 		} 
+		
+		return $manuscripts;
 	}
 	
 	public function scopeStatus($query, $status, $author_id)

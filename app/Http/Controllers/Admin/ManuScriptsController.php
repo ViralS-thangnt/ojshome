@@ -34,6 +34,9 @@ class ManuscriptsController extends Controller {
 
 	public function inReview()
 	{	
+		// dd(Manuscript::authorId(11)->get());
+		
+		
 		$data = $this->repo->getByStatus(IN_REVIEW);
 		$result = ['data' => $data,
                  'col_header' => ['ID', 'Ngày gửi', 'Tên bài', 'Tác giả liên hệ', 'Tiến trình', 'Quyết định của ban biên tập'],
@@ -41,7 +44,6 @@ class ManuscriptsController extends Controller {
 
         return view('manuscripts.manuscript')
                     ->withResult($result);
-
 	}
 
 	/**
@@ -59,7 +61,7 @@ class ManuscriptsController extends Controller {
 		{
 			$manuscripts = $this->repo;
 		}
-		// dd($manuscripts);
+		
 		return view('manuscripts.form', compact('manuscripts', 'id'));
 	}
 
