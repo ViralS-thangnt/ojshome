@@ -113,7 +113,7 @@ class Manuscript extends Model {
 			return array('manuscripts' => $manuscripts, 'permission' => MANAGING_EDITOR);
 
 		} else if (in_array(AUTHOR, $permissions)) {
-
+			
 			$manuscripts = Manuscript::where('status', '=', IN_REVIEW)
 							->where('manuscripts.author_id', '=', $user->id)
 							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
@@ -122,12 +122,12 @@ class Manuscript extends Model {
 									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
 							})
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
-									'users.last_name', 'users.first_name', 'users.middle_name', 
+									'users.last_name', //'users.first_name', 'users.middle_name', 
 									'section_manuscripts.section_loop as round_no_review',
 									'section_manuscripts.section_editor_comments as round_decide_editor')
 							->get();
-
-			return array('manuscripts' => $manuscripts, 'permission' => AUTHOR);
+							// dd($manuscripts);
+			return $manuscripts;
 		} 
 	}
 	

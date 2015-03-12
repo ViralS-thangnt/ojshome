@@ -44,6 +44,7 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		switch ($status) {
 			case IN_REVIEW:
 
+				
 				$data = Manuscript::getDataAndPermissionInReview($this->user);
 				break;
 			case UNSUBMIT:

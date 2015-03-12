@@ -35,11 +35,13 @@ class ManuscriptsController extends Controller {
 	public function inReview()
 	{	
 		$data = $this->repo->getByStatus(IN_REVIEW);
+		$result = ['data' => $data,
+                 'col_header' => ['ID', 'Ngày gửi', 'Tên bài', 'Tác giả liên hệ', 'Tiến trình', 'Quyết định của ban biên tập'],
+                 'col_db' => ['id', 'send_at', 'name', 'last_name', 'round_no_review', 'round_decide_editor']];
 
-		return view('manuscripts.manuscript')
-				->with('data', $data['manuscripts'])
-				->with('permission', $data['permission'])
-				->with('is_odd', true);
+        return view('manuscripts.manuscript')
+                    ->withResult($result);
+
 	}
 
 	/**
