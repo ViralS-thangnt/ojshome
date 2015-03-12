@@ -58,7 +58,7 @@ class Manuscript extends Model {
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
 									'manuscripts.chief_decide as round_decide_chief_editor',
 									'users.last_name', 'users.first_name', 'users.middle_name',
-									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.section_loop as round_no_review',
 									'section_manuscripts.user_id as section_editor',
 									'manuscripts.is_chief_review as notify_chief_editor',
 									'review_manuscripts.user_id as reviewer')
@@ -81,7 +81,7 @@ class Manuscript extends Model {
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
 									'manuscripts.chief_decide as round_decide_chief_editor',
 									'users.last_name', 'users.first_name', 'users.middle_name',
-									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.section_loop as round_no_review',
 									'section_manuscripts.user_id as section_editor',
 									'manuscripts.is_chief_review as notify_chief_editor')
 							->get();
@@ -103,7 +103,7 @@ class Manuscript extends Model {
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
 									'manuscripts.chief_decide as round_decide_chief_editor',
 									'users.last_name', 'users.first_name', 'users.middle_name',
-									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.section_loop as round_no_review',
 									'section_manuscripts.user_id as section_editor',
 									'review_manuscripts.user_id as reviewer')
 							->get();
@@ -121,17 +121,17 @@ class Manuscript extends Model {
 							})
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
 									'users.last_name', 'users.first_name', 'users.middle_name', 
-									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.section_loop as round_no_review',
 									'section_manuscripts.section_editor_comments as round_decide_editor')
 							->get();
 
 			return array('manuscripts' => $manuscripts, 'permission' => AUTHOR);
 		} 
-
 	}
 	
 	public function scopeStatus($query, $status, $author_id)
 	{
+
 		return $query->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name')
 					 ->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
 					 ->where('manuscripts.status', '=', $status)
