@@ -17,8 +17,9 @@ class CreateSectionManuscriptsTable extends Migration {
 			$table->increments('id');
 			$table->integer('manuscript_id');
 			$table->integer('user_id');
-			$table->integer('section_editor_no');
+			$table->integer('section_loop');
 			$table->string('section_editor_comments');
+			$table->string('name');
 			$table->timestamps();
 		});
 	}
