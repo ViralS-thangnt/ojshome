@@ -29,7 +29,7 @@ class EloquentUserRepository extends AbstractEloquentRepository implements UserI
             $data['actor_no'] = implode(',', $data['actor_no']);
         }
 
-        $data['password'] = sha1($data['password']);
+        $data['password'] = bcrypt($data['password']);
 
         $user->fill($data);
         $user->save();

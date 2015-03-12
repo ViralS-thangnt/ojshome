@@ -37,7 +37,7 @@ class Authenticate {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                return redirect()->guest(LOGIN_PATH);
             }
         } elseif (Session::has(REQUIRE_PERMISSION)) {
             //check user permission
@@ -48,7 +48,7 @@ class Authenticate {
             Session::forget(REQUIRE_PERMISSION);
             
             if (!in_array($require_permission, $user_permission)) {
-                return redirect('/admin');
+                return redirect(REDIRECT_PATH);
             }
         }
 

@@ -26,6 +26,12 @@ define('PRODUCTION_EDITOR', 10);
 //define require permission session
 define('REQUIRE_PERMISSION', 'require_permission');
 
+//define authenticate redirect link
+define('REDIRECT_PATH', '/admin');
+define('LOGIN_PATH', '/user/login');
+define('LOGOUT_PATH', '/user/logout');
+define('REGISTER_PATH', '/user/register');
+
 //define message type
 define('SUCCESS_MESSAGE', 'success-message');
 

@@ -20,7 +20,7 @@ Route::post('admin/user/form/{id?}', ['uses' => 'Admin\UsersController@update', 
 Route::resource('admin/user', 'Admin\UsersController', ['except' => ['create', 'edit', 'store', 'show', 'update']]);
 //Authenticate User
 Route::controllers([
-    'auth' => 'Auth\AuthController',
+    'user' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
 

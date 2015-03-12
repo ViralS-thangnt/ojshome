@@ -15,68 +15,68 @@ use Session;
 
 class ManuscriptsController extends Controller {
 
-	protected $repo;
+    protected $repo;
 
-	public function __construct(EloquentManuscriptRepository $repo){
-		$this->middleware('auth');
-		$this->repo = $repo;
-		\App::setLocale(\Session::get('lang', 'en'));
-	}
+    public function __construct(EloquentManuscriptRepository $repo){
+        $this->middleware('auth');
+        $this->repo = $repo;
+        \App::setLocale(\Session::get('lang', 'en'));
+    }
 
-	public function unsubmit()
-	{
-		return view('manuscripts.index')->with([
-											'manuscripts' 	=> $this->repo->getByStatus(UNSUBMIT),
-											'permissions'	=> $this->repo->getPermission(),
-										]);
-	}
-
-
-	public function inReview()
-	{
-		$manuscripts = $this->repo->getByStatus(IN_REVIEW);
-
-		// dd($manuscripts->get()->first());
-
-		return view('manuscripts.manuscript')->with('data', $manuscripts);
-	}
+    public function unsubmit()
+    {
+        return view('manuscripts.index')->with([
+                                            'manuscripts'   => $this->repo->getByStatus(UNSUBMIT),
+                                            'permissions'   => $this->repo->getPermission(),
+                                        ]);
+    }
 
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function form($id = null)
-	{
-		if ($id) {
-			$manuscripts = $this->repo->getById($id);
-		} 
-		else 
-		{
-			$manuscripts = $this->repo;
-		}
+    public function inReview()
+    {
+        $manuscripts = $this->repo->getByStatus(IN_REVIEW);
 
-		return view('manuscripts.form', compact('manuscripts', 'id'));
-	}
+        // dd($manuscripts->get()->first());
+
+        return view('manuscripts.manuscript')->with('data', $manuscripts);
+    }
 
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update(ManuscriptRequest $request, $id = null)
-	{
-		$this->repo->uploadFile();
-		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function form($id = null)
+    {
+        if ($id) {
+            $manuscripts = $this->repo->getById($id);
+        } 
+        else 
+        {
+            $manuscripts = $this->repo;
+        }
 
-		return redirect('/admin');
-	}
+        return view('manuscripts.form', compact('manuscripts', 'id'));
+    }
 
-	public function setLocale() {
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update(ManuscriptRequest $request, $id = null)
+    {
+        $this->repo->uploadFile();
+        $this->repo->formModify(Input::except('_token', 'confirm'), $id);
+
+        return redirect('/admin');
+    }
+
+    public function setLocale() {
         // TODO check lang is valid or exist
         $lang = $_GET['lang'];
 

@@ -54,7 +54,7 @@ Register
 
         <button type="submit" class="btn bg-olive btn-block">Sign me up</button>
 
-        <a href="{!! url('auth/login') !!}" class="text-center">I already have a membership</a>
+        <a href="{!! url('user/login') !!}" class="text-center">I already have a membership</a>
     </div>
 
 {!! Form::close() !!}
