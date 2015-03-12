@@ -30,7 +30,9 @@ class Manuscript extends Model {
 							'status', 
 							'num_page',  
 							'file_final',
-							'section_loop', 
+							'section_loop',
+							'review_loop',
+							'screen_loop', 
 							'send_at'];
 	protected $guarded 	= ['id'];
 
