@@ -48,4 +48,9 @@ trait CustomAuth
     {
         return property_exists($this, 'loginPath') ? $this->loginPath : LOGIN_PATH;
     }
+
+    protected function getFailedLoginMessage()
+    {
+        return trans('admin.FailedLoginMessage');
+    }
 }

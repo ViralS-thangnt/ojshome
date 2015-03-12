@@ -100,6 +100,9 @@ return [
     'delete'					=>	'Delete',
     'emptyData'					=>	'No match record found',
 
+    //message
+    'FailedLoginMessage'		=>	'These credentials do not match our records.',
+
 	//user
 	'user.create'				=>	'Create New User',
 	'user.index'				=>	'List Users'

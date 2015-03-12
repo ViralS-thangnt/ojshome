@@ -90,7 +90,10 @@ return [
     //common
     'edit'						=>	'Sửa',
     'delete'					=>	'Xoá',
-    'emptyData'					=>	'Không có bản ghi phù hợp nào được tìm thấy'
+    'emptyData'					=>	'Không có bản ghi phù hợp nào được tìm thấy',
+
+    //message
+    'FailedLoginMessage'		=>	'Tài khoản đăng nhập không tồn tại!',
 
 	//user
 	'user.create'				=>	'Thêm User',
