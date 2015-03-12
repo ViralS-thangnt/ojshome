@@ -34,14 +34,23 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		return $manuscript;
 	}
 
+	public function getById($id, array $with = array()){
+
+		return $this->model->find($id);
+	}
+
 
 	public function getByStatus($status = null){
 		if ($status == IN_REVIEW) {
 
-			return Manuscript::getInReviewByStatus($status, $this->user->id);
+			return Manuscript::getDataAndPermissionInReview($this->user);
+
+		} elseif($status == UNSUBMIT) {
+
 		}
+
 		
-		return $this->all();
+		return null;
 	}
 
 	public function uploadFile(){

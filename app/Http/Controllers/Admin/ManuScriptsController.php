@@ -35,16 +35,13 @@ class ManuscriptsController extends Controller {
 
 	public function inReview()
 	{	
-		// $temp = User::find(1)->manuscripts;
-		// // $temp = Manuscript::find(1)->user;
-		// dd($temp);
-		$manuscripts = $this->repo->getByStatus(IN_REVIEW);
+		$data = $this->repo->getByStatus(IN_REVIEW);
 
 		return view('manuscripts.manuscript')
-				->with('data', $manuscripts)
+				->with('data', $data['manuscripts'])
+				->with('permission', $data['permission'])
 				->with('is_odd', true);
 	}
-
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -54,14 +51,14 @@ class ManuscriptsController extends Controller {
 	 */
 	public function form($id = null)
 	{
-		if ($id) {
+		if($id) {
 			$manuscripts = $this->repo->getById($id);
 		} 
 		else 
 		{
 			$manuscripts = $this->repo;
 		}
-
+		// dd($manuscripts);
 		return view('manuscripts.form', compact('manuscripts', 'id'));
 	}
 

@@ -48,7 +48,7 @@
 
 			{!! Form::help_block('(Nhập tên bài viết. Tối đa 20 từ)') !!}
 
-			{!! Form::textarea_custom('name', '', 5, 'Nhập tên bài viết. Tối đa 20 từ ...', 'form-control',
+			{!! Form::textarea_custom('name', null, 5, 'Nhập tên bài viết. Tối đa 20 từ ...', 'form-control',
 							['onkeyup' => 'countChar(this, 20, 1, "black", "red", "countTopicName")'] ) !!}
 
 			{!! Form::div_open('', 'countTopicName') !!}{!! Form::div_close() !!}
@@ -60,7 +60,7 @@
 
 			{!! Form::help_block('(Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ)') !!}
 
-			{!! Form::textarea_custom('summary_vi', '', 5, 'Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...', 'form-control',
+			{!! Form::textarea_custom('summary_vi', null, 5, 'Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...', 'form-control',
 							['onkeyup' => 'countChar(this, 200, 150, "black", "red", "countSummaryVn")'] ) !!}
 			
 			{!! Form::div_open('', 'countSummaryVn') !!}{!! Form::div_close() !!}
@@ -83,7 +83,7 @@
 
 			{!! Form::help_block('(Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ)') !!}
 
-			{!! Form::textarea_custom('summary_en', '', 5, 'Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ ...', 'form-control',
+			{!! Form::textarea_custom('summary_en', null, 5, 'Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ ...', 'form-control',
 							['onkeyup' => 'countChar(this, 200, 150, "black", "red", "countSummaryEn")'] ) !!}
 			
 			{!! Form::div_open('', 'countSummaryEn') !!}{!! Form::div_close() !!}
@@ -104,7 +104,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Chủ đề bài viết', 'text-form-large', false)!!}
 
-			{!! Form::textarea_custom('topic', '', 5, 'Nhập chủ đề bài viết...' ) !!}
+			{!! Form::textarea_custom('topic', null, 5, 'Nhập chủ đề bài viết...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -114,7 +114,7 @@
 
 			{!! Form::help_block('(Bạn hãy ghi rõ tên, thông tin liên lạc với nhà phản biện.)') !!}
 
-			{!! Form::textarea_custom('propose_reviewer', '', 5, 'Nhập đề xuất nhà phản biện. Bạn hãy ghi rõ tên, thông tin liên lạc với nhà phản biện...' ) !!}
+			{!! Form::textarea_custom('propose_reviewer', null, 5, 'Nhập đề xuất nhà phản biện. Bạn hãy ghi rõ tên, thông tin liên lạc với nhà phản biện...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -123,7 +123,7 @@
 
 			{!! Form::help_block('(Bạn muốn đăng bài viết trên tạp chí số bao nhiêu)') !!}
 
-			{!! Form::textarea_custom('expect_journal_id', '', 1, 'Nhập mong muốn đăng bài viết của bạn trên tạp chí số bao nhiêu...' ) !!}
+			{!! Form::textarea_custom('expect_journal_id', null, 1, 'Nhập mong muốn đăng bài viết của bạn trên tạp chí số bao nhiêu...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -131,7 +131,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Kiến nghị gửi Ban biên tập', 'text-form-large', false)!!}
 
-			{!! Form::textarea_custom('recommend', '', 5, 'Nhập kiến nghị gửi Ban biên tập chúng tôi...' ) !!}
+			{!! Form::textarea_custom('author_comments', null, 5, 'Nhập kiến nghị gửi Ban biên tập chúng tôi...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -159,7 +159,7 @@
 
 			{!! Form::help_block('(Bạn hãy ghi rõ thông tin của đồng tác giả nếu có)') !!}
 
-			{!! Form::textarea_custom('co_author', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
+			{!! Form::textarea_custom('co_author', null, 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
 		
 		{!! Form::div_close() !!}
 

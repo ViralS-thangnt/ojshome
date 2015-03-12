@@ -33,26 +33,100 @@ class Manuscript extends Model {
 							'send_at'];
 	protected $guarded 	= ['id'];
 
-
-
-
 	public static function getByStatus($status){
 
 		return Manuscript::where('status', '=', $status)->get();
 	}
 
 
-	public static function getInReviewByStatus($status, $user_id){
+	public static function getDataAndPermissionInReview($user){
 
-		return Manuscript::where('status', '=', $status)
-							->where('manuscripts.author_id', '=', $user_id)
+		$permissions = explode(',', $user->actor_no);
+
+		if(in_array(ADMIN, $permissions) || in_array(CHIEF_EDITOR, $permissions)) {
+
+			$manuscripts = Manuscript::where('status', '=', IN_REVIEW)
 							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
 							->leftJoin('section_manuscripts', function($join){
 								$join->on('users.id', '=', 'section_manuscripts.user_id')
 									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
 							})
-							->select('manuscripts.*', 'users.last_name', 'users.first_name', 'users.middle_name', 'section_manuscripts.section_editor_no as round_loop_review')
+							->leftJoin('review_manuscripts', function($join){
+								$join->on('users.id', '=', 'section_manuscripts.user_id')
+									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+							})
+							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
+									'manuscripts.chief_decide as round_decide_chief_editor',
+									'users.last_name', 'users.first_name', 'users.middle_name',
+									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.user_id as section_editor',
+									'manuscripts.is_chief_review as notify_chief_editor',
+									'review_manuscripts.user_id as reviewer')
 							->get();
+
+			return array('manuscripts' => $manuscripts, 'permission' => CHIEF_EDITOR);
+
+		} else if(in_array(SECTION_EDITOR, $permissions)) {
+
+			$manuscripts = Manuscript::where('status', '=', IN_REVIEW)
+							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
+							->leftJoin('section_manuscripts', function($join){
+								$join->on('users.id', '=', 'section_manuscripts.user_id')
+									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+							})
+							->leftJoin('review_manuscripts', function($join){
+								$join->on('users.id', '=', 'section_manuscripts.user_id')
+									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+							})
+							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
+									'manuscripts.chief_decide as round_decide_chief_editor',
+									'users.last_name', 'users.first_name', 'users.middle_name',
+									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.user_id as section_editor',
+									'manuscripts.is_chief_review as notify_chief_editor')
+							->get();
+
+			return array('manuscripts' => $manuscripts, 'permission' => SECTION_EDITOR);
+
+		} else if(in_array(MANAGING_EDITOR, $permissions)) {
+			
+			$manuscripts = Manuscript::where('status', '=', IN_REVIEW)
+							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
+							->leftJoin('section_manuscripts', function($join){
+								$join->on('users.id', '=', 'section_manuscripts.user_id')
+									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+							})
+							->leftJoin('review_manuscripts', function($join){
+								$join->on('users.id', '=', 'section_manuscripts.user_id')
+									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+							})
+							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
+									'manuscripts.chief_decide as round_decide_chief_editor',
+									'users.last_name', 'users.first_name', 'users.middle_name',
+									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.user_id as section_editor',
+									'review_manuscripts.user_id as reviewer')
+							->get();
+
+			return array('manuscripts' => $manuscripts, 'permission' => MANAGING_EDITOR);
+
+		} else if (in_array(AUTHOR, $permissions)) {
+
+			$manuscripts = Manuscript::where('status', '=', IN_REVIEW)
+							->where('manuscripts.author_id', '=', $user->id)
+							->leftJoin('users', 'users.id', '=', 'manuscripts.author_id')
+							->leftJoin('section_manuscripts', function($join){
+								$join->on('users.id', '=', 'section_manuscripts.user_id')
+									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+							})
+							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
+									'users.last_name', 'users.first_name', 'users.middle_name', 
+									'section_manuscripts.section_editor_no as round_no_review',
+									'section_manuscripts.section_editor_comments as round_decide_editor')
+							->get();
+
+			return array('manuscripts' => $manuscripts, 'permission' => AUTHOR);
+		} 
 
 	}
 	
@@ -63,12 +137,10 @@ class Manuscript extends Model {
 					 ->where('manuscripts.status', '=', $status)
 					 ->where('manuscripts.author_id', '=', $author_id)
 					 ->get();
-
 	}
 
 	public function user(){
 
         return $this->belongsTo('User', 'author_id');
     }
-
 }

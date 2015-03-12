@@ -252,7 +252,7 @@ Form::macro('ul_custom', function($data = [''],
 // Custom div
 Form::macro('div_open', function($class = '', $id = ''){
 
-	return '<div class="' . $class . '" id ="' . (empty($id) ?  '' : $id ) . '"">';
+	return '<div class="' . $class . '" id ="' . (empty($id) ?  '' : $id ) . '">';
 });
 
 Form::macro('div_close', function(){
