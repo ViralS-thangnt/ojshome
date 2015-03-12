@@ -6,9 +6,15 @@
 
 @stop
 
+<!-- Left column -->
+@section('left-column')
+{!! getMenuItem($permissions) !!} 
+@stop
+
 <!-- Main content -->
 @section('content')
 
+@if(!is_null($manuscripts))
 <table class="table">
 <thead>
     <tr>
@@ -21,6 +27,7 @@
 </thead>
 
 <tbody>
+
     @foreach($manuscripts as $manuscript)
     <tr>
         <td>{{$manuscript->id}}</td>
@@ -38,6 +45,9 @@
     @endforeach
 </tbody>
 </table>
+@else
+{{trans('admin.emptyData')}}
+@endif
 <form method="post" id="form-delete">
 <input type="hidden" name="_method" value="DELETE" />
 <input type="hidden" name="_token" value="{{ csrf_token() }}" />

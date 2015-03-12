@@ -95,9 +95,10 @@ return [
     'manuscript.name'			=>	'Name',
     'manuscript.author' 		=>	'Author',
 
-    //operations
+    //common
     'edit'						=>	'Edit',
     'delete'					=>	'Delete',
+    'emptyData'					=>	'No match record found',
 
 	//user
 	'user.create'				=>	'Create New User',

@@ -87,9 +87,10 @@ return [
     'manuscript.name'			=>	'Tên bản thảo',
     'manuscript.author' 		=>	'Tác giả',
 
-    //operations
+    //common
     'edit'						=>	'Sửa',
     'delete'					=>	'Xoá',
+    'emptyData'					=>	'Không có bản ghi phù hợp nào được tìm thấy'
 
 	//user
 	'user.create'				=>	'Thêm User',
