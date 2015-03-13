@@ -8,6 +8,8 @@ public function setUp()
 {
     parent::setUp();
 
+    //dd('aaa');
+
     $this->mock = Mockery::mock('App\Lib\Prototype\DBClasses\Eloquent\EloquentBookRepository');
     $this->app->instance('App\Lib\Prototype\DBClasses\Eloquent\EloquentBookRepository' , $this->mock);
 }
