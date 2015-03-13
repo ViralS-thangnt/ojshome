@@ -29,7 +29,10 @@ class Manuscript extends Model {
 							'is_pre_public', 
 							'status', 
 							'num_page',  
-							'file_final', 
+							'file_final',
+							'section_loop',
+							'review_loop',
+							'screen_loop', 
 							'send_at'];
 	protected $guarded 	= ['id'];
 
@@ -38,10 +41,17 @@ class Manuscript extends Model {
 		return Manuscript::where('status', '=', $status)->get();
 	}
 
+	public function scopeAuthorId($query, $user_id){
+
+		return $query->where('manuscripts.author_id', '=', $user_id);
+	}
 
 	public static function getDataAndPermissionInReview($user){
 
 		$permissions = explode(',', $user->actor_no);
+
+		$col_header = ['ID', 'Ngày gửi', 'Tên bài', 'Tác giả liên hệ', 'Tiến trình'];
+		$col_db = ['id', 'send_at', 'name', 'last_name', 'round_no_review'];	
 
 		if(in_array(ADMIN, $permissions) || in_array(CHIEF_EDITOR, $permissions)) {
 
@@ -57,14 +67,15 @@ class Manuscript extends Model {
 							})
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
 									'manuscripts.chief_decide as round_decide_chief_editor',
-									'users.last_name', 'users.first_name', 'users.middle_name',
+									'users.last_name', 
 									'section_manuscripts.section_loop as round_no_review',
-									'section_manuscripts.user_id as section_editor',
+									'section_manuscripts.name as section_editor',
 									'manuscripts.is_chief_review as notify_chief_editor',
 									'review_manuscripts.user_id as reviewer')
 							->get();
 
-			return array('manuscripts' => $manuscripts, 'permission' => CHIEF_EDITOR);
+			array_push($col_db, 'reviewer', 'section_editor', 'notify_chief_editor', 'round_decide_chief_editor');
+			array_push($col_header, 'Phản biện', 'Biên tập viên chuyên trách', 'Thông báo tổng biên tập', 'Quyết định của tổng biên tập');
 
 		} else if(in_array(SECTION_EDITOR, $permissions)) {
 
@@ -80,13 +91,14 @@ class Manuscript extends Model {
 							})
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
 									'manuscripts.chief_decide as round_decide_chief_editor',
-									'users.last_name', 'users.first_name', 'users.middle_name',
+									'users.last_name', 
 									'section_manuscripts.section_loop as round_no_review',
-									'section_manuscripts.user_id as section_editor',
+									'section_manuscripts.name as section_editor',
 									'manuscripts.is_chief_review as notify_chief_editor')
 							->get();
 
-			return array('manuscripts' => $manuscripts, 'permission' => SECTION_EDITOR);
+			array_push($col_db, 'reviewer', 'notify_chief_editor', 'round_decide_chief_editor');
+			array_push($col_header, 'Phản biện', 'Thông báo tổng biên tập', 'Quyết định của tổng biên tập');	
 
 		} else if(in_array(MANAGING_EDITOR, $permissions)) {
 			
@@ -102,13 +114,14 @@ class Manuscript extends Model {
 							})
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
 									'manuscripts.chief_decide as round_decide_chief_editor',
-									'users.last_name', 'users.first_name', 'users.middle_name',
+									'users.last_name', 
 									'section_manuscripts.section_loop as round_no_review',
-									'section_manuscripts.user_id as section_editor',
+									'section_manuscripts.name as section_editor',
 									'review_manuscripts.user_id as reviewer')
 							->get();
 
-			return array('manuscripts' => $manuscripts, 'permission' => MANAGING_EDITOR);
+			array_push($col_db, 'reviewer', 'section_editor', 'round_decide_chief_editor');
+			array_push($col_header, 'Phản biện', 'Biên tập viên chuyên trách', 'Quyết định của tổng biên tập');
 
 		} else if (in_array(AUTHOR, $permissions)) {
 
@@ -120,13 +133,17 @@ class Manuscript extends Model {
 									->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
 							})
 							->select('manuscripts.id', 'manuscripts.send_at', 'manuscripts.name',
-									'users.last_name', 'users.first_name', 'users.middle_name', 
+									'users.last_name', 
 									'section_manuscripts.section_loop as round_no_review',
 									'section_manuscripts.section_editor_comments as round_decide_editor')
+
 							->get();
 
-			return array('manuscripts' => $manuscripts, 'permission' => AUTHOR);
+			array_push($col_db, 'round_decide_editor');
+			array_push($col_header, 'Quyết định của ban biên tập');
 		} 
+
+		return array('data' => $manuscripts, 'col_header' => $col_header, 'col_db' => $col_db);
 	}
 	
 	public function scopeStatus($query, $status, $author_id)
@@ -141,6 +158,6 @@ class Manuscript extends Model {
 
 	public function user(){
 
-        return $this->belongsTo('User', 'author_id');
-    }
+		return $this->belongsTo('User', 'author_id');
+	}
 }

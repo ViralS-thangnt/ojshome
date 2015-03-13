@@ -32,15 +32,11 @@ class ManuscriptsController extends Controller {
 										]);
 	}
 
-
 	public function inReview()
 	{	
-		$data = $this->repo->getByStatus(IN_REVIEW);
+		$result = $this->repo->getByStatus(IN_REVIEW);
 
-		return view('manuscripts.manuscript')
-				->with('data', $data['manuscripts'])
-				->with('permission', $data['permission'])
-				->with('is_odd', true);
+		return view('manuscripts.manuscript')->withResult($result);
 	}
 
 	/**
@@ -58,7 +54,7 @@ class ManuscriptsController extends Controller {
 		{
 			$manuscripts = $this->repo;
 		}
-		// dd($manuscripts);
+		
 		return view('manuscripts.form', compact('manuscripts', 'id'));
 	}
 
@@ -78,14 +74,14 @@ class ManuscriptsController extends Controller {
 	}
 
 	public function setLocale() {
-        // TODO check lang is valid or exist
-        $lang = $_GET['lang'];
+		// TODO check lang is valid or exist
+		$lang = $_GET['lang'];
 
-        if($lang != '') {
-            \Session::put('lang', $lang);
-            \App::setLocale($lang);
-            return json_encode($lang);
-        }
-        return json_encode($lang);
-    }
+		if($lang != '') {
+			\Session::put('lang', $lang);
+			\App::setLocale($lang);
+			return json_encode($lang);
+		}
+		return json_encode($lang);
+	}
 }
