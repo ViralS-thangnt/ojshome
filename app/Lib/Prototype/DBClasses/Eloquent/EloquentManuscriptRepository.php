@@ -30,7 +30,7 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		$data['author_id'] = $this->user->id;
 		$manuscript->fill($data);
 		$manuscript->save();
-
+		// dd($manuscript);
 		return $manuscript;
 	}
 
