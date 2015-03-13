@@ -83,6 +83,7 @@ Bản thảo
 				@foreach($result['col_header'] as $head)
 					 <th class="sorting_asc center" role="columnheader" tabindex="0" aria-controls="table_data" rowspan="1" colspan="1">{{$head}}</th>
 				@endforeach
+				<th rowspan="1" colspan="1" class="center">Chi tiết</th>
 			</tr>
 		</thead>
 
@@ -91,18 +92,27 @@ Bản thảo
 				@foreach($result['col_header'] as $head)
 					 <th class="sorting_asc center" role="columnheader" tabindex="0" aria-controls="table_data" rowspan="1" colspan="1">{{$head}}</th>
 				@endforeach
+				<th rowspan="1" colspan="1" class="center">Chi tiết</th>
 			</tr>
 		</tfoot>
 		<tbody role="alert" aria-live="polite" aria-relevant="all">
-			{{ $is_odd = true}}
+			<input type="hidden" value ='{!! $is_odd = true !!}'/>
 			@foreach($result['data'] as $row)
 				
 				<tr class="{{ ($is_odd) ? 'odd' : 'even' }}">
-					@foreach( $result['col_db'] as $col)
-						  
-					  <td>{{ $row->$col }}    </td>
 
+					@foreach( $result['col_db'] as $col)
+						{{ $col }}
+						@if($col == 'notify_chief_editor' || $col == 'round_decide_chief_editor' ||
+							$col == 'reviewer' || $col == 'section_editor')
+							<td class="center">{{ empty($row->$col) ? '-' : $row->$col }}</td>
+						@elseif($col == 'round_no_review')
+	                        <td class="center">Bình duyệt vòng \ {{ $row->$col }}</td>
+						@else
+							<td class="center">{{ $row->$col }}</td>
+						@endif
 					@endforeach
+					<td class="center"><a href = "{{ url('admin/manuscript/form/' . $row->id) }}"> Xem thêm </a></td>
 				</tr>
 
 			@endforeach

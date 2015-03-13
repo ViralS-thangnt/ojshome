@@ -34,16 +34,9 @@ class ManuscriptsController extends Controller {
 
 	public function inReview()
 	{	
-		// dd(Manuscript::authorId(11)->get());
-		
-		
-		$data = $this->repo->getByStatus(IN_REVIEW);
-		$result = ['data' => $data,
-                 'col_header' => ['ID', 'Ngày gửi', 'Tên bài', 'Tác giả liên hệ', 'Tiến trình', 'Quyết định của ban biên tập'],
-                 'col_db' => ['id', 'send_at', 'name', 'last_name', 'round_no_review', 'round_decide_editor']];
+		$result = $this->repo->getByStatus(IN_REVIEW);
 
-        return view('manuscripts.manuscript')
-                    ->withResult($result);
+		return view('manuscripts.manuscript')->withResult($result);
 	}
 
 	/**
@@ -81,14 +74,14 @@ class ManuscriptsController extends Controller {
 	}
 
 	public function setLocale() {
-        // TODO check lang is valid or exist
-        $lang = $_GET['lang'];
+		// TODO check lang is valid or exist
+		$lang = $_GET['lang'];
 
-        if($lang != '') {
-            \Session::put('lang', $lang);
-            \App::setLocale($lang);
-            return json_encode($lang);
-        }
-        return json_encode($lang);
-    }
+		if($lang != '') {
+			\Session::put('lang', $lang);
+			\App::setLocale($lang);
+			return json_encode($lang);
+		}
+		return json_encode($lang);
+	}
 }
