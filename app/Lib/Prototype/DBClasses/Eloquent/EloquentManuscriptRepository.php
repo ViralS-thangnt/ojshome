@@ -26,7 +26,7 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 		{
 			$manuscript = $this->model;
 		}
-
+		
 		$data['author_id'] = $this->user->id;
 		$manuscript->fill($data);
 		$manuscript->save();
@@ -43,9 +43,8 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 	public function getByStatus($status = null){
 		switch ($status) {
 			case IN_REVIEW:
-
 				
-				$data = Manuscript::getDataAndPermissionInReview($this->user);
+				$data = Manuscript::getDataInReview($this->user);
 				break;
 			case UNSUBMIT:
 				

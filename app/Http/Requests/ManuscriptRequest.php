@@ -2,6 +2,7 @@
 
 use App\Http\Requests\Request;
 use Input;
+use DateTime;
 
 class ManuscriptRequest extends Request {
 
@@ -22,10 +23,11 @@ class ManuscriptRequest extends Request {
 	 */
 	public function rules()
 	{
+		// dd(Input::all());
 		$keyword_vi = empty(Input::get('keyword_vi')) ? null : implode(',', Input::get('keyword_vi')); 
 		$keyword_en = empty(Input::get('keyword_en')) ? null : implode(',', Input::get('keyword_en')); 
 		$type = empty(Input::get('type')) ? null : implode(',', Input::get('type'));
-		Input::merge(['keyword_vi' => $keyword_vi, 'keyword_en' => $keyword_en, 'type' => $type]);
+		Input::merge(['keyword_vi' => $keyword_vi, 'keyword_en' => $keyword_en, 'type' => $type, 'send_at' => new DateTime]);
 
 		return [
 			'type'					=> 'required', 
