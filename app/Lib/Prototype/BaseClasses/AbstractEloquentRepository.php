@@ -1,9 +1,10 @@
-<?php
-namespace App\Lib\Prototype\BaseClasses;
+<?php namespace App\Lib\Prototype\BaseClasses;
 
 abstract class AbstractEloquentRepository
 {
     protected $model;
+    protected $auth;
+    protected $user;
     
     /**
      * Return all users
@@ -119,5 +120,17 @@ abstract class AbstractEloquentRepository
     public function delete($ids)
     {
         $this->model->destroy($ids);
+    }
+
+    /**
+    * Get current user login permission
+    */
+    public function getPermission()
+    {
+        if ($this->user->actor_no) {
+            return explode(',', $this->user->actor_no);
+        }
+
+        return false;
     }
 }

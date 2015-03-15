@@ -15,7 +15,7 @@ function doUpload($file, $path = IMAGE_PATH)
 }
 
 function doUploadDocument(){
-
+    // TODO: Thang - Change message SUCCESS_MESSAGE to multi language
     $target_dir = public_path() . FILE_PATH . $_FILES["file"]["tmp_name"] ;
     $target_file = $target_dir . '/' . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
@@ -58,7 +58,7 @@ function actor($actor_no)
     $actor = '';
     foreach ($actor_arr as $key => $value) {
         if ($key == count($actor_arr)-1) {
-            $actor .= $actors[$value];  
+            $actor .= $actors[$value]; 
         } else {
             $actor .= $actors[$value].', ';
         }
@@ -68,8 +68,40 @@ function actor($actor_no)
     return $actor;
 }
 
-//get array of menu links by actor_no
-function getMenuItem($actors)
+//get dashboard item by user permission
+function getDashboardItem($permissions)
 {
-    
+    $actors = Constant::$actor;
+    unset($actors[ADMIN]);
+
+    $html = '';
+    foreach ($actors as $key => $value) {
+        if(in_array($key, $permissions) || in_array(ADMIN, $permissions)) {
+            $html .= Form::dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('admin/user-dashboard'), $value, 30);
+        }
+    }
+
+    return $html;
+}
+
+//get dashboard menu item by user permission
+function getMenuItem($permissions)
+{
+    $html = '';
+    if (!empty($permissions)) {
+        foreach ($permissions as $permission) {
+            switch ($permission) {
+                case ADMIN:
+                    $html .= Form::menu_item('Administrator', Constant::$admin_per);
+                case AUTHOR:
+                    $html .= Form::menu_item('Author', Constant::$author_per);
+                    break;
+                case REVIEWER:
+                    $html .= Form::menu_item('Reviewer', Constant::$reviewer_per);
+                    break;          
+            }
+        }
+    }
+
+    return $html;
 }

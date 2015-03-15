@@ -6,18 +6,37 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ManuscriptRequest;
 
+
 use App\Lib\Prototype\DBClasses\Eloquent\EloquentManuscriptRepository;
+
 use Input;
 use Session;
+use App\User;
+use App\Manuscript;
 
 class ManuscriptsController extends Controller {
 
 	protected $repo;
 
 	public function __construct(EloquentManuscriptRepository $repo){
-		// $this->middleware('auth');
+		$this->middleware('auth');
 		$this->repo = $repo;
 		\App::setLocale(\Session::get('lang', 'en'));
+	}
+
+	public function unsubmit()
+	{
+		return view('manuscripts.index')->with([
+											'manuscripts' 	=> $this->repo->getByStatus(UNSUBMIT),
+											'permissions'	=> $this->repo->getPermission(),
+										]);
+	}
+
+	public function inReview()
+	{	
+		$result = $this->repo->getByStatus(IN_REVIEW);
+
+		return view('manuscripts.manuscript')->withResult($result);
 	}
 
 	/**
@@ -28,14 +47,14 @@ class ManuscriptsController extends Controller {
 	 */
 	public function form($id = null)
 	{
-		if ($id) {
+		if($id) {
 			$manuscripts = $this->repo->getById($id);
 		} 
 		else 
 		{
 			$manuscripts = $this->repo;
 		}
-
+		
 		return view('manuscripts.form', compact('manuscripts', 'id'));
 	}
 
@@ -47,7 +66,7 @@ class ManuscriptsController extends Controller {
 	 * @return Response
 	 */
 	public function update(ManuscriptRequest $request, $id = null)
-	{
+	{	
 		$this->repo->uploadFile();
 		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 
@@ -55,14 +74,14 @@ class ManuscriptsController extends Controller {
 	}
 
 	public function setLocale() {
-        // TODO check lang is valid or exist
-        $lang = $_GET['lang'];
+		// TODO check lang is valid or exist
+		$lang = $_GET['lang'];
 
-        if($lang != '') {
-            \Session::put('lang', $lang);
-            \App::setLocale($lang);
-            return json_encode($lang);
-        }
-        return json_encode($lang);
-    }
+		if($lang != '') {
+			\Session::put('lang', $lang);
+			\App::setLocale($lang);
+			return json_encode($lang);
+		}
+		return json_encode($lang);
+	}
 }

@@ -9,7 +9,7 @@ Login
 @stop
 
 @section('content')
-{!! Form::open(['url' => 'auth/login']) !!}
+{!! Form::open(['url' => 'user/login']) !!}
     {!! ErrorDisplay::getInstance()->DisplayAll($errors) !!}
     
     {!! Form::input_text('email', 'Email', 'email') !!}
@@ -24,7 +24,7 @@ Login
                     
         <p><a href="#">I forgot my password</a></p>
         
-        <a href="{!! url('auth/register') !!}" class="text-center">Register a new membership</a>
+        <a href="{!! url('user/register') !!}" class="text-center">Register a new membership</a>
     </div>
 
 {!! Form::close() !!}

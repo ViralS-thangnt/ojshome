@@ -29,5 +29,4 @@ function countWords(val, max, min, colorok, colorerror, divname){
 	} else {
 		$('#' + divname).text('Số từ có thể nhập thêm: ' + (max - len) + ' từ').css({'color' : colorok});
 	}
-
 }

@@ -68,10 +68,6 @@ Form::macro('input_radio', function($name, $label = '', $value = array()) {
 	return $html;
 });
 
-Form::macro('button_submit', function($value = 'Submit', $class = 'btn btn-primary') {
-	return '<input type="submit" class="'.$class.'" value="'.$value.'" />';
-});
-
 // Custom label 
 Form::macro('label_custom', function($content = 'label', 
 
@@ -162,8 +158,8 @@ Form::macro('menu_item', function ($menu_name = 'menu',
 							 <ul class="treeview-menu">';
 		
 		foreach ($childs as $key => $value) {
-			$result = $result . '<li><a href="' . $value . '" style="margin-left: 10px;">
-										<i class="fa fa-angle-double-right"></i> '. $key .'</a></li>';
+			$result = $result . '<li><a href="' . url($value) . '" style="margin-left: 10px;">
+										<i class="fa fa-angle-double-right"></i> '. trans($key) .'</a></li>';
 		}
 		
 		return $result . '</ul></li></ul>';
@@ -256,7 +252,7 @@ Form::macro('ul_custom', function($data = [''],
 // Custom div
 Form::macro('div_open', function($class = '', $id = ''){
 
-	return '<div class="' . $class . '" id ="' . (empty($id) ?  '' : $id ) . '"">';
+	return '<div class="' . $class . '" id ="' . (empty($id) ?  '' : $id ) . '">';
 });
 
 Form::macro('div_close', function(){

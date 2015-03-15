@@ -21,6 +21,7 @@ class CreateReviewManuscriptsTable extends Migration {
 			$table->string('review');
 			$table->string('file');
 			$table->tinyInteger('decide');
+			
 			$table->timestamps();
 		});
 	}

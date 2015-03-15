@@ -54,26 +54,17 @@ Trang chủ
 
 @stop
 
+<!-- Left column -->
+@section('left-column')
+{!! getMenuItem($permissions) !!} 
+@stop
+
 <!-- Main content -->
 @section('content')
 
 {!! Form::div_open('row', 'margin-box-input') !!}
 
-	<!-- This is demo for dashboard -->
-
-	   {!! Form::dashboard_item(ICON_PEOPLE, COLOR_AQUA, url('admin/user-dashboard'), 'Tác giả', 30); !!}
-
-
-
-		{!! Form::dashboard_item(ICON_CHATBOX, COLOR_RED, url('admin/user-dashboard'), 'Phản biện', 150); !!}
-
-
-		{!! Form::dashboard_item(ICON_DOCUMENT_TEXT, COLOR_YELLOW, url('admin/user-dashboard'), 'Biên tập', 77); !!}
-
-	
-
-		{!! Form::dashboard_item(ICON_STORAGE, COLOR_GREEN, url('admin/user-dashboard'), 'Xuất bản', 14); !!}
-
+	{!! getDashboardItem($permissions) !!}
 
 {!! Form::div_close() !!}
 <!-- ion-android-star -->

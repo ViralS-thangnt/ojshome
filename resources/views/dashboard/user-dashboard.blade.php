@@ -55,6 +55,11 @@ Trang chủ
 
 @stop
 
+<!-- Left column -->
+@section('left-column')
+{!! getMenuItem($permissions) !!} 
+@stop
+
 <!-- Main content -->
 @section('content')
 
@@ -76,7 +81,7 @@ Trang chủ
                     'Tất cả các bản thảo'
                     ], 
                 [
-                    url('admin/manuscript'), 
+                    url(Constant::$author_per['admin.manuscript.create']), 
                     url('admin/manuscript/unsubmit'), 
                     url('admin/manuscript/in_screening'), 
                     url('admin/manuscript-in-review'), 
@@ -108,7 +113,7 @@ Trang chủ
                     ], 
                 [
                     url('admin/manuscript'),
-                    url('admin/manuscript-in-review'),
+                    url('admin/manuscript/in-review'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
@@ -182,7 +187,7 @@ Trang chủ
                     ], 
                 [
                     url('admin/manuscript'),
-                    url('admin/manuscript-in-review'),
+                    url('admin/manuscript/in-review'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),
                     url('admin/manuscript'),

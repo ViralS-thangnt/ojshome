@@ -18,7 +18,7 @@
 @section('content')
 
 <!-- form start -->   
-{!! Form::model($manuscripts, ['route' => ['manuscript.update', $id], 'enctype' => 'multipart/form-data'] ) !!}
+{!! Form::model($manuscripts, ['route' => ['manuscript.update', $id], 'enctype' => 'multipart/form-data', 'id' => 'form-manuscript'] ) !!}
 
 <!-- <div class="box box-primary"> -->
 {!! Form::div_open('box box-primary padding-box') !!}
@@ -60,8 +60,9 @@
 
 			{!! Form::help_block('(Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ)') !!}
 
+
 			{!! Form::textarea_custom('summary_vi', '', 5, 'Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...', 'form-control',
-							['onkeyup' => 'countWords(this, 200, 150, "black", "red", "countSummaryVn")'] ) !!}
+							['onkeyup' => 'countWords(this, 7, 3, "black", "red", "countSummaryVn")'] ) !!}
 			
 			{!! Form::div_open('', 'countSummaryVn') !!}{!! Form::div_close() !!}
 
@@ -104,7 +105,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Chủ đề bài viết', 'text-form-large', false)!!}
 
-			{!! Form::textarea_custom('topic', '', 5, 'Nhập chủ đề bài viết...' ) !!}
+			{!! Form::textarea_custom('topic', null, 5, 'Nhập chủ đề bài viết...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -114,7 +115,7 @@
 
 			{!! Form::help_block('(Bạn hãy ghi rõ tên, thông tin liên lạc với nhà phản biện.)') !!}
 
-			{!! Form::textarea_custom('propose_reviewer', '', 5, 'Nhập đề xuất nhà phản biện. Bạn hãy ghi rõ tên, thông tin liên lạc với nhà phản biện...' ) !!}
+			{!! Form::textarea_custom('propose_reviewer', null, 5, 'Nhập đề xuất nhà phản biện. Bạn hãy ghi rõ tên, thông tin liên lạc với nhà phản biện...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -123,7 +124,7 @@
 
 			{!! Form::help_block('(Bạn muốn đăng bài viết trên tạp chí số bao nhiêu)') !!}
 
-			{!! Form::textarea_custom('expect_journal_id', '', 1, 'Nhập mong muốn đăng bài viết của bạn trên tạp chí số bao nhiêu...' ) !!}
+			{!! Form::textarea_custom('expect_journal_id', null, 1, 'Nhập mong muốn đăng bài viết của bạn trên tạp chí số bao nhiêu...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -131,7 +132,7 @@
 		{!! Form::div_open('form-group') !!}
 			{!! Form::label_custom('Kiến nghị gửi Ban biên tập', 'text-form-large', false)!!}
 
-			{!! Form::textarea_custom('recommend', '', 5, 'Nhập kiến nghị gửi Ban biên tập chúng tôi...' ) !!}
+			{!! Form::textarea_custom('author_comments', null, 5, 'Nhập kiến nghị gửi Ban biên tập chúng tôi...' ) !!}
 			
 		{!! Form::div_close() !!}
 
@@ -159,7 +160,7 @@
 
 			{!! Form::help_block('(Bạn hãy ghi rõ thông tin của đồng tác giả nếu có)') !!}
 
-			{!! Form::textarea_custom('co_author', '', 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
+			{!! Form::textarea_custom('co_author', null, 5, 'Bạn hãy nhập thông tin của đồng tác giả nếu có...' ) !!}
 		
 		{!! Form::div_close() !!}
 
@@ -210,9 +211,24 @@
 
 {!! Form::div_close() !!}<!-- /.box box-primary -->
 	
-
+<input type="hidden" name="status" id="submit-form" />
 <!-- Submit	 -->
-{!! Form::submit('Gửi bài', ['class' => 'btn btn-primary']) !!}
+{!! Form::button('Gửi bài', ['class' => 'send btn btn-primary']) !!}
+{!! Form::button('Lưu', ['class' => 'btn btn-primary']) !!}
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-primary').click(function(){
+			if ($(this).hasClass('send')) {
+				$('#submit-form').val({{IN_SCREENING}});
+			} else {
+				$('#submit-form').val({{UNSUBMIT}});
+			}
+
+			$('#form-manuscript').submit();
+		});
+	})
+</script>
 
 <!-- End form -->
 {!! Form::close() !!}

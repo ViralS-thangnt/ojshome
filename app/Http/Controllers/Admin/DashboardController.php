@@ -17,26 +17,16 @@ class DashboardController extends Controller {
         $this->userRepo = $userRepo;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
     public function index()
-    {  
+    {
         $permissions = $this->userRepo->getPermission();
+        
         return view('dashboard.dashboard')->with('permissions', $permissions);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function user_dashboard()
-    {   
-        Session::put('user_login_id', '1');     // Only For test - User logined
-
+    
+    public function userDashboard()
+    {
         $permissions = $this->userRepo->getPermission();
 
         return view('dashboard.user-dashboard')->with('permissions', $permissions);

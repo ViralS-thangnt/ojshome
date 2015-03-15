@@ -31,7 +31,7 @@ trait CustomAuth
         return redirect($this->loginPath())
                     ->withInput($request->only('email', 'remember'))
                     ->withErrors([
-                        'email' => $this->getFailedLoginMesssage(),
+                        'email' => $this->getFailedLoginMessage(),
                     ]);
     }
 
@@ -41,6 +41,16 @@ trait CustomAuth
             return $this->redirectPath;
         }
 
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/admin';
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : REDIRECT_PATH;
+    }
+
+    public function loginPath()
+    {
+        return property_exists($this, 'loginPath') ? $this->loginPath : LOGIN_PATH;
+    }
+
+    protected function getFailedLoginMessage()
+    {
+        return trans('admin.FailedLoginMessage');
     }
 }

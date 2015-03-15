@@ -40,6 +40,9 @@
 			<div class="content">
 				<div class="title">Laravel 5</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
+				<a href="{!! url(LOGIN_PATH) !!}">Login</a>
+				<br />
+				<a href="{!! url(REGISTER_PATH) !!}">Register</a>
 			</div>
 		</div>
 	</body>

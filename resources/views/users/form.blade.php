@@ -58,7 +58,7 @@
 
             {!! Form::input_text('research', 'Research') !!}
 
-             {!! Form::button_submit('Submit') !!}
+             {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
         </div>
     </div>
 

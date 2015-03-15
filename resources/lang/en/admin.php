@@ -72,6 +72,38 @@ return [
 	// 'validation.numeric'		=> 'Field data must is numeric',
 	// 'validation.required'		=> 'Field data is require',
 
-	'manuscript_in_review.title_page_admin'=>"BẢN THẢO",
+
+	
+	'manuscript_in_review.title_page_admin'=>"Manuscript",
 	"manuscript_in_review.title"=>"Thông tin các bản thảo đang bình duyệt",
+
+	//manuscript
+	'manuscript.create'			=>	'Create New Manuscript',
+	'manuscript.unsubmit' 		=>	'Unsubmitted Manuscript',
+	'manuscript.inScreening' 	=>	'In Screening Manuscript',
+	'manuscript.inReview' 		=>	'In Review Manuscript',
+	'manuscript.inEditing' 		=>	'In Editing Manuscript',
+	'manuscript.rejected' 		=>	'Rejected Manuscript',
+	'manuscript.withdrawn' 		=>	'Withdrawn Manuscript',
+	'manuscript.published' 		=>	'Published Manuscript',
+	//review
+	'manuscript.unReview'       =>  'Manuscript Waiting For Review',
+    'manuscript.reviewed'       =>  'Manuscript Reviewed',
+    'manuscript.rejectedReview' =>  'Manuscript Rejected Review',
+
+    'manuscript.lastModified'	=>  'Last Modified',
+    'manuscript.name'			=>	'Name',
+    'manuscript.author' 		=>	'Author',
+
+    //common
+    'edit'						=>	'Edit',
+    'delete'					=>	'Delete',
+    'emptyData'					=>	'No match record found',
+
+    //message
+    'FailedLoginMessage'		=>	'These credentials do not match our records.',
+
+	//user
+	'user.create'				=>	'Create New User',
+	'user.index'				=>	'List Users'
 ];
