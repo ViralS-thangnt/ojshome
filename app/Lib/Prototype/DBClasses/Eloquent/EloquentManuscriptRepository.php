@@ -50,11 +50,16 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 				
 				break;
 			default:
-
-				return null;
+				$data = Manuscript::getDataPublished($this->user, $status);
 				break;
 		}
 
+		$data['data']->each(function ($manuscript) {
+			$manuscript->fullname = $manuscript->last_name .' '. $manuscript->first_name;
+			$manuscript->send_at = date("d/m/Y", strtotime($manuscript->send_at));
+			$manuscript->process = $manuscript->status;
+		});
+		// dd($data);
 		return $data;
 	}
 

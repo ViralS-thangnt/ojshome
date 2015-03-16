@@ -47,6 +47,8 @@ class UserTableSeeder extends Seeder
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'author_demo@naida.bz',
                 'actor_no'          =>  AUTHOR,
+                'last_name'         => 'last_name',
+                'first_name'        => 'first_name',
               ]);
 
         //Managing Editor
@@ -56,6 +58,8 @@ class UserTableSeeder extends Seeder
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'managing_editor@naida.bz',
                 'actor_no'          =>  MANAGING_EDITOR,
+                'last_name'         => 'last_name',
+                'first_name'        => 'first_name',
               ]);
 
         //Screening Editor

@@ -100,5 +100,4 @@ define('FILE_PATH', '/files');
 // File size
 define('FILE_SIZE_MAX', 50000);
 
-
-
+//define col view
