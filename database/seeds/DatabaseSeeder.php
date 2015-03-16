@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 //use DB;
 use App\User;
+use App\Manuscript;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,7 +27,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //Users
-      
+
         //clear database
         DB::table('users')->delete();
 
@@ -121,168 +122,168 @@ class UserTableSeeder extends Seeder
             ]);
 
       //Manuscripts
-      // DB::table('manuscripts')->delete();
+      DB::table('manuscripts')->delete();
 
-      // DB::create([
-      //     'type'                  =>  A,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  A,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
 
-      // DB::create([
-      //     'type'                  =>  B,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  B,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
 
-      // DB::create([
-      //     'type'                  =>  C,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  C,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
 
-      // DB::create([
-      //     'type'                  =>  D,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  D,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
 
-      // DB::create([
-      //     'type'                  =>  E,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  E,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
       
-      // DB::create([
-      //     'type'                  =>  A,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  A,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
 
-      // DB::create([
-      //     'type'                  =>  B,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  B,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
 
-      // DB::create([
-      //     'type'                  =>  C,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  C,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
 
-      // DB::create([
-      //     'type'                  =>  D,
-      //     'author_id'             =>  2,
-      //     'name'                  =>  'Lorem ipsum dolor',
-      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-      //     'keyword_vi'            =>  '',
-      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      //     'topic'                 =>  'Excepteur sint',
-      //     'recommend'             =>  0,
-      //     'propsoser_reviewer'    =>  '',
-      //     'co_author'             =>  '',
-      //     'file'                  =>  'author_manuscript.docx',
-      //     'is_chief_review'       =>  0,
-      //     'chief_decide'          =>  0,
-      //     'is_revise'             =>  0,
-      //     'status'                =>  UNSUBMIT,
-      //   ]);
+      Manuscript::create([
+          'type'                  =>  D,
+          'author_id'             =>  2,
+          'name'                  =>  'Lorem ipsum dolor',
+          'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+          'keyword_vi'            =>  '',
+          'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+          'topic'                 =>  'Excepteur sint',
+          'recommend'             =>  0,
+          'propose_reviewer'    =>  '',
+          'co_author'             =>  '',
+          'file'                  =>  'author_manuscript.docx',
+          'is_chief_review'       =>  0,
+          'chief_decide'          =>  0,
+          'is_revise'             =>  0,
+          'status'                =>  UNSUBMIT,
+        ]);
     }
 }
