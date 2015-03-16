@@ -9,7 +9,7 @@ Register
 @stop
 
 @section('content')
-{!! Form::open(['url' => 'auth/register']) !!}
+{!! Form::open(['url' => 'user/register']) !!}
     {!! ErrorDisplay::getInstance()->DisplayAll($errors) !!}
     <div class="row">
         <div class="col-xs-12 col-md-6">

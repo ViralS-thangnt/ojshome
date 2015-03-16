@@ -25,7 +25,7 @@ class CreateEditorManuscriptTable extends Migration {
 			$table->integer('editor_suggested_id');
 			$table->string('file');
 			$table->timestamp('delivery_at');
-			$table->timestamp('dealine_at');
+			$table->timestamp('deadline_at');
 
 			$table->timestamps();
 		});
