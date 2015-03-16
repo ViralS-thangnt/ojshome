@@ -149,6 +149,7 @@ return [
         'App\Providers\BookServiceProvider',
         'App\Providers\MacroServiceProvider',
         'App\Providers\HtmlServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
     ],
 
@@ -201,6 +202,7 @@ return [
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'ErrorDisplay' => 'App\Lib\Prototype\Common\ErrorDisplay',
         'Constant'  =>  'App\Helpers\ConstantArray',
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
     ],
 
 ];
