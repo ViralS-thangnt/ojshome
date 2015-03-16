@@ -48,8 +48,8 @@
 
 			{!! Form::help_block('(Nhập tên bài viết. Tối đa 20 từ)') !!}
 
-			{!! Form::textarea_custom('name', null, 5, 'Nhập tên bài viết. Tối đa 20 từ ...', 'form-control',
-							['onkeyup' => 'countChar(this, 20, 1, "black", "red", "countTopicName")'] ) !!}
+			{!! Form::textarea_custom('name', '', 5, 'Nhập tên bài viết. Tối đa 20 từ ...', 'form-control',
+							['onkeyup' => 'countWords(this, 20, 1, "black", "red", "countTopicName")'] ) !!}
 
 			{!! Form::div_open('', 'countTopicName') !!}{!! Form::div_close() !!}
 			
@@ -60,8 +60,9 @@
 
 			{!! Form::help_block('(Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ)') !!}
 
-			{!! Form::textarea_custom('summary_vi', null, 5, 'Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...', 'form-control',
-							['onkeyup' => 'countChar(this, 200, 150, "black", "red", "countSummaryVn")'] ) !!}
+
+			{!! Form::textarea_custom('summary_vi', '', 5, 'Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...', 'form-control',
+							['onkeyup' => 'countWords(this, 7, 3, "black", "red", "countSummaryVn")'] ) !!}
 			
 			{!! Form::div_open('', 'countSummaryVn') !!}{!! Form::div_close() !!}
 
@@ -83,8 +84,8 @@
 
 			{!! Form::help_block('(Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ)') !!}
 
-			{!! Form::textarea_custom('summary_en', null, 5, 'Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ ...', 'form-control',
-							['onkeyup' => 'countChar(this, 200, 150, "black", "red", "countSummaryEn")'] ) !!}
+			{!! Form::textarea_custom('summary_en', '', 5, 'Nhập tóm tắt Tiếng Anh. Độ dài từ 150 - 200 từ ...', 'form-control',
+							['onkeyup' => 'countWords(this, 200, 150, "black", "red", "countSummaryEn")'] ) !!}
 			
 			{!! Form::div_open('', 'countSummaryEn') !!}{!! Form::div_close() !!}
 

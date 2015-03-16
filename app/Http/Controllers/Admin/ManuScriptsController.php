@@ -66,7 +66,7 @@ class ManuscriptsController extends Controller {
 	 * @return Response
 	 */
 	public function update(ManuscriptRequest $request, $id = null)
-	{
+	{	
 		$this->repo->uploadFile();
 		$this->repo->formModify(Input::except('_token', 'confirm'), $id);
 

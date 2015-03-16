@@ -102,16 +102,16 @@ Bản thảo
 				<tr class="{{ ($is_odd) ? 'odd' : 'even' }}">
 
 					@foreach( $result['col_db'] as $col)
-						{{ $col }}
 						@if($col == 'notify_chief_editor' || $col == 'round_decide_chief_editor' ||
 							$col == 'reviewer' || $col == 'section_editor')
 							<td class="center">{{ empty($row->$col) ? '-' : $row->$col }}</td>
 						@elseif($col == 'round_no_review')
-	                        <td class="center">Bình duyệt vòng \ {{ $row->$col }}</td>
+							<td class="center">Bình duyệt vòng \ {{ $row->$col }}</td>
 						@else
 							<td class="center">{{ $row->$col }}</td>
 						@endif
 					@endforeach
+					
 					<td class="center"><a href = "{{ url('admin/manuscript/form/' . $row->id) }}"> Xem thêm </a></td>
 				</tr>
 
