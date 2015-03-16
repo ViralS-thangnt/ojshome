@@ -12,7 +12,7 @@ class CreateKeywordManuscriptTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('keyword_manuscript', function(Blueprint $table)
+		Schema::create('keyword_manuscripts', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('manuscript_id');
@@ -28,7 +28,7 @@ class CreateKeywordManuscriptTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('keyword_manuscript');
+		Schema::drop('keyword_manuscripts');
 	}
 
 }
