@@ -25,11 +25,14 @@ class UserTableSeeder extends Seeder
 {
     public function run()
     {
+        //Users
+      
         //clear database
         DB::table('users')->delete();
 
         //Administrator
         User::create([
+                'id'                =>  1,
                 'username'          =>  'admin',
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'quandt@naida.bz',
@@ -38,6 +41,7 @@ class UserTableSeeder extends Seeder
 
         //Author
         User::create([
+                'id'                =>  2,
                 'username'          =>  'author_demo',
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'author_demo@naida.bz',
@@ -46,6 +50,7 @@ class UserTableSeeder extends Seeder
 
         //Managing Editor
         User::create([
+                'id'                =>  3,
                 'username'          =>  'managing_editor',
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'managing_editor@naida.bz',
@@ -54,6 +59,7 @@ class UserTableSeeder extends Seeder
 
         //Screening Editor
         User::create([
+                'id'                =>  4,
                 'username'          =>  'screening_editor',
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'screening_editor@naida.bz',
@@ -62,6 +68,7 @@ class UserTableSeeder extends Seeder
 
         //Section Editor
         User::create([
+                'id'                =>  5,
                 'username'          =>  'section_editor',
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'section_editor@naida.bz',
@@ -70,6 +77,7 @@ class UserTableSeeder extends Seeder
 
         //Reviewer
         User::create([
+                'id'                =>  6,
                 'username'          =>  'reviewer',
                 'password'          =>  bcrypt('12345678'),
                 'email'             =>  'reviewer@naida.bz',
@@ -78,6 +86,7 @@ class UserTableSeeder extends Seeder
 
       //Chief Editor
       User::create([
+              'id'                =>  7,
               'username'          =>  'chief_editor',
               'password'          =>  bcrypt('12345678'),
               'email'             =>  'chief@naida.bz',
@@ -86,6 +95,7 @@ class UserTableSeeder extends Seeder
 
       //Copy Editor
       User::create([
+              'id'                =>  8,
               'username'          =>  'copy_editor',
               'password'          =>  bcrypt('12345678'),
               'email'             =>  'copy_editor@naida.bz',
@@ -94,6 +104,7 @@ class UserTableSeeder extends Seeder
 
       //Layout Editor
       User::create([
+              'id'                =>  9,
               'username'          =>  'layout_editor',
               'password'          =>  bcrypt('12345678'),
               'email'             =>  'layout_editor@naida.bz',
@@ -102,10 +113,176 @@ class UserTableSeeder extends Seeder
 
       //Production Editor
       User::create([
+              'id'                =>  10,
               'username'          =>  'production_editor',
               'password'          =>  bcrypt('12345678'),
               'email'             =>  'production_editor@naida.bz',
               'actor_no'          =>  PRODUCTION_EDITOR,
             ]);
+
+      //Manuscripts
+      // DB::table('manuscripts')->delete();
+
+      // DB::create([
+      //     'type'                  =>  A,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+
+      // DB::create([
+      //     'type'                  =>  B,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+
+      // DB::create([
+      //     'type'                  =>  C,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+
+      // DB::create([
+      //     'type'                  =>  D,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+
+      // DB::create([
+      //     'type'                  =>  E,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+      
+      // DB::create([
+      //     'type'                  =>  A,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+
+      // DB::create([
+      //     'type'                  =>  B,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+
+      // DB::create([
+      //     'type'                  =>  C,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
+
+      // DB::create([
+      //     'type'                  =>  D,
+      //     'author_id'             =>  2,
+      //     'name'                  =>  'Lorem ipsum dolor',
+      //     'summary_vi'            =>  'sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      //     'keyword_vi'            =>  '',
+      //     'summary_en'            =>  'aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      //     'topic'                 =>  'Excepteur sint',
+      //     'recommend'             =>  0,
+      //     'propsoser_reviewer'    =>  '',
+      //     'co_author'             =>  '',
+      //     'file'                  =>  'author_manuscript.docx',
+      //     'is_chief_review'       =>  0,
+      //     'chief_decide'          =>  0,
+      //     'is_revise'             =>  0,
+      //     'status'                =>  UNSUBMIT,
+      //   ]);
     }
 }
