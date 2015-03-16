@@ -1,8 +1,6 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Contracts\Auth\Guard;
-
 
 class Manuscript extends Model {
 	public $timestamps 	= true;
