@@ -50,4 +50,11 @@ class ConstantArray
             AUTHOR                  => 'Author',
             REVIEWER                => 'Reviewer',
     ];
+    public static $manucript_type   = [
+            A                       => 'A',
+            B                       => 'B',
+            C                       => 'C',
+            D                       => 'D',
+            E                       => 'E',
+    ];
 }

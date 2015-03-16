@@ -22,6 +22,12 @@ define('COPY_EDITOR', 8);
 define('LAYOUT_EDITOR', 9);
 define('PRODUCTION_EDITOR', 10);
 
+//define manuscript type
+define('A', 1);
+define('B', 2);
+define('C', 3);
+define('D', 4);
+define('E', 5);
 
 //define require permission session
 define('REQUIRE_PERMISSION', 'require_permission');
@@ -93,3 +99,5 @@ define('FILE_PATH', '/files/');
 
 define('FILE_SIZE_MAX', 50000);
 
+
+//define col view
