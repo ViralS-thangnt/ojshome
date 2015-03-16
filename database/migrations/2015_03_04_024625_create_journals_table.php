@@ -16,7 +16,9 @@ class CreateJournalsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->dateTime('date_public');
+			$table->integer('num');
+			$table->integer('num');
+			$table->dateTime('publish_at');
 			$table->timestamps();
 		});
 	}
