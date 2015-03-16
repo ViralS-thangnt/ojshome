@@ -12,7 +12,7 @@ class CreateEditorManuscriptTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('editor_manuscript', function(Blueprint $table)
+		Schema::create('editor_manuscripts', function(Blueprint $table)
 		{
 			$table->increments('id');
 
@@ -38,7 +38,7 @@ class CreateEditorManuscriptTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('editor_manuscript');
+		Schema::drop('editor_manuscripts');
 	}
 
 }
