@@ -62,7 +62,7 @@
 
 
 			{!! Form::textarea_custom('summary_vi', '', 5, 'Nhập tóm tắt Tiếng Việt. Độ dài từ 150 - 200 từ ...', 'form-control',
-							['onkeyup' => 'countWords(this, 7, 3, "black", "red", "countSummaryVn")'] ) !!}
+							['onkeyup' => 'countWords(this, 200, 150, "black", "red", "countSummaryVn")'] ) !!}
 			
 			{!! Form::div_open('', 'countSummaryVn') !!}{!! Form::div_close() !!}
 
