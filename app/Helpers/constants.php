@@ -95,7 +95,10 @@ define('IMAGE_CIRCLE', 'img-circle');
 
 // Define paths
 define('IMAGE_PATH', '/images/');
-define('FILE_PATH', '/files/');
+define('FILE_PATH', '/files');
 
+// File size
 define('FILE_SIZE_MAX', 50000);
+
+
 

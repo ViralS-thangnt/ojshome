@@ -4,8 +4,8 @@
 @section('title-page-admin')
 <!-- Tác giả -->
 <!-- Journal Open Source -->
-Bản thảo
-<!-- {!! Lang::get('manuscript_in_review.title_page_admin') !!} -->
+<!-- Bản thảo -->
+{!! Lang::get('admin.manuscript.title_page_admin') !!}
 
 @stop
 

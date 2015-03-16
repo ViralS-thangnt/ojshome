@@ -61,7 +61,7 @@ class EloquentManuscriptRepository extends AbstractEloquentRepository implements
 	public function uploadFile(){
 		if(doUploadDocument()){
 			
-			return $_FILES["file"]["name"];
+			return $_FILES["file"]["name"] . '/' . basename($_FILES["file"]["name"]);
 		}
 
 		return '';

@@ -47,6 +47,7 @@ function doUploadDocument(){
         }
     }
 
+    dd(Session::get('SUCCESS_MESSAGE'));
     return $uploadOk;
 }
 

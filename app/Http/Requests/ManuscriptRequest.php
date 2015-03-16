@@ -37,9 +37,6 @@ class ManuscriptRequest extends Request {
 			'summary_en'			=> array('required', 'regex:/.*^[-\w]+(?:\W+[-\w]+){149,199}\W*$/'),//'required|min:150|max:200', 
 			'keyword_en'			=> 'required|max:5|min:3', 
 			'topic'					=> 'required', 
-			'recommend'				=> '', 
-			'propose_reviewer'		=> '',
-			'co_author'				=> '', 
 			'confirm'				=> 'in:1', 
 			'file'					=> 'required'
 		];
@@ -48,10 +45,25 @@ class ManuscriptRequest extends Request {
 	public function messages()
 	{
 		return [
-			'summary_vi.regex'		=>	'Từ khoá Tiếng Việt chỉ được nhập từ 150 - 200 từ',
-			'summary_en.regex'		=>	'Từ khoá Tiếng Anh chỉ được nhập từ 150 - 200 từ ',
-			'name.regex'			=>	'Tên chỉ được nhập từ 1 - 20 từ',
-			'file.required'			=>	'Bạn chưa chọn file upload',
+			'type.required'			=>	trans('admin.type.required'),
+			'expect_journal_id.numeric'	=>	trans('admin.expect_journal_id.numeric'),
+			'name.regex'			=>	trans('admin.name.regex'),
+			'name.required'			=>	trans('admin.name.required'),
+			'summary_vi.required'	=>	trans('admin.summary_vi.required'),
+			'summary_vi.regex'		=>	trans('admin.summary_vi.regex'),
+			'summary_en.required'	=>	trans('admin.summary_en.required'),
+			'summary_en.regex'		=>	trans('admin.summary_en.regex'),
+
+			'keyword_en.required'	=>	trans('admin.keyword_en.required'),
+			'keyword_vi.required'	=>	trans('admin.keyword_vi.required'),
+			'keyword_vi.max'		=>	trans('admin.keyword_vi.max'),
+			'keyword_vi.min'		=>	trans('admin.keyword_vi.min'),
+			'keyword_en.max'		=>	trans('admin.keyword_en.max'),
+			'keyword_en.min'		=>	trans('admin.keyword_en.min'),
+
+			'topic.required'		=>	trans('admin.topic.required'),
+			'confirm.in'			=>	trans('admin.confirm.in'),
+			'file.required'			=>	trans('admin.file.required'),
 		];
 	}
 
