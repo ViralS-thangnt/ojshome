@@ -38,7 +38,11 @@ class ManuscriptsController extends Controller {
 
 		return view('manuscripts.manuscript')->withResult($result);
 	}
-
+	public function published()
+	{	
+		$result = $this->repo->getByStatus(PUBLISHED);
+		return view('manuscripts.manuscript')->withResult($result);
+	}
 	/**
 	 * Show the form for editing the specified resource.
 	 *

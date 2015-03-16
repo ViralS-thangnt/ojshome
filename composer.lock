@@ -4,9 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    
-    "hash": "781486f1161351ab40a2ef4027849fb0",
-
+    "hash": "80569653c3101b4d94f4cace3fa3f934",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1192,16 +1190,16 @@
         },
         {
             "name": "janhenkgerritsen/codeception-laravel5",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/janhenkgerritsen/codeception-laravel5.git",
-                "reference": "b4aef07d548b6becfd54ebf909e1f49de1ca5392"
+                "reference": "77ab72ba8353087bce2524ed280a80a28c065a8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/janhenkgerritsen/codeception-laravel5/zipball/b4aef07d548b6becfd54ebf909e1f49de1ca5392",
-                "reference": "b4aef07d548b6becfd54ebf909e1f49de1ca5392",
+                "url": "https://api.github.com/repos/janhenkgerritsen/codeception-laravel5/zipball/77ab72ba8353087bce2524ed280a80a28c065a8d",
+                "reference": "77ab72ba8353087bce2524ed280a80a28c065a8d",
                 "shasum": ""
             },
             "require": {
@@ -1230,7 +1228,7 @@
                 "laravel",
                 "laravel5"
             ],
-            "time": "2015-02-14 11:20:37"
+            "time": "2015-03-16 08:04:21"
         },
         {
             "name": "jeremeamia/SuperClosure",

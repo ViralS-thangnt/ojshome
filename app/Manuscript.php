@@ -36,11 +36,68 @@ class Manuscript extends Model {
 							'send_at'];
 	protected $guarded 	= ['id'];
 
-	public static function getByStatus($status)
-	{
+	// public static function getByStatus($status)
+	// {
 
-		return Manuscript::where('status', '=', $status)->get();
+	// 	return Manuscript::where('status', '=', $status)->get();
+	// }
+// test ================================================================================================
+	// public function scopeJoinTable($query)
+	// {
+	//     $result = $query->join('users', 'users.id', '=', 'manuscripts.author_id')
+	// 					->leftJoin('section_manuscripts', function($join){
+	// 							$join->on('users.id', '=', 'section_manuscripts.user_id')
+	// 								->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+	// 						})
+	// 					->leftJoin('review_manuscripts', function($join){
+	// 							$join->on('users.id', '=', 'section_manuscripts.user_id')
+	// 								->on('manuscripts.id', '=', 'section_manuscripts.manuscript_id');
+	// 						});
+	// 	return $result;
+	// }
+
+	public function scopeSelectColumns($query, $col)
+	{
+	    $result = $query->select($col);
+
+		return $result;
 	}
+//=======================================================================
+// hàm dùng để lấy data cho trang http://..../admin/manuscript/published
+// các biến được sử dụng trong hàm
+// $col        : các columns cần lấy ra 
+// $col_header : tiêu đề của bảng hiển thị
+// $key        : tên columns
+// ======================================================================
+	public static function getDataPublished($user,$status)
+	{
+							
+		$permissions = explode(',', $user->actor_no);
+		$col_header  = ['ID', 'Ngày gửi', 'Tên bài', 'Tác giả liên hệ', 'Tiến trình','File sơ bản', 'File chính bản', 'Sơ xếp'        , 'Quyết định xuất bản'];	
+		$col_db      = ['id', 'send_at' , 'name'   , 'fullname'       , 'process'   ,'reviewer'   , 'section_editor', 'publish_pre_no', 'round_decide_chief_editor'];
+
+		$col         = ['manuscripts.id', 'manuscripts.send_at', 'manuscripts.name','manuscripts.chief_decide as round_decide_chief_editor',
+									'users.last_name','users.first_name', 'section_manuscripts.section_loop as round_no_review','section_manuscripts.name as section_editor','manuscripts.is_chief_review as notify_chief_editor','review_manuscripts.user_id as reviewer'];
+
+
+
+		$manuscripts = Manuscript::where('status', '=', $status)
+							->selectColumns($col)
+							->joinUsers()
+							->joinSectionManuscripts()
+							->joinReviewmanuscripts()
+							//->toSql();
+							->get();
+		return array('data' => $manuscripts, 'col_header' => $col_header, 'col_db' => $col_db);
+	}
+
+	// public static function getDataPublished($user,$status)
+	// {
+
+	// }
+
+
+// test ================================================================================================
 
 	public static function getDataInReview($user) 
 	{
