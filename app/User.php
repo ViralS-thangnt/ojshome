@@ -40,7 +40,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Manuscript','author_id');
     }
 
-    public function editorManuscript()
+    public function editorManuscripts()
     {
         return $this->hasMany('App\EditorManuscript');
     }
