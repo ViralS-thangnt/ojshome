@@ -34,6 +34,7 @@ class Manuscript extends Model {
 							'send_at'];
 	protected $guarded 	= ['id'];
 
+	//define relationship
 	public function user(){
 
 		return $this->belongsTo('App\User', 'author_id');
@@ -43,6 +44,8 @@ class Manuscript extends Model {
 	{
 		return $this->hasMany('App\EditorManuscript');
 	}
+
+	
 // test ================================================================================================
 
 	public function scopeSelectColumns($query, $col)
@@ -52,6 +55,7 @@ class Manuscript extends Model {
 		return $result;
 	}
 	public function scopeJoinJournals($query, $col)
+
 	{
 	    $result = $query->select($col);
 
