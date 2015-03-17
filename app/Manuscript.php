@@ -34,7 +34,15 @@ class Manuscript extends Model {
 							'send_at'];
 	protected $guarded 	= ['id'];
 
+	public function user(){
 
+		return $this->belongsTo('App\User', 'author_id');
+	}
+
+	public function editorManuscripts()
+	{
+		return $this->hasMany('App\EditorManuscript');
+	}
 // test ================================================================================================
 
 	public function scopeSelectColumns($query, $col)
@@ -200,8 +208,5 @@ class Manuscript extends Model {
 		return $query->where('manuscripts.author_id', '=', $user_id);
 	}
 
-	public function user(){
-
-		return $this->belongsTo('User', 'author_id');
-	}
+	
 }
