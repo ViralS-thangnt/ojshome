@@ -36,6 +36,19 @@ class Manuscript extends Model {
 							'send_at'];
 	protected $guarded 	= ['id'];
 
+	//define relationship
+	public function user(){
+
+		return $this->belongsTo('App\User', 'author_id');
+	}
+
+	public function editorManuscript()
+	{
+		return $this->hasMany('App\EditorManuscript');
+	}
+
+	/*------------------define scope-----------------------*/
+
 	public static function getByStatus($status)
 	{
 
@@ -164,8 +177,5 @@ class Manuscript extends Model {
 		return $query->where('manuscripts.author_id', '=', $user_id);
 	}
 
-	public function user(){
-
-		return $this->belongsTo('User', 'author_id');
-	}
+	
 }
